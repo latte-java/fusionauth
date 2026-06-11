@@ -17,19 +17,22 @@ The library has two layers:
 
 - Java 25
 - [Latte](https://lattejava.org) build tool
-- `org.lattejava:json:0.3.0` (compile-time annotation processor)
 
 ## Install
 
-Add the dependencies in `project.latte`:
+Add the dependency in `project.latte`:
 
 ```groovy
 dependencies {
-  group(name: "compile-processors") {
-    dependency(id: "org.lattejava:json:0.3.0")
+  group(name: "compile") {
+    dependency(id: "org.lattejava:fusionauth:0.1.0")
   }
 }
 ```
+
+This is the only dependency you need. The JSON serialization is generated into this library at build
+time (via the Latte JSON annotation processor) and ships inside it, so your application does **not**
+depend on `org.lattejava:json` or any other runtime library.
 
 In a modular project, require the module:
 
