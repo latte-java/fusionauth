@@ -1,0 +1,38 @@
+/*
+ * Copyright (c) 2026 The Latte Project
+ * SPDX-License-Identifier: MIT
+ */
+package org.lattejava.fusionauth.domain;
+
+import module java.base;
+import module org.lattejava.json;
+
+import org.lattejava.fusionauth.domain.internal.FamilyEmailRequestJSON;
+
+@JSON
+public record FamilyEmailRequest(
+    String parentEmail) {
+  public static Builder builder() { return new Builder(); }
+
+  public String toJSON() {
+    return FamilyEmailRequestJSON.toJSON(this);
+  }
+
+  public byte[] toJSONBytes() {
+    return FamilyEmailRequestJSON.toJSONBytes(this);
+  }
+
+  public static FamilyEmailRequest fromJSON(String json) {
+    return FamilyEmailRequestJSON.fromJSON(json);
+  }
+
+  public static FamilyEmailRequest fromJSONBytes(byte[] json) {
+    return FamilyEmailRequestJSON.fromJSON(json);
+  }
+
+  public static final class Builder {
+    private String parentEmail;
+    public Builder parentEmail(String parentEmail) { this.parentEmail = parentEmail; return this; }
+    public FamilyEmailRequest build() { return new FamilyEmailRequest(parentEmail); }
+  }
+}
