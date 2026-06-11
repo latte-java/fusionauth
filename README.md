@@ -1,17 +1,11 @@
 # FusionAuth Java Client
 
-A zero-dependency Java client for the [FusionAuth](https://fusionauth.io) API, generated clean-room
-from the FusionAuth OpenAPI specification (API version 1.67.0).
+A zero-dependency Java client for the [FusionAuth](https://fusionauth.io) API, generated clean-room from the FusionAuth OpenAPI specification (API version 1.67.0).
 
 The library has two layers:
 
-- **Domain models** (`org.lattejava.fusionauth.domain`) — a Java `record` for every schema in the
-  spec (~600 records plus enums and the polymorphic `IdentityProviderField` hierarchy). Each record
-  has a fluent `Builder` and `toJSON()` / `fromJSON(...)` methods. JSON is handled at compile time by
-  the [Latte JSON](https://github.com/lattejava/json) annotation processor — there is no runtime JSON
-  dependency and no reflection.
-- **HTTP client** (`org.lattejava.fusionauth.FusionAuthClient`) — one synchronous method per API
-  operation (322 in total), built on the JDK's `java.net.http.HttpClient`.
+- **Domain models** (`org.lattejava.fusionauth.domain`) — a Java `record` for every schema in the spec (~600 records plus enums and the polymorphic `IdentityProviderField` hierarchy). Each record has a fluent `Builder` and `toJSON()` / `fromJSON(...)` methods. JSON is handled at compile time by the [Latte JSON](https://github.com/lattejava/json) annotation processor — there is no runtime JSON dependency and no reflection.
+- **HTTP client** (`org.lattejava.fusionauth.FusionAuthClient`) — one synchronous method per API operation (322 in total), built on the JDK's `java.net.http.HttpClient`.
 
 ## Requirements
 
@@ -30,9 +24,7 @@ dependencies {
 }
 ```
 
-This is the only dependency you need. The JSON serialization is generated into this library at build
-time (via the Latte JSON annotation processor) and ships inside it, so your application does **not**
-depend on `org.lattejava:json` or any other runtime library.
+This is the only dependency you need. The JSON serialization is generated into this library at build time (via the Latte JSON annotation processor) and ships inside it, so your application does **not** depend on `org.lattejava:json` or any other runtime library.
 
 In a modular project, require the module:
 
@@ -44,11 +36,7 @@ module your.app {
 
 ## Usage
 
-Construct a client with an [API key](https://fusionauth.io/docs/v1/tech/apis/authentication) and your
-FusionAuth base URL, then call one method per API operation. Methods are named after the spec's
-`operationId` (e.g. `retrieveApplicationWithId`, `createApplicationWithId`). Operations that take a
-resource id, optional query parameters, or the tenant header expose them as leading `String`
-parameters — pass `null` for any you don't need.
+Construct a client with an [API key](https://fusionauth.io/docs/v1/tech/apis/authentication) and your FusionAuth base URL, then call one method per API operation. Methods are named after the spec's `operationId` (e.g. `retrieveApplicationWithId`, `createApplicationWithId`). Operations that take a resource id, optional query parameters, or the tenant header expose them as leading `String` parameters — pass `null` for any you don't need.
 
 ```java
 import module java.base;
@@ -75,8 +63,7 @@ System.out.println("Created: " + created.application().id());
 
 ### Return values and errors
 
-A method returns its `200` response record directly, or `void` for operations with an empty response
-body. Any non-2xx response (or a transport failure) throws `FusionAuthException`:
+A method returns its `200` response record directly, or `void` for operations with an empty response body. Any non-2xx response (or a transport failure) throws `FusionAuthException`:
 
 ```java
 try {
@@ -97,8 +84,7 @@ String json = application.toJSON();
 Application parsed = Application.fromJSON(json);
 ```
 
-`FusionAuthClient` uses these same methods internally, so request bodies and responses are converted
-without any reflection.
+`FusionAuthClient` uses these same methods internally, so request bodies and responses are converted without any reflection.
 
 ## Build
 
@@ -108,9 +94,7 @@ latte test       # run the test suite
 latte clean      # remove build outputs
 ```
 
-The integration tests in `FusionAuthClientTest` exercise the client against a running FusionAuth.
-They expect a local instance at `http://localhost:9014` (a Docker Compose + kickstart setup lives in
-`src/main/fusionauth/`) and are skipped automatically if the server is unreachable.
+The integration tests in `FusionAuthClientTest` exercise the client against a running FusionAuth. They expect a local instance at `http://localhost:9014` (a Docker Compose + kickstart setup lives in `src/main/fusionauth/`) and are skipped automatically if the server is unreachable.
 
 ## License
 
