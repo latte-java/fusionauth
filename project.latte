@@ -19,6 +19,7 @@ project(group: "org.lattejava", name: "fusionauth", version: "0.1.0", licenses: 
 
 // Plugins
 dependency = loadPlugin(id: "org.lattejava.plugin:dependency:0.4.0")
+file = loadPlugin(id: "org.lattejava.plugin:file:0.4.1")
 idea = loadPlugin(id: "org.lattejava.plugin:idea:0.4.1")
 java = loadPlugin(id: "org.lattejava.plugin:java:0.4.4")
 javaTestNG = loadPlugin(id: "org.lattejava.plugin:java-testng:0.4.0")
@@ -33,6 +34,7 @@ target(name: "clean", description: "Cleans the project") {
 }
 
 target(name: "build", description: "Compiles and JARs the project") {
+  file.execute("git config core.hooksPath .githooks")
   java.compile()
   java.jar()
 }
