@@ -4,6 +4,8 @@
  */
 package org.lattejava.fusionauth.tests;
 
+import org.lattejava.fusionauth.domain.Error;
+
 import module java.base;
 import module java.net.http;
 import module org.lattejava.fusionauth;
@@ -77,6 +79,27 @@ public class FusionAuthClientTest {
       Assert.fail("expected FusionAuthException");
     } catch (FusionAuthException e) {
       Assert.assertEquals(e.status, 404);
+    }
+  }
+
+  // Verifies Errors.fieldErrors deserializes as a typed Map<String, List<Error>>: creating an
+  // application with no name yields a 400 whose fieldErrors are keyed by field path ("application.name").
+  @Test
+  public void fieldValidationErrorsDeserializeAsTypedMap() {
+    String id = UUID.randomUUID().toString();
+    try {
+      client.createApplicationWithId(id, null,
+          ApplicationRequest.builder().application(Application.builder().build()).build());
+      Assert.fail("expected FusionAuthException for the missing application name");
+    } catch (FusionAuthException e) {
+      Assert.assertEquals(e.status, 400);
+      Assert.assertNotNull(e.errors, "errors body should parse: " + e.rawBody);
+      Map<String, List<Error>> fieldErrors = e.errors.fieldErrors();
+      Assert.assertNotNull(fieldErrors);
+      List<Error> nameErrors = fieldErrors.get("application.name");
+      Assert.assertNotNull(nameErrors, "expected a field error keyed by application.name: " + fieldErrors);
+      Assert.assertFalse(nameErrors.isEmpty());
+      Assert.assertNotNull(nameErrors.getFirst().code());
     }
   }
 }

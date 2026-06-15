@@ -11,7 +11,7 @@ import org.lattejava.fusionauth.domain.internal.ErrorsJSON;
 
 @JSON
 public record Errors(
-    List<Error> fieldErrors,
+    Map<String, List<Error>> fieldErrors,
     List<Error> generalErrors) {
   public static Builder builder() { return new Builder(); }
 
@@ -32,9 +32,9 @@ public record Errors(
   }
 
   public static final class Builder {
-    private List<Error> fieldErrors;
+    private Map<String, List<Error>> fieldErrors;
     private List<Error> generalErrors;
-    public Builder fieldErrors(List<Error> fieldErrors) { this.fieldErrors = fieldErrors; return this; }
+    public Builder fieldErrors(Map<String, List<Error>> fieldErrors) { this.fieldErrors = fieldErrors; return this; }
     public Builder generalErrors(List<Error> generalErrors) { this.generalErrors = generalErrors; return this; }
     public Errors build() { return new Errors(fieldErrors, generalErrors); }
   }
