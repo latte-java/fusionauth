@@ -39,8 +39,7 @@ public class FusionAuthClientTest {
     String id = UUID.randomUUID().toString();
     Application app = Application.builder().name("IT-" + id).build();
 
-    ApplicationResponse created = client.createApplicationWithId(id, null,
-        ApplicationRequest.builder().application(app).build());
+    ApplicationResponse created = client.createApplicationWithId(id, ApplicationRequest.builder().application(app).build());
     Assert.assertEquals(created.application().name(), "IT-" + id);
 
     ApplicationResponse fetched = client.retrieveApplicationWithId(id, null);
@@ -49,20 +48,42 @@ public class FusionAuthClientTest {
     Assert.assertEquals(fetched.application().name(), "IT-" + id);
 
     Application renamed = Application.builder().name("IT-renamed-" + id).build();
-    ApplicationResponse updated = client.updateApplicationWithId(id, null, null,
-        ApplicationRequest.builder().application(renamed).build());
+    ApplicationResponse updated = client.updateApplicationWithId(id, null, ApplicationRequest.builder().application(renamed).build());
     Assert.assertEquals(updated.application().name(), "IT-renamed-" + id);
 
     // hardDelete=true: FusionAuth soft-deletes (deactivates) by default, which leaves the application
-    // retrievable; a hard delete removes it so a subsequent retrieve returns 404.
+    // retrievable; a hard delete removes it so a subsequent retrieve returns 404, which the client maps to null.
     client.deleteApplicationWithId(id, "true", null);
 
+    Assert.assertNull(client.retrieveApplicationWithId(id, null), "hard-deleted application should return null (404)");
+  }
+
+  // Verifies searchUsersByIdsWithId emits a repeated query param (ids=a&ids=b) that the live API
+  // honors: create two users, search by both Ids, and expect both back.
+  @Test
+  public void searchUsersByIdsUsesRepeatedQueryParam() {
+    String id1 = UUID.randomUUID().toString();
+    String id2 = UUID.randomUUID().toString();
+    client.createUserWithId(id1, userRequest("it-" + id1 + "@example.com"));
+    client.createUserWithId(id2, userRequest("it-" + id2 + "@example.com"));
+
     try {
-      client.retrieveApplicationWithId(id, null);
-      Assert.fail("expected FusionAuthException after delete");
-    } catch (FusionAuthException expected) {
-      Assert.assertEquals(expected.status, 404);
+      SearchResponse response = client.searchUsersByIdsWithId(id1, id2);
+      Assert.assertNotNull(response);
+      Assert.assertEquals(response.total(), Long.valueOf(2));
+      Set<String> returned = response.users().stream().map(u -> u.id().toString()).collect(Collectors.toSet());
+      Assert.assertEquals(returned, Set.of(id1, id2));
+    } finally {
+      UserDeleteSingleRequest delete = UserDeleteSingleRequest.builder().build();
+      client.deleteUserWithId(id1, "true", delete);
+      client.deleteUserWithId(id2, "true", delete);
     }
+  }
+
+  private static UserRequest userRequest(String email) {
+    return UserRequest.builder()
+                      .user(User.builder().email(email).password("password").build())
+                      .build();
   }
 
   @Test
@@ -73,13 +94,9 @@ public class FusionAuthClientTest {
   }
 
   @Test
-  public void throwsOnMissingApplication() {
-    try {
-      client.retrieveApplicationWithId("00000000-0000-0000-0000-0000000000ff", null);
-      Assert.fail("expected FusionAuthException");
-    } catch (FusionAuthException e) {
-      Assert.assertEquals(e.status, 404);
-    }
+  public void returnsNullOnMissingApplication() {
+    ApplicationResponse response = client.retrieveApplicationWithId("00000000-0000-0000-0000-0000000000ff", null);
+    Assert.assertNull(response, "a missing application should return null (404)");
   }
 
   // Verifies Errors.fieldErrors deserializes as a typed Map<String, List<Error>>: creating an
@@ -88,8 +105,10 @@ public class FusionAuthClientTest {
   public void fieldValidationErrorsDeserializeAsTypedMap() {
     String id = UUID.randomUUID().toString();
     try {
-      client.createApplicationWithId(id, null,
-          ApplicationRequest.builder().application(Application.builder().build()).build());
+      var req = ApplicationRequest.builder()
+                                  .application(Application.builder().build())
+                                  .build();
+      client.createApplicationWithId(id, req);
       Assert.fail("expected FusionAuthException for the missing application name");
     } catch (FusionAuthException e) {
       Assert.assertEquals(e.status, 400);

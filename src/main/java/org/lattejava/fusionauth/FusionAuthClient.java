@@ -65,84 +65,160 @@ public class FusionAuthClient {
     return execute("PUT", "/api/api-key/" + encode(keyId), request.toJSON(), null, APIKeyResponse::fromJSON);
   }
 
-  public ApplicationResponse createApplication(String xFusionAuthTenantId, ApplicationRequest request) {
+  public ApplicationResponse createApplication(ApplicationRequest request, UUID xFusionAuthTenantId) {
     return execute("POST", "/api/application", request.toJSON(), xFusionAuthTenantId, ApplicationResponse::fromJSON);
   }
 
-  public ApplicationResponse retrieveApplication(String inactive, String xFusionAuthTenantId) {
+  public ApplicationResponse createApplication(ApplicationRequest request) {
+    return createApplication(request, null);
+  }
+
+  public ApplicationResponse retrieveApplication(String inactive, UUID xFusionAuthTenantId) {
     return execute("GET", "/api/application" + query("inactive", inactive), null, xFusionAuthTenantId, ApplicationResponse::fromJSON);
+  }
+
+  public ApplicationResponse retrieveApplication(String inactive) {
+    return retrieveApplication(inactive, null);
   }
 
   public ApplicationSearchResponse searchApplicationsWithId(ApplicationSearchRequest request) {
     return execute("POST", "/api/application/search", request.toJSON(), null, ApplicationSearchResponse::fromJSON);
   }
 
-  public ApplicationResponse createApplicationWithId(String applicationId, String xFusionAuthTenantId, ApplicationRequest request) {
+  public ApplicationResponse createApplicationWithId(String applicationId, ApplicationRequest request, UUID xFusionAuthTenantId) {
     return execute("POST", "/api/application/" + encode(applicationId), request.toJSON(), xFusionAuthTenantId, ApplicationResponse::fromJSON);
   }
 
-  public void deleteApplicationWithId(String applicationId, String hardDelete, String xFusionAuthTenantId) {
+  public ApplicationResponse createApplicationWithId(String applicationId, ApplicationRequest request) {
+    return createApplicationWithId(applicationId, request, null);
+  }
+
+  public void deleteApplicationWithId(String applicationId, String hardDelete, UUID xFusionAuthTenantId) {
     executeVoid("DELETE", "/api/application/" + encode(applicationId) + query("hardDelete", hardDelete), null, xFusionAuthTenantId);
   }
 
-  public ApplicationResponse patchApplicationWithId(String applicationId, String xFusionAuthTenantId, ApplicationRequest request) {
+  public void deleteApplicationWithId(String applicationId, String hardDelete) {
+    deleteApplicationWithId(applicationId, hardDelete, null);
+  }
+
+  public ApplicationResponse patchApplicationWithId(String applicationId, ApplicationRequest request, UUID xFusionAuthTenantId) {
     return execute("PATCH", "/api/application/" + encode(applicationId), request.toJSON(), xFusionAuthTenantId, ApplicationResponse::fromJSON);
   }
 
-  public ApplicationResponse updateApplicationWithId(String applicationId, String reactivate, String xFusionAuthTenantId, ApplicationRequest request) {
+  public ApplicationResponse patchApplicationWithId(String applicationId, ApplicationRequest request) {
+    return patchApplicationWithId(applicationId, request, null);
+  }
+
+  public ApplicationResponse updateApplicationWithId(String applicationId, String reactivate, ApplicationRequest request, UUID xFusionAuthTenantId) {
     return execute("PUT", "/api/application/" + encode(applicationId) + query("reactivate", reactivate), request.toJSON(), xFusionAuthTenantId, ApplicationResponse::fromJSON);
   }
 
-  public ApplicationResponse retrieveApplicationWithId(String applicationId, String xFusionAuthTenantId) {
+  public ApplicationResponse updateApplicationWithId(String applicationId, String reactivate, ApplicationRequest request) {
+    return updateApplicationWithId(applicationId, reactivate, request, null);
+  }
+
+  public ApplicationResponse retrieveApplicationWithId(String applicationId, UUID xFusionAuthTenantId) {
     return execute("GET", "/api/application/" + encode(applicationId), null, xFusionAuthTenantId, ApplicationResponse::fromJSON);
   }
 
-  public OAuthConfigurationResponse retrieveOauthConfigurationWithId(String applicationId, String xFusionAuthTenantId) {
+  public ApplicationResponse retrieveApplicationWithId(String applicationId) {
+    return retrieveApplicationWithId(applicationId, null);
+  }
+
+  public OAuthConfigurationResponse retrieveOauthConfigurationWithId(String applicationId, UUID xFusionAuthTenantId) {
     return execute("GET", "/api/application/" + encode(applicationId) + "/oauth-configuration", null, xFusionAuthTenantId, OAuthConfigurationResponse::fromJSON);
   }
 
-  public ApplicationResponse createApplicationRole(String applicationId, String xFusionAuthTenantId, ApplicationRequest request) {
+  public OAuthConfigurationResponse retrieveOauthConfigurationWithId(String applicationId) {
+    return retrieveOauthConfigurationWithId(applicationId, null);
+  }
+
+  public ApplicationResponse createApplicationRole(String applicationId, ApplicationRequest request, UUID xFusionAuthTenantId) {
     return execute("POST", "/api/application/" + encode(applicationId) + "/role", request.toJSON(), xFusionAuthTenantId, ApplicationResponse::fromJSON);
   }
 
-  public ApplicationResponse createApplicationRoleWithId(String applicationId, String roleId, String xFusionAuthTenantId, ApplicationRequest request) {
+  public ApplicationResponse createApplicationRole(String applicationId, ApplicationRequest request) {
+    return createApplicationRole(applicationId, request, null);
+  }
+
+  public ApplicationResponse createApplicationRoleWithId(String applicationId, String roleId, ApplicationRequest request, UUID xFusionAuthTenantId) {
     return execute("POST", "/api/application/" + encode(applicationId) + "/role/" + encode(roleId), request.toJSON(), xFusionAuthTenantId, ApplicationResponse::fromJSON);
   }
 
-  public void deleteApplicationRoleWithId(String applicationId, String roleId, String xFusionAuthTenantId) {
+  public ApplicationResponse createApplicationRoleWithId(String applicationId, String roleId, ApplicationRequest request) {
+    return createApplicationRoleWithId(applicationId, roleId, request, null);
+  }
+
+  public void deleteApplicationRoleWithId(String applicationId, String roleId, UUID xFusionAuthTenantId) {
     executeVoid("DELETE", "/api/application/" + encode(applicationId) + "/role/" + encode(roleId), null, xFusionAuthTenantId);
   }
 
-  public ApplicationResponse patchApplicationRoleWithId(String applicationId, String roleId, String xFusionAuthTenantId, ApplicationRequest request) {
+  public void deleteApplicationRoleWithId(String applicationId, String roleId) {
+    deleteApplicationRoleWithId(applicationId, roleId, null);
+  }
+
+  public ApplicationResponse patchApplicationRoleWithId(String applicationId, String roleId, ApplicationRequest request, UUID xFusionAuthTenantId) {
     return execute("PATCH", "/api/application/" + encode(applicationId) + "/role/" + encode(roleId), request.toJSON(), xFusionAuthTenantId, ApplicationResponse::fromJSON);
   }
 
-  public ApplicationResponse updateApplicationRoleWithId(String applicationId, String roleId, String xFusionAuthTenantId, ApplicationRequest request) {
+  public ApplicationResponse patchApplicationRoleWithId(String applicationId, String roleId, ApplicationRequest request) {
+    return patchApplicationRoleWithId(applicationId, roleId, request, null);
+  }
+
+  public ApplicationResponse updateApplicationRoleWithId(String applicationId, String roleId, ApplicationRequest request, UUID xFusionAuthTenantId) {
     return execute("PUT", "/api/application/" + encode(applicationId) + "/role/" + encode(roleId), request.toJSON(), xFusionAuthTenantId, ApplicationResponse::fromJSON);
   }
 
-  public ApplicationOAuthScopeResponse createOAuthScope(String applicationId, String xFusionAuthTenantId, ApplicationOAuthScopeRequest request) {
+  public ApplicationResponse updateApplicationRoleWithId(String applicationId, String roleId, ApplicationRequest request) {
+    return updateApplicationRoleWithId(applicationId, roleId, request, null);
+  }
+
+  public ApplicationOAuthScopeResponse createOAuthScope(String applicationId, ApplicationOAuthScopeRequest request, UUID xFusionAuthTenantId) {
     return execute("POST", "/api/application/" + encode(applicationId) + "/scope", request.toJSON(), xFusionAuthTenantId, ApplicationOAuthScopeResponse::fromJSON);
   }
 
-  public ApplicationOAuthScopeResponse createOAuthScopeWithId(String applicationId, String scopeId, String xFusionAuthTenantId, ApplicationOAuthScopeRequest request) {
+  public ApplicationOAuthScopeResponse createOAuthScope(String applicationId, ApplicationOAuthScopeRequest request) {
+    return createOAuthScope(applicationId, request, null);
+  }
+
+  public ApplicationOAuthScopeResponse createOAuthScopeWithId(String applicationId, String scopeId, ApplicationOAuthScopeRequest request, UUID xFusionAuthTenantId) {
     return execute("POST", "/api/application/" + encode(applicationId) + "/scope/" + encode(scopeId), request.toJSON(), xFusionAuthTenantId, ApplicationOAuthScopeResponse::fromJSON);
   }
 
-  public void deleteOAuthScopeWithId(String applicationId, String scopeId, String xFusionAuthTenantId) {
+  public ApplicationOAuthScopeResponse createOAuthScopeWithId(String applicationId, String scopeId, ApplicationOAuthScopeRequest request) {
+    return createOAuthScopeWithId(applicationId, scopeId, request, null);
+  }
+
+  public void deleteOAuthScopeWithId(String applicationId, String scopeId, UUID xFusionAuthTenantId) {
     executeVoid("DELETE", "/api/application/" + encode(applicationId) + "/scope/" + encode(scopeId), null, xFusionAuthTenantId);
   }
 
-  public ApplicationOAuthScopeResponse patchOAuthScopeWithId(String applicationId, String scopeId, String xFusionAuthTenantId, ApplicationOAuthScopeRequest request) {
+  public void deleteOAuthScopeWithId(String applicationId, String scopeId) {
+    deleteOAuthScopeWithId(applicationId, scopeId, null);
+  }
+
+  public ApplicationOAuthScopeResponse patchOAuthScopeWithId(String applicationId, String scopeId, ApplicationOAuthScopeRequest request, UUID xFusionAuthTenantId) {
     return execute("PATCH", "/api/application/" + encode(applicationId) + "/scope/" + encode(scopeId), request.toJSON(), xFusionAuthTenantId, ApplicationOAuthScopeResponse::fromJSON);
   }
 
-  public ApplicationOAuthScopeResponse retrieveOAuthScopeWithId(String applicationId, String scopeId, String xFusionAuthTenantId) {
+  public ApplicationOAuthScopeResponse patchOAuthScopeWithId(String applicationId, String scopeId, ApplicationOAuthScopeRequest request) {
+    return patchOAuthScopeWithId(applicationId, scopeId, request, null);
+  }
+
+  public ApplicationOAuthScopeResponse retrieveOAuthScopeWithId(String applicationId, String scopeId, UUID xFusionAuthTenantId) {
     return execute("GET", "/api/application/" + encode(applicationId) + "/scope/" + encode(scopeId), null, xFusionAuthTenantId, ApplicationOAuthScopeResponse::fromJSON);
   }
 
-  public ApplicationOAuthScopeResponse updateOAuthScopeWithId(String applicationId, String scopeId, String xFusionAuthTenantId, ApplicationOAuthScopeRequest request) {
+  public ApplicationOAuthScopeResponse retrieveOAuthScopeWithId(String applicationId, String scopeId) {
+    return retrieveOAuthScopeWithId(applicationId, scopeId, null);
+  }
+
+  public ApplicationOAuthScopeResponse updateOAuthScopeWithId(String applicationId, String scopeId, ApplicationOAuthScopeRequest request, UUID xFusionAuthTenantId) {
     return execute("PUT", "/api/application/" + encode(applicationId) + "/scope/" + encode(scopeId), request.toJSON(), xFusionAuthTenantId, ApplicationOAuthScopeResponse::fromJSON);
+  }
+
+  public ApplicationOAuthScopeResponse updateOAuthScopeWithId(String applicationId, String scopeId, ApplicationOAuthScopeRequest request) {
+    return updateOAuthScopeWithId(applicationId, scopeId, request, null);
   }
 
   public ConnectorResponse createConnector(ConnectorRequest request) {
@@ -169,44 +245,76 @@ public class FusionAuthClient {
     return execute("PUT", "/api/connector/" + encode(connectorId), request.toJSON(), null, ConnectorResponse::fromJSON);
   }
 
-  public ConsentResponse createConsent(String xFusionAuthTenantId, ConsentRequest request) {
+  public ConsentResponse createConsent(ConsentRequest request, UUID xFusionAuthTenantId) {
     return execute("POST", "/api/consent", request.toJSON(), xFusionAuthTenantId, ConsentResponse::fromJSON);
+  }
+
+  public ConsentResponse createConsent(ConsentRequest request) {
+    return createConsent(request, null);
   }
 
   public ConsentSearchResponse searchConsentsWithId(ConsentSearchRequest request) {
     return execute("POST", "/api/consent/search", request.toJSON(), null, ConsentSearchResponse::fromJSON);
   }
 
-  public ConsentResponse createConsentWithId(String consentId, String xFusionAuthTenantId, ConsentRequest request) {
+  public ConsentResponse createConsentWithId(String consentId, ConsentRequest request, UUID xFusionAuthTenantId) {
     return execute("POST", "/api/consent/" + encode(consentId), request.toJSON(), xFusionAuthTenantId, ConsentResponse::fromJSON);
   }
 
-  public void deleteConsentWithId(String consentId, String xFusionAuthTenantId) {
+  public ConsentResponse createConsentWithId(String consentId, ConsentRequest request) {
+    return createConsentWithId(consentId, request, null);
+  }
+
+  public void deleteConsentWithId(String consentId, UUID xFusionAuthTenantId) {
     executeVoid("DELETE", "/api/consent/" + encode(consentId), null, xFusionAuthTenantId);
   }
 
-  public ConsentResponse patchConsentWithId(String consentId, String xFusionAuthTenantId, ConsentRequest request) {
+  public void deleteConsentWithId(String consentId) {
+    deleteConsentWithId(consentId, null);
+  }
+
+  public ConsentResponse patchConsentWithId(String consentId, ConsentRequest request, UUID xFusionAuthTenantId) {
     return execute("PATCH", "/api/consent/" + encode(consentId), request.toJSON(), xFusionAuthTenantId, ConsentResponse::fromJSON);
   }
 
-  public ConsentResponse retrieveConsentWithId(String consentId, String xFusionAuthTenantId) {
+  public ConsentResponse patchConsentWithId(String consentId, ConsentRequest request) {
+    return patchConsentWithId(consentId, request, null);
+  }
+
+  public ConsentResponse retrieveConsentWithId(String consentId, UUID xFusionAuthTenantId) {
     return execute("GET", "/api/consent/" + encode(consentId), null, xFusionAuthTenantId, ConsentResponse::fromJSON);
   }
 
-  public ConsentResponse updateConsentWithId(String consentId, String xFusionAuthTenantId, ConsentRequest request) {
+  public ConsentResponse retrieveConsentWithId(String consentId) {
+    return retrieveConsentWithId(consentId, null);
+  }
+
+  public ConsentResponse updateConsentWithId(String consentId, ConsentRequest request, UUID xFusionAuthTenantId) {
     return execute("PUT", "/api/consent/" + encode(consentId), request.toJSON(), xFusionAuthTenantId, ConsentResponse::fromJSON);
+  }
+
+  public ConsentResponse updateConsentWithId(String consentId, ConsentRequest request) {
+    return updateConsentWithId(consentId, request, null);
   }
 
   public SendResponse sendEmailWithId(String emailTemplateId, SendRequest request) {
     return execute("POST", "/api/email/send/" + encode(emailTemplateId), request.toJSON(), null, SendResponse::fromJSON);
   }
 
-  public EmailTemplateResponse createEmailTemplate(String xFusionAuthTenantId, EmailTemplateRequest request) {
+  public EmailTemplateResponse createEmailTemplate(EmailTemplateRequest request, UUID xFusionAuthTenantId) {
     return execute("POST", "/api/email/template", request.toJSON(), xFusionAuthTenantId, EmailTemplateResponse::fromJSON);
   }
 
-  public EmailTemplateResponse retrieveEmailTemplate(String xFusionAuthTenantId) {
+  public EmailTemplateResponse createEmailTemplate(EmailTemplateRequest request) {
+    return createEmailTemplate(request, null);
+  }
+
+  public EmailTemplateResponse retrieveEmailTemplate(UUID xFusionAuthTenantId) {
     return execute("GET", "/api/email/template", null, xFusionAuthTenantId, EmailTemplateResponse::fromJSON);
+  }
+
+  public EmailTemplateResponse retrieveEmailTemplate() {
+    return retrieveEmailTemplate(null);
   }
 
   public PreviewResponse retrieveEmailTemplatePreviewWithId(PreviewRequest request) {
@@ -217,28 +325,52 @@ public class FusionAuthClient {
     return execute("POST", "/api/email/template/search", request.toJSON(), null, EmailTemplateSearchResponse::fromJSON);
   }
 
-  public EmailTemplateResponse createEmailTemplateWithId(String emailTemplateId, String xFusionAuthTenantId, EmailTemplateRequest request) {
+  public EmailTemplateResponse createEmailTemplateWithId(String emailTemplateId, EmailTemplateRequest request, UUID xFusionAuthTenantId) {
     return execute("POST", "/api/email/template/" + encode(emailTemplateId), request.toJSON(), xFusionAuthTenantId, EmailTemplateResponse::fromJSON);
   }
 
-  public void deleteEmailTemplateWithId(String emailTemplateId, String xFusionAuthTenantId) {
+  public EmailTemplateResponse createEmailTemplateWithId(String emailTemplateId, EmailTemplateRequest request) {
+    return createEmailTemplateWithId(emailTemplateId, request, null);
+  }
+
+  public void deleteEmailTemplateWithId(String emailTemplateId, UUID xFusionAuthTenantId) {
     executeVoid("DELETE", "/api/email/template/" + encode(emailTemplateId), null, xFusionAuthTenantId);
   }
 
-  public EmailTemplateResponse patchEmailTemplateWithId(String emailTemplateId, String xFusionAuthTenantId, EmailTemplateRequest request) {
+  public void deleteEmailTemplateWithId(String emailTemplateId) {
+    deleteEmailTemplateWithId(emailTemplateId, null);
+  }
+
+  public EmailTemplateResponse patchEmailTemplateWithId(String emailTemplateId, EmailTemplateRequest request, UUID xFusionAuthTenantId) {
     return execute("PATCH", "/api/email/template/" + encode(emailTemplateId), request.toJSON(), xFusionAuthTenantId, EmailTemplateResponse::fromJSON);
   }
 
-  public EmailTemplateResponse retrieveEmailTemplateWithId(String emailTemplateId, String xFusionAuthTenantId) {
+  public EmailTemplateResponse patchEmailTemplateWithId(String emailTemplateId, EmailTemplateRequest request) {
+    return patchEmailTemplateWithId(emailTemplateId, request, null);
+  }
+
+  public EmailTemplateResponse retrieveEmailTemplateWithId(String emailTemplateId, UUID xFusionAuthTenantId) {
     return execute("GET", "/api/email/template/" + encode(emailTemplateId), null, xFusionAuthTenantId, EmailTemplateResponse::fromJSON);
   }
 
-  public EmailTemplateResponse updateEmailTemplateWithId(String emailTemplateId, String xFusionAuthTenantId, EmailTemplateRequest request) {
+  public EmailTemplateResponse retrieveEmailTemplateWithId(String emailTemplateId) {
+    return retrieveEmailTemplateWithId(emailTemplateId, null);
+  }
+
+  public EmailTemplateResponse updateEmailTemplateWithId(String emailTemplateId, EmailTemplateRequest request, UUID xFusionAuthTenantId) {
     return execute("PUT", "/api/email/template/" + encode(emailTemplateId), request.toJSON(), xFusionAuthTenantId, EmailTemplateResponse::fromJSON);
   }
 
-  public EntityResponse createEntity(String xFusionAuthTenantId, EntityRequest request) {
+  public EmailTemplateResponse updateEmailTemplateWithId(String emailTemplateId, EmailTemplateRequest request) {
+    return updateEmailTemplateWithId(emailTemplateId, request, null);
+  }
+
+  public EntityResponse createEntity(EntityRequest request, UUID xFusionAuthTenantId) {
     return execute("POST", "/api/entity", request.toJSON(), xFusionAuthTenantId, EntityResponse::fromJSON);
+  }
+
+  public EntityResponse createEntity(EntityRequest request) {
+    return createEntity(request, null);
   }
 
   public EntityGrantSearchResponse searchEntityGrantsWithId(EntityGrantSearchRequest request) {
@@ -301,36 +433,68 @@ public class FusionAuthClient {
     return execute("PUT", "/api/entity/type/" + encode(entityTypeId) + "/permission/" + encode(permissionId), request.toJSON(), null, EntityTypeResponse::fromJSON);
   }
 
-  public EntityResponse createEntityWithId(String entityId, String xFusionAuthTenantId, EntityRequest request) {
+  public EntityResponse createEntityWithId(String entityId, EntityRequest request, UUID xFusionAuthTenantId) {
     return execute("POST", "/api/entity/" + encode(entityId), request.toJSON(), xFusionAuthTenantId, EntityResponse::fromJSON);
   }
 
-  public void deleteEntityWithId(String entityId, String xFusionAuthTenantId) {
+  public EntityResponse createEntityWithId(String entityId, EntityRequest request) {
+    return createEntityWithId(entityId, request, null);
+  }
+
+  public void deleteEntityWithId(String entityId, UUID xFusionAuthTenantId) {
     executeVoid("DELETE", "/api/entity/" + encode(entityId), null, xFusionAuthTenantId);
   }
 
-  public EntityResponse patchEntityWithId(String entityId, String xFusionAuthTenantId, EntityRequest request) {
+  public void deleteEntityWithId(String entityId) {
+    deleteEntityWithId(entityId, null);
+  }
+
+  public EntityResponse patchEntityWithId(String entityId, EntityRequest request, UUID xFusionAuthTenantId) {
     return execute("PATCH", "/api/entity/" + encode(entityId), request.toJSON(), xFusionAuthTenantId, EntityResponse::fromJSON);
   }
 
-  public EntityResponse retrieveEntityWithId(String entityId, String xFusionAuthTenantId) {
+  public EntityResponse patchEntityWithId(String entityId, EntityRequest request) {
+    return patchEntityWithId(entityId, request, null);
+  }
+
+  public EntityResponse retrieveEntityWithId(String entityId, UUID xFusionAuthTenantId) {
     return execute("GET", "/api/entity/" + encode(entityId), null, xFusionAuthTenantId, EntityResponse::fromJSON);
   }
 
-  public EntityResponse updateEntityWithId(String entityId, String xFusionAuthTenantId, EntityRequest request) {
+  public EntityResponse retrieveEntityWithId(String entityId) {
+    return retrieveEntityWithId(entityId, null);
+  }
+
+  public EntityResponse updateEntityWithId(String entityId, EntityRequest request, UUID xFusionAuthTenantId) {
     return execute("PUT", "/api/entity/" + encode(entityId), request.toJSON(), xFusionAuthTenantId, EntityResponse::fromJSON);
   }
 
-  public void deleteEntityGrantWithId(String entityId, String recipientEntityId, String userId, String xFusionAuthTenantId) {
+  public EntityResponse updateEntityWithId(String entityId, EntityRequest request) {
+    return updateEntityWithId(entityId, request, null);
+  }
+
+  public void deleteEntityGrantWithId(String entityId, String recipientEntityId, String userId, UUID xFusionAuthTenantId) {
     executeVoid("DELETE", "/api/entity/" + encode(entityId) + "/grant" + query("recipientEntityId", recipientEntityId, "userId", userId), null, xFusionAuthTenantId);
   }
 
-  public EntityGrantResponse retrieveEntityGrantWithId(String entityId, String recipientEntityId, String userId, String xFusionAuthTenantId) {
+  public void deleteEntityGrantWithId(String entityId, String recipientEntityId, String userId) {
+    deleteEntityGrantWithId(entityId, recipientEntityId, userId, null);
+  }
+
+  public EntityGrantResponse retrieveEntityGrantWithId(String entityId, String recipientEntityId, String userId, UUID xFusionAuthTenantId) {
     return execute("GET", "/api/entity/" + encode(entityId) + "/grant" + query("recipientEntityId", recipientEntityId, "userId", userId), null, xFusionAuthTenantId, EntityGrantResponse::fromJSON);
   }
 
-  public void upsertEntityGrantWithId(String entityId, String xFusionAuthTenantId, EntityGrantRequest request) {
+  public EntityGrantResponse retrieveEntityGrantWithId(String entityId, String recipientEntityId, String userId) {
+    return retrieveEntityGrantWithId(entityId, recipientEntityId, userId, null);
+  }
+
+  public void upsertEntityGrantWithId(String entityId, EntityGrantRequest request, UUID xFusionAuthTenantId) {
     executeVoid("POST", "/api/entity/" + encode(entityId) + "/grant", request.toJSON(), xFusionAuthTenantId);
+  }
+
+  public void upsertEntityGrantWithId(String entityId, EntityGrantRequest request) {
+    upsertEntityGrantWithId(entityId, request, null);
   }
 
   public FormResponse createForm(FormRequest request) {
@@ -381,8 +545,12 @@ public class FusionAuthClient {
     return execute("PUT", "/api/form/" + encode(formId), request.toJSON(), null, FormResponse::fromJSON);
   }
 
-  public GroupResponse createGroup(String xFusionAuthTenantId, GroupRequest request) {
+  public GroupResponse createGroup(GroupRequest request, UUID xFusionAuthTenantId) {
     return execute("POST", "/api/group", request.toJSON(), xFusionAuthTenantId, GroupResponse::fromJSON);
+  }
+
+  public GroupResponse createGroup(GroupRequest request) {
+    return createGroup(request, null);
   }
 
   public MemberResponse createGroupMembersWithId(MemberRequest request) {
@@ -405,24 +573,44 @@ public class FusionAuthClient {
     return execute("POST", "/api/group/search", request.toJSON(), null, GroupSearchResponse::fromJSON);
   }
 
-  public GroupResponse createGroupWithId(String groupId, String xFusionAuthTenantId, GroupRequest request) {
+  public GroupResponse createGroupWithId(String groupId, GroupRequest request, UUID xFusionAuthTenantId) {
     return execute("POST", "/api/group/" + encode(groupId), request.toJSON(), xFusionAuthTenantId, GroupResponse::fromJSON);
   }
 
-  public void deleteGroupWithId(String groupId, String xFusionAuthTenantId) {
+  public GroupResponse createGroupWithId(String groupId, GroupRequest request) {
+    return createGroupWithId(groupId, request, null);
+  }
+
+  public void deleteGroupWithId(String groupId, UUID xFusionAuthTenantId) {
     executeVoid("DELETE", "/api/group/" + encode(groupId), null, xFusionAuthTenantId);
   }
 
-  public GroupResponse patchGroupWithId(String groupId, String xFusionAuthTenantId, GroupRequest request) {
+  public void deleteGroupWithId(String groupId) {
+    deleteGroupWithId(groupId, null);
+  }
+
+  public GroupResponse patchGroupWithId(String groupId, GroupRequest request, UUID xFusionAuthTenantId) {
     return execute("PATCH", "/api/group/" + encode(groupId), request.toJSON(), xFusionAuthTenantId, GroupResponse::fromJSON);
   }
 
-  public GroupResponse retrieveGroupWithId(String groupId, String xFusionAuthTenantId) {
+  public GroupResponse patchGroupWithId(String groupId, GroupRequest request) {
+    return patchGroupWithId(groupId, request, null);
+  }
+
+  public GroupResponse retrieveGroupWithId(String groupId, UUID xFusionAuthTenantId) {
     return execute("GET", "/api/group/" + encode(groupId), null, xFusionAuthTenantId, GroupResponse::fromJSON);
   }
 
-  public GroupResponse updateGroupWithId(String groupId, String xFusionAuthTenantId, GroupRequest request) {
+  public GroupResponse retrieveGroupWithId(String groupId) {
+    return retrieveGroupWithId(groupId, null);
+  }
+
+  public GroupResponse updateGroupWithId(String groupId, GroupRequest request, UUID xFusionAuthTenantId) {
     return execute("PUT", "/api/group/" + encode(groupId), request.toJSON(), xFusionAuthTenantId, GroupResponse::fromJSON);
+  }
+
+  public GroupResponse updateGroupWithId(String groupId, GroupRequest request) {
+    return updateGroupWithId(groupId, request, null);
   }
 
   public void retrieveSystemHealthWithId() {
@@ -453,8 +641,12 @@ public class FusionAuthClient {
     return execute("GET", "/api/identity-provider/link/pending/" + encode(pendingLinkId) + query("userId", userId), null, null, IdentityProviderPendingLinkResponse::fromJSON);
   }
 
-  public LoginResponse identityProviderLoginWithId(String xFusionAuthTenantId, IdentityProviderLoginRequest request) {
+  public LoginResponse identityProviderLoginWithId(IdentityProviderLoginRequest request, UUID xFusionAuthTenantId) {
     return execute("POST", "/api/identity-provider/login", request.toJSON(), xFusionAuthTenantId, LoginResponse::fromJSON);
+  }
+
+  public LoginResponse identityProviderLoginWithId(IdentityProviderLoginRequest request) {
+    return identityProviderLoginWithId(request, null);
   }
 
   public LookupResponse retrieveIdentityProviderLookup(String domain, String tenantId) {
@@ -657,16 +849,28 @@ public class FusionAuthClient {
     return execute("PUT", "/api/lambda/" + encode(lambdaId), request.toJSON(), null, LambdaResponse::fromJSON);
   }
 
-  public LoginResponse loginWithId(String xFusionAuthTenantId, LoginRequest request) {
+  public LoginResponse loginWithId(LoginRequest request, UUID xFusionAuthTenantId) {
     return execute("POST", "/api/login", request.toJSON(), xFusionAuthTenantId, LoginResponse::fromJSON);
   }
 
-  public LoginResponse loginPingWithRequestWithId(String xFusionAuthTenantId, LoginPingRequest request) {
+  public LoginResponse loginWithId(LoginRequest request) {
+    return loginWithId(request, null);
+  }
+
+  public LoginResponse loginPingWithRequestWithId(LoginPingRequest request, UUID xFusionAuthTenantId) {
     return execute("PUT", "/api/login", request.toJSON(), xFusionAuthTenantId, LoginResponse::fromJSON);
   }
 
-  public LoginResponse loginPingWithId(String userId, String applicationId, String callerIPAddress, String xFusionAuthTenantId) {
+  public LoginResponse loginPingWithRequestWithId(LoginPingRequest request) {
+    return loginPingWithRequestWithId(request, null);
+  }
+
+  public LoginResponse loginPingWithId(String userId, String applicationId, String callerIPAddress, UUID xFusionAuthTenantId) {
     return execute("PUT", "/api/login/" + encode(userId) + "/" + encode(applicationId) + query("callerIPAddress", callerIPAddress), null, xFusionAuthTenantId, LoginResponse::fromJSON);
+  }
+
+  public LoginResponse loginPingWithId(String userId, String applicationId, String callerIPAddress) {
+    return loginPingWithId(userId, applicationId, callerIPAddress, null);
   }
 
   public void createLogout(String global, String refreshToken, LogoutRequest request) {
@@ -825,8 +1029,12 @@ public class FusionAuthClient {
     return execute("GET", "/api/system/webhook-event-log/" + encode(webhookEventLogId), null, null, WebhookEventLogResponse::fromJSON);
   }
 
-  public TenantResponse createTenant(String xFusionAuthTenantId, TenantRequest request) {
+  public TenantResponse createTenant(TenantRequest request, UUID xFusionAuthTenantId) {
     return execute("POST", "/api/tenant", request.toJSON(), xFusionAuthTenantId, TenantResponse::fromJSON);
+  }
+
+  public TenantResponse createTenant(TenantRequest request) {
+    return createTenant(request, null);
   }
 
   public TenantManagerConfigurationResponse patchTenantManagerConfigurationWithId(TenantManagerConfigurationRequest request) {
@@ -865,24 +1073,44 @@ public class FusionAuthClient {
     return execute("POST", "/api/tenant/search", request.toJSON(), null, TenantSearchResponse::fromJSON);
   }
 
-  public TenantResponse createTenantWithId(String tenantId, String xFusionAuthTenantId, TenantRequest request) {
+  public TenantResponse createTenantWithId(String tenantId, TenantRequest request, UUID xFusionAuthTenantId) {
     return execute("POST", "/api/tenant/" + encode(tenantId), request.toJSON(), xFusionAuthTenantId, TenantResponse::fromJSON);
   }
 
-  public void deleteTenantWithId(String tenantId, String async, String xFusionAuthTenantId, TenantDeleteRequest request) {
+  public TenantResponse createTenantWithId(String tenantId, TenantRequest request) {
+    return createTenantWithId(tenantId, request, null);
+  }
+
+  public void deleteTenantWithId(String tenantId, String async, TenantDeleteRequest request, UUID xFusionAuthTenantId) {
     executeVoid("DELETE", "/api/tenant/" + encode(tenantId) + query("async", async), request.toJSON(), xFusionAuthTenantId);
   }
 
-  public TenantResponse patchTenantWithId(String tenantId, String xFusionAuthTenantId, TenantRequest request) {
+  public void deleteTenantWithId(String tenantId, String async, TenantDeleteRequest request) {
+    deleteTenantWithId(tenantId, async, request, null);
+  }
+
+  public TenantResponse patchTenantWithId(String tenantId, TenantRequest request, UUID xFusionAuthTenantId) {
     return execute("PATCH", "/api/tenant/" + encode(tenantId), request.toJSON(), xFusionAuthTenantId, TenantResponse::fromJSON);
   }
 
-  public TenantResponse retrieveTenantWithId(String tenantId, String xFusionAuthTenantId) {
+  public TenantResponse patchTenantWithId(String tenantId, TenantRequest request) {
+    return patchTenantWithId(tenantId, request, null);
+  }
+
+  public TenantResponse retrieveTenantWithId(String tenantId, UUID xFusionAuthTenantId) {
     return execute("GET", "/api/tenant/" + encode(tenantId), null, xFusionAuthTenantId, TenantResponse::fromJSON);
   }
 
-  public TenantResponse updateTenantWithId(String tenantId, String xFusionAuthTenantId, TenantRequest request) {
+  public TenantResponse retrieveTenantWithId(String tenantId) {
+    return retrieveTenantWithId(tenantId, null);
+  }
+
+  public TenantResponse updateTenantWithId(String tenantId, TenantRequest request, UUID xFusionAuthTenantId) {
     return execute("PUT", "/api/tenant/" + encode(tenantId), request.toJSON(), xFusionAuthTenantId, TenantResponse::fromJSON);
+  }
+
+  public TenantResponse updateTenantWithId(String tenantId, TenantRequest request) {
+    return updateTenantWithId(tenantId, request, null);
   }
 
   public ThemeResponse createTheme(ThemeRequest request) {
@@ -941,20 +1169,36 @@ public class FusionAuthClient {
     return execute("GET", "/api/two-factor/status/" + encode(twoFactorTrustId) + query("userId", userId, "applicationId", applicationId), null, null, TwoFactorStatusResponse::fromJSON);
   }
 
-  public UserResponse createUser(String xFusionAuthTenantId, UserRequest request) {
+  public UserResponse createUser(UserRequest request, UUID xFusionAuthTenantId) {
     return execute("POST", "/api/user", request.toJSON(), xFusionAuthTenantId, UserResponse::fromJSON);
   }
 
-  public UserResponse retrieveUser(String verificationId, String username, String loginId, String loginIdTypes, String email, String changePasswordId, String xFusionAuthTenantId) {
+  public UserResponse createUser(UserRequest request) {
+    return createUser(request, null);
+  }
+
+  public UserResponse retrieveUser(String verificationId, String username, String loginId, String loginIdTypes, String email, String changePasswordId, UUID xFusionAuthTenantId) {
     return execute("GET", "/api/user" + query("verificationId", verificationId, "username", username, "loginId", loginId, "loginIdTypes", loginIdTypes, "email", email, "changePasswordId", changePasswordId), null, xFusionAuthTenantId, UserResponse::fromJSON);
   }
 
-  public UserActionResponse createUserAction(String xFusionAuthTenantId, UserActionRequest request) {
+  public UserResponse retrieveUser(String verificationId, String username, String loginId, String loginIdTypes, String email, String changePasswordId) {
+    return retrieveUser(verificationId, username, loginId, loginIdTypes, email, changePasswordId, null);
+  }
+
+  public UserActionResponse createUserAction(UserActionRequest request, UUID xFusionAuthTenantId) {
     return execute("POST", "/api/user-action", request.toJSON(), xFusionAuthTenantId, UserActionResponse::fromJSON);
   }
 
-  public UserActionResponse retrieveUserAction(String inactive, String xFusionAuthTenantId) {
+  public UserActionResponse createUserAction(UserActionRequest request) {
+    return createUserAction(request, null);
+  }
+
+  public UserActionResponse retrieveUserAction(String inactive, UUID xFusionAuthTenantId) {
     return execute("GET", "/api/user-action" + query("inactive", inactive), null, xFusionAuthTenantId, UserActionResponse::fromJSON);
+  }
+
+  public UserActionResponse retrieveUserAction(String inactive) {
+    return retrieveUserAction(inactive, null);
   }
 
   public UserActionReasonResponse createUserActionReason(UserActionReasonRequest request) {
@@ -985,24 +1229,44 @@ public class FusionAuthClient {
     return execute("PUT", "/api/user-action-reason/" + encode(userActionReasonId), request.toJSON(), null, UserActionReasonResponse::fromJSON);
   }
 
-  public UserActionResponse createUserActionWithId(String userActionId, String xFusionAuthTenantId, UserActionRequest request) {
+  public UserActionResponse createUserActionWithId(String userActionId, UserActionRequest request, UUID xFusionAuthTenantId) {
     return execute("POST", "/api/user-action/" + encode(userActionId), request.toJSON(), xFusionAuthTenantId, UserActionResponse::fromJSON);
   }
 
-  public void deleteUserActionWithId(String userActionId, String hardDelete, String xFusionAuthTenantId) {
+  public UserActionResponse createUserActionWithId(String userActionId, UserActionRequest request) {
+    return createUserActionWithId(userActionId, request, null);
+  }
+
+  public void deleteUserActionWithId(String userActionId, String hardDelete, UUID xFusionAuthTenantId) {
     executeVoid("DELETE", "/api/user-action/" + encode(userActionId) + query("hardDelete", hardDelete), null, xFusionAuthTenantId);
   }
 
-  public UserActionResponse patchUserActionWithId(String userActionId, String xFusionAuthTenantId, UserActionRequest request) {
+  public void deleteUserActionWithId(String userActionId, String hardDelete) {
+    deleteUserActionWithId(userActionId, hardDelete, null);
+  }
+
+  public UserActionResponse patchUserActionWithId(String userActionId, UserActionRequest request, UUID xFusionAuthTenantId) {
     return execute("PATCH", "/api/user-action/" + encode(userActionId), request.toJSON(), xFusionAuthTenantId, UserActionResponse::fromJSON);
   }
 
-  public UserActionResponse updateUserActionWithId(String userActionId, String reactivate, String xFusionAuthTenantId, UserActionRequest request) {
+  public UserActionResponse patchUserActionWithId(String userActionId, UserActionRequest request) {
+    return patchUserActionWithId(userActionId, request, null);
+  }
+
+  public UserActionResponse updateUserActionWithId(String userActionId, String reactivate, UserActionRequest request, UUID xFusionAuthTenantId) {
     return execute("PUT", "/api/user-action/" + encode(userActionId) + query("reactivate", reactivate), request.toJSON(), xFusionAuthTenantId, UserActionResponse::fromJSON);
   }
 
-  public UserActionResponse retrieveUserActionWithId(String userActionId, String xFusionAuthTenantId) {
+  public UserActionResponse updateUserActionWithId(String userActionId, String reactivate, UserActionRequest request) {
+    return updateUserActionWithId(userActionId, reactivate, request, null);
+  }
+
+  public UserActionResponse retrieveUserActionWithId(String userActionId, UUID xFusionAuthTenantId) {
     return execute("GET", "/api/user-action/" + encode(userActionId), null, xFusionAuthTenantId, UserActionResponse::fromJSON);
+  }
+
+  public UserActionResponse retrieveUserActionWithId(String userActionId) {
+    return retrieveUserActionWithId(userActionId, null);
   }
 
   public ActionResponse actionUserWithId(ActionRequest request) {
@@ -1045,16 +1309,24 @@ public class FusionAuthClient {
     executeVoid("GET", "/api/user/change-password/" + encode(changePasswordId) + query("ipAddress", ipAddress), null, null);
   }
 
-  public UserCommentResponse commentOnUserWithId(String xFusionAuthTenantId, UserCommentRequest request) {
+  public UserCommentResponse commentOnUserWithId(UserCommentRequest request, UUID xFusionAuthTenantId) {
     return execute("POST", "/api/user/comment", request.toJSON(), xFusionAuthTenantId, UserCommentResponse::fromJSON);
+  }
+
+  public UserCommentResponse commentOnUserWithId(UserCommentRequest request) {
+    return commentOnUserWithId(request, null);
   }
 
   public UserCommentSearchResponse searchUserCommentsWithId(UserCommentSearchRequest request) {
     return execute("POST", "/api/user/comment/search", request.toJSON(), null, UserCommentSearchResponse::fromJSON);
   }
 
-  public UserCommentResponse retrieveUserCommentsWithId(String userId, String xFusionAuthTenantId) {
+  public UserCommentResponse retrieveUserCommentsWithId(String userId, UUID xFusionAuthTenantId) {
     return execute("GET", "/api/user/comment/" + encode(userId), null, xFusionAuthTenantId, UserCommentResponse::fromJSON);
+  }
+
+  public UserCommentResponse retrieveUserCommentsWithId(String userId) {
+    return retrieveUserCommentsWithId(userId, null);
   }
 
   public UserConsentResponse createUserConsent(UserConsentRequest request) {
@@ -1085,12 +1357,20 @@ public class FusionAuthClient {
     return execute("PUT", "/api/user/consent/" + encode(userConsentId), request.toJSON(), null, UserConsentResponse::fromJSON);
   }
 
-  public FamilyResponse createFamily(String xFusionAuthTenantId, FamilyRequest request) {
+  public FamilyResponse createFamily(FamilyRequest request, UUID xFusionAuthTenantId) {
     return execute("POST", "/api/user/family", request.toJSON(), xFusionAuthTenantId, FamilyResponse::fromJSON);
   }
 
-  public FamilyResponse retrieveFamiliesWithId(String userId, String xFusionAuthTenantId) {
+  public FamilyResponse createFamily(FamilyRequest request) {
+    return createFamily(request, null);
+  }
+
+  public FamilyResponse retrieveFamiliesWithId(String userId, UUID xFusionAuthTenantId) {
     return execute("GET", "/api/user/family" + query("userId", userId), null, xFusionAuthTenantId, FamilyResponse::fromJSON);
+  }
+
+  public FamilyResponse retrieveFamiliesWithId(String userId) {
+    return retrieveFamiliesWithId(userId, null);
   }
 
   public PendingResponse retrievePendingChildrenWithId(String parentEmail) {
@@ -1101,20 +1381,36 @@ public class FusionAuthClient {
     executeVoid("POST", "/api/user/family/request", request.toJSON(), null);
   }
 
-  public FamilyResponse updateUserFamilyWithId(String familyId, String xFusionAuthTenantId, FamilyRequest request) {
+  public FamilyResponse updateUserFamilyWithId(String familyId, FamilyRequest request, UUID xFusionAuthTenantId) {
     return execute("PUT", "/api/user/family/" + encode(familyId), request.toJSON(), xFusionAuthTenantId, FamilyResponse::fromJSON);
   }
 
-  public FamilyResponse createFamilyWithId(String familyId, String xFusionAuthTenantId, FamilyRequest request) {
+  public FamilyResponse updateUserFamilyWithId(String familyId, FamilyRequest request) {
+    return updateUserFamilyWithId(familyId, request, null);
+  }
+
+  public FamilyResponse createFamilyWithId(String familyId, FamilyRequest request, UUID xFusionAuthTenantId) {
     return execute("POST", "/api/user/family/" + encode(familyId), request.toJSON(), xFusionAuthTenantId, FamilyResponse::fromJSON);
   }
 
-  public FamilyResponse retrieveFamilyMembersByFamilyIdWithId(String familyId, String xFusionAuthTenantId) {
+  public FamilyResponse createFamilyWithId(String familyId, FamilyRequest request) {
+    return createFamilyWithId(familyId, request, null);
+  }
+
+  public FamilyResponse retrieveFamilyMembersByFamilyIdWithId(String familyId, UUID xFusionAuthTenantId) {
     return execute("GET", "/api/user/family/" + encode(familyId), null, xFusionAuthTenantId, FamilyResponse::fromJSON);
   }
 
-  public void removeUserFromFamilyWithId(String familyId, String userId, String xFusionAuthTenantId) {
+  public FamilyResponse retrieveFamilyMembersByFamilyIdWithId(String familyId) {
+    return retrieveFamilyMembersByFamilyIdWithId(familyId, null);
+  }
+
+  public void removeUserFromFamilyWithId(String familyId, String userId, UUID xFusionAuthTenantId) {
     executeVoid("DELETE", "/api/user/family/" + encode(familyId) + "/" + encode(userId), null, xFusionAuthTenantId);
+  }
+
+  public void removeUserFromFamilyWithId(String familyId, String userId) {
+    removeUserFromFamilyWithId(familyId, userId, null);
   }
 
   public ForgotPasswordResponse forgotPasswordWithId(ForgotPasswordRequest request) {
@@ -1133,32 +1429,56 @@ public class FusionAuthClient {
     executeVoid("POST", "/api/user/refresh-token/import", request.toJSON(), null);
   }
 
-  public RegistrationResponse register(String xFusionAuthTenantId, RegistrationRequest request) {
+  public RegistrationResponse register(RegistrationRequest request, UUID xFusionAuthTenantId) {
     return execute("POST", "/api/user/registration", request.toJSON(), xFusionAuthTenantId, RegistrationResponse::fromJSON);
   }
 
-  public RegistrationResponse patchRegistrationWithId(String userId, String xFusionAuthTenantId, RegistrationRequest request) {
+  public RegistrationResponse register(RegistrationRequest request) {
+    return register(request, null);
+  }
+
+  public RegistrationResponse patchRegistrationWithId(String userId, RegistrationRequest request, UUID xFusionAuthTenantId) {
     return execute("PATCH", "/api/user/registration/" + encode(userId), request.toJSON(), xFusionAuthTenantId, RegistrationResponse::fromJSON);
   }
 
-  public RegistrationResponse registerWithId(String userId, String xFusionAuthTenantId, RegistrationRequest request) {
+  public RegistrationResponse patchRegistrationWithId(String userId, RegistrationRequest request) {
+    return patchRegistrationWithId(userId, request, null);
+  }
+
+  public RegistrationResponse registerWithId(String userId, RegistrationRequest request, UUID xFusionAuthTenantId) {
     return execute("POST", "/api/user/registration/" + encode(userId), request.toJSON(), xFusionAuthTenantId, RegistrationResponse::fromJSON);
   }
 
-  public RegistrationResponse updateRegistrationWithId(String userId, String xFusionAuthTenantId, RegistrationRequest request) {
+  public RegistrationResponse registerWithId(String userId, RegistrationRequest request) {
+    return registerWithId(userId, request, null);
+  }
+
+  public RegistrationResponse updateRegistrationWithId(String userId, RegistrationRequest request, UUID xFusionAuthTenantId) {
     return execute("PUT", "/api/user/registration/" + encode(userId), request.toJSON(), xFusionAuthTenantId, RegistrationResponse::fromJSON);
   }
 
-  public void deleteUserRegistrationWithId(String userId, String applicationId, String xFusionAuthTenantId, RegistrationDeleteRequest request) {
+  public RegistrationResponse updateRegistrationWithId(String userId, RegistrationRequest request) {
+    return updateRegistrationWithId(userId, request, null);
+  }
+
+  public void deleteUserRegistrationWithId(String userId, String applicationId, RegistrationDeleteRequest request, UUID xFusionAuthTenantId) {
     executeVoid("DELETE", "/api/user/registration/" + encode(userId) + "/" + encode(applicationId), request.toJSON(), xFusionAuthTenantId);
   }
 
-  public RegistrationResponse retrieveRegistrationWithId(String userId, String applicationId, String xFusionAuthTenantId) {
+  public void deleteUserRegistrationWithId(String userId, String applicationId, RegistrationDeleteRequest request) {
+    deleteUserRegistrationWithId(userId, applicationId, request, null);
+  }
+
+  public RegistrationResponse retrieveRegistrationWithId(String userId, String applicationId, UUID xFusionAuthTenantId) {
     return execute("GET", "/api/user/registration/" + encode(userId) + "/" + encode(applicationId), null, xFusionAuthTenantId, RegistrationResponse::fromJSON);
   }
 
-  public SearchResponse searchUsersByIdsWithId(String ids) {
-    return execute("GET", "/api/user/search" + query("ids", ids), null, null, SearchResponse::fromJSON);
+  public RegistrationResponse retrieveRegistrationWithId(String userId, String applicationId) {
+    return retrieveRegistrationWithId(userId, applicationId, null);
+  }
+
+  public SearchResponse searchUsersByIdsWithId(String... ids) {
+    return execute("GET", "/api/user/search" + queryList("ids", ids), null, null, SearchResponse::fromJSON);
   }
 
   public SearchResponse searchUsersByQueryWithId(SearchRequest request) {
@@ -1197,24 +1517,44 @@ public class FusionAuthClient {
     executeVoid("POST", "/api/user/verify-registration", request.toJSON(), null);
   }
 
-  public UserResponse createUserWithId(String userId, String xFusionAuthTenantId, UserRequest request) {
+  public UserResponse createUserWithId(String userId, UserRequest request, UUID xFusionAuthTenantId) {
     return execute("POST", "/api/user/" + encode(userId), request.toJSON(), xFusionAuthTenantId, UserResponse::fromJSON);
   }
 
-  public void deleteUserWithId(String userId, String hardDelete, String xFusionAuthTenantId, UserDeleteSingleRequest request) {
+  public UserResponse createUserWithId(String userId, UserRequest request) {
+    return createUserWithId(userId, request, null);
+  }
+
+  public void deleteUserWithId(String userId, String hardDelete, UserDeleteSingleRequest request, UUID xFusionAuthTenantId) {
     executeVoid("DELETE", "/api/user/" + encode(userId) + query("hardDelete", hardDelete), request.toJSON(), xFusionAuthTenantId);
   }
 
-  public UserResponse patchUserWithId(String userId, String xFusionAuthTenantId, UserRequest request) {
+  public void deleteUserWithId(String userId, String hardDelete, UserDeleteSingleRequest request) {
+    deleteUserWithId(userId, hardDelete, request, null);
+  }
+
+  public UserResponse patchUserWithId(String userId, UserRequest request, UUID xFusionAuthTenantId) {
     return execute("PATCH", "/api/user/" + encode(userId), request.toJSON(), xFusionAuthTenantId, UserResponse::fromJSON);
   }
 
-  public UserResponse updateUserWithId(String userId, String reactivate, String xFusionAuthTenantId, UserRequest request) {
+  public UserResponse patchUserWithId(String userId, UserRequest request) {
+    return patchUserWithId(userId, request, null);
+  }
+
+  public UserResponse updateUserWithId(String userId, String reactivate, UserRequest request, UUID xFusionAuthTenantId) {
     return execute("PUT", "/api/user/" + encode(userId) + query("reactivate", reactivate), request.toJSON(), xFusionAuthTenantId, UserResponse::fromJSON);
   }
 
-  public UserResponse retrieveUserWithId(String userId, String xFusionAuthTenantId) {
+  public UserResponse updateUserWithId(String userId, String reactivate, UserRequest request) {
+    return updateUserWithId(userId, reactivate, request, null);
+  }
+
+  public UserResponse retrieveUserWithId(String userId, UUID xFusionAuthTenantId) {
     return execute("GET", "/api/user/" + encode(userId), null, xFusionAuthTenantId, UserResponse::fromJSON);
+  }
+
+  public UserResponse retrieveUserWithId(String userId) {
+    return retrieveUserWithId(userId, null);
   }
 
   public void deleteWebAuthnCredentialsForUserWithId(String userId) {
@@ -1336,30 +1676,35 @@ public class FusionAuthClient {
         "FusionAuth request failed with status [" + response.statusCode() + "]", null);
   }
 
-  private <T> T execute(String method, String path, String body, String tenantId, Function<String, T> parser) {
+  private <T> T execute(String method, String path, String body, UUID tenantId, Function<String, T> parser) {
     HttpResponse<String> response = send(method, path, body, tenantId);
-    if (response.statusCode() / 100 == 2) {
+    int status = response.statusCode();
+    if (status / 100 == 2) {
       String b = response.body();
       return (b == null || b.isEmpty()) ? null : parser.apply(b);
+    }
+    if (status == 404) {
+      return null;
     }
     throw error(response);
   }
 
-  private void executeVoid(String method, String path, String body, String tenantId) {
+  private void executeVoid(String method, String path, String body, UUID tenantId) {
     HttpResponse<String> response = send(method, path, body, tenantId);
-    if (response.statusCode() / 100 != 2) {
+    int status = response.statusCode();
+    if (status / 100 != 2 && status != 404) {
       throw error(response);
     }
   }
 
-  private HttpResponse<String> send(String method, String path, String body, String tenantId) {
+  private HttpResponse<String> send(String method, String path, String body, UUID tenantId) {
     try {
       HttpRequest.Builder builder = HttpRequest.newBuilder()
           .uri(URI.create(baseURL + path))
           .timeout(timeout)
           .header("Authorization", apiKey);
       if (tenantId != null) {
-        builder.header("X-FusionAuth-TenantId", tenantId);
+        builder.header("X-FusionAuth-TenantId", tenantId.toString());
       }
       if (body != null) {
         builder.header("Content-Type", "application/json");
@@ -1389,6 +1734,19 @@ public class FusionAuthClient {
         continue;
       }
       sb.append(sb.isEmpty() ? "?" : "&").append(nameValues[i]).append("=").append(encode(value));
+    }
+    return sb.toString();
+  }
+
+  private static String queryList(String name, String... values) {
+    StringBuilder sb = new StringBuilder();
+    if (values != null) {
+      for (String value : values) {
+        if (value == null) {
+          continue;
+        }
+        sb.append(sb.isEmpty() ? "?" : "&").append(name).append("=").append(encode(value));
+      }
     }
     return sb.toString();
   }
