@@ -25,15 +25,15 @@ public record Email(
   public String toJSON() {
     return EmailJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EmailJSON.toJSONBytes(this);
   }
-
+  
   public static Email fromJSON(String json) {
     return EmailJSON.fromJSON(json);
   }
-
+  
   public static Email fromJSONBytes(byte[] json) {
     return EmailJSON.fromJSON(json);
   }

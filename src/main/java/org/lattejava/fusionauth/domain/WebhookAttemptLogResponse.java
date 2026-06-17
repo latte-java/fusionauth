@@ -17,15 +17,15 @@ public record WebhookAttemptLogResponse(
   public String toJSON() {
     return WebhookAttemptLogResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return WebhookAttemptLogResponseJSON.toJSONBytes(this);
   }
-
+  
   public static WebhookAttemptLogResponse fromJSON(String json) {
     return WebhookAttemptLogResponseJSON.fromJSON(json);
   }
-
+  
   public static WebhookAttemptLogResponse fromJSONBytes(byte[] json) {
     return WebhookAttemptLogResponseJSON.fromJSON(json);
   }

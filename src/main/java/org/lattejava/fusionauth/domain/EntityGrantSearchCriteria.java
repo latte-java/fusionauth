@@ -22,15 +22,15 @@ public record EntityGrantSearchCriteria(
   public String toJSON() {
     return EntityGrantSearchCriteriaJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EntityGrantSearchCriteriaJSON.toJSONBytes(this);
   }
-
+  
   public static EntityGrantSearchCriteria fromJSON(String json) {
     return EntityGrantSearchCriteriaJSON.fromJSON(json);
   }
-
+  
   public static EntityGrantSearchCriteria fromJSONBytes(byte[] json) {
     return EntityGrantSearchCriteriaJSON.fromJSON(json);
   }

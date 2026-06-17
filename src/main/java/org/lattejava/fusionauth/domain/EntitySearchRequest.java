@@ -17,15 +17,15 @@ public record EntitySearchRequest(
   public String toJSON() {
     return EntitySearchRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EntitySearchRequestJSON.toJSONBytes(this);
   }
-
+  
   public static EntitySearchRequest fromJSON(String json) {
     return EntitySearchRequestJSON.fromJSON(json);
   }
-
+  
   public static EntitySearchRequest fromJSONBytes(byte[] json) {
     return EntitySearchRequestJSON.fromJSON(json);
   }

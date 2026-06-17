@@ -23,15 +23,15 @@ public record SAMLv2AssertionEncryptionConfiguration(
   public String toJSON() {
     return SAMLv2AssertionEncryptionConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return SAMLv2AssertionEncryptionConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static SAMLv2AssertionEncryptionConfiguration fromJSON(String json) {
     return SAMLv2AssertionEncryptionConfigurationJSON.fromJSON(json);
   }
-
+  
   public static SAMLv2AssertionEncryptionConfiguration fromJSONBytes(byte[] json) {
     return SAMLv2AssertionEncryptionConfigurationJSON.fromJSON(json);
   }

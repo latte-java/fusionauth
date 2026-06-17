@@ -18,15 +18,15 @@ public record MessengerResponse(
   public String toJSON() {
     return MessengerResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return MessengerResponseJSON.toJSONBytes(this);
   }
-
+  
   public static MessengerResponse fromJSON(String json) {
     return MessengerResponseJSON.fromJSON(json);
   }
-
+  
   public static MessengerResponse fromJSONBytes(byte[] json) {
     return MessengerResponseJSON.fromJSON(json);
   }

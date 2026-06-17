@@ -19,15 +19,15 @@ public record AuditLogExportRequest(
   public String toJSON() {
     return AuditLogExportRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return AuditLogExportRequestJSON.toJSONBytes(this);
   }
-
+  
   public static AuditLogExportRequest fromJSON(String json) {
     return AuditLogExportRequestJSON.fromJSON(json);
   }
-
+  
   public static AuditLogExportRequest fromJSONBytes(byte[] json) {
     return AuditLogExportRequestJSON.fromJSON(json);
   }

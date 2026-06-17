@@ -23,15 +23,15 @@ public record Form(
   public String toJSON() {
     return FormJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return FormJSON.toJSONBytes(this);
   }
-
+  
   public static Form fromJSON(String json) {
     return FormJSON.fromJSON(json);
   }
-
+  
   public static Form fromJSONBytes(byte[] json) {
     return FormJSON.fromJSON(json);
   }

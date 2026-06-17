@@ -22,15 +22,15 @@ public record UserSearchCriteria(
   public String toJSON() {
     return UserSearchCriteriaJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserSearchCriteriaJSON.toJSONBytes(this);
   }
-
+  
   public static UserSearchCriteria fromJSON(String json) {
     return UserSearchCriteriaJSON.fromJSON(json);
   }
-
+  
   public static UserSearchCriteria fromJSONBytes(byte[] json) {
     return UserSearchCriteriaJSON.fromJSON(json);
   }

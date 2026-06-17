@@ -18,15 +18,15 @@ public record IdentityProviderConnectionTestRequest(
   public String toJSON() {
     return IdentityProviderConnectionTestRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return IdentityProviderConnectionTestRequestJSON.toJSONBytes(this);
   }
-
+  
   public static IdentityProviderConnectionTestRequest fromJSON(String json) {
     return IdentityProviderConnectionTestRequestJSON.fromJSON(json);
   }
-
+  
   public static IdentityProviderConnectionTestRequest fromJSONBytes(byte[] json) {
     return IdentityProviderConnectionTestRequestJSON.fromJSON(json);
   }

@@ -17,15 +17,15 @@ public record AuthenticationTokenConfiguration(
   public String toJSON() {
     return AuthenticationTokenConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return AuthenticationTokenConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static AuthenticationTokenConfiguration fromJSON(String json) {
     return AuthenticationTokenConfigurationJSON.fromJSON(json);
   }
-
+  
   public static AuthenticationTokenConfiguration fromJSONBytes(byte[] json) {
     return AuthenticationTokenConfigurationJSON.fromJSON(json);
   }

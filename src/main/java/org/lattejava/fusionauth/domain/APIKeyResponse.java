@@ -17,15 +17,15 @@ public record APIKeyResponse(
   public String toJSON() {
     return APIKeyResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return APIKeyResponseJSON.toJSONBytes(this);
   }
-
+  
   public static APIKeyResponse fromJSON(String json) {
     return APIKeyResponseJSON.fromJSON(json);
   }
-
+  
   public static APIKeyResponse fromJSONBytes(byte[] json) {
     return APIKeyResponseJSON.fromJSON(json);
   }

@@ -24,15 +24,15 @@ public record TenantRateLimitConfiguration(
   public String toJSON() {
     return TenantRateLimitConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TenantRateLimitConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static TenantRateLimitConfiguration fromJSON(String json) {
     return TenantRateLimitConfigurationJSON.fromJSON(json);
   }
-
+  
   public static TenantRateLimitConfiguration fromJSONBytes(byte[] json) {
     return TenantRateLimitConfigurationJSON.fromJSON(json);
   }

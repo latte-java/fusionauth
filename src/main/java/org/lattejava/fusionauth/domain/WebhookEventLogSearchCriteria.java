@@ -24,15 +24,15 @@ public record WebhookEventLogSearchCriteria(
   public String toJSON() {
     return WebhookEventLogSearchCriteriaJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return WebhookEventLogSearchCriteriaJSON.toJSONBytes(this);
   }
-
+  
   public static WebhookEventLogSearchCriteria fromJSON(String json) {
     return WebhookEventLogSearchCriteriaJSON.fromJSON(json);
   }
-
+  
   public static WebhookEventLogSearchCriteria fromJSONBytes(byte[] json) {
     return WebhookEventLogSearchCriteriaJSON.fromJSON(json);
   }

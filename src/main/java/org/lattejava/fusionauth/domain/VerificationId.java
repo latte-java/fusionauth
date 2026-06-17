@@ -20,15 +20,15 @@ public record VerificationId(
   public String toJSON() {
     return VerificationIdJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return VerificationIdJSON.toJSONBytes(this);
   }
-
+  
   public static VerificationId fromJSON(String json) {
     return VerificationIdJSON.fromJSON(json);
   }
-
+  
   public static VerificationId fromJSONBytes(byte[] json) {
     return VerificationIdJSON.fromJSON(json);
   }

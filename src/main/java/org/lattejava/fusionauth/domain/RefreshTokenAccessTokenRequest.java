@@ -23,15 +23,15 @@ public record RefreshTokenAccessTokenRequest(
   public String toJSON() {
     return RefreshTokenAccessTokenRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return RefreshTokenAccessTokenRequestJSON.toJSONBytes(this);
   }
-
+  
   public static RefreshTokenAccessTokenRequest fromJSON(String json) {
     return RefreshTokenAccessTokenRequestJSON.fromJSON(json);
   }
-
+  
   public static RefreshTokenAccessTokenRequest fromJSONBytes(byte[] json) {
     return RefreshTokenAccessTokenRequestJSON.fromJSON(json);
   }

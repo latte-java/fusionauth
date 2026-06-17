@@ -18,15 +18,15 @@ public record BaseExportRequest(
   public String toJSON() {
     return BaseExportRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return BaseExportRequestJSON.toJSONBytes(this);
   }
-
+  
   public static BaseExportRequest fromJSON(String json) {
     return BaseExportRequestJSON.fromJSON(json);
   }
-
+  
   public static BaseExportRequest fromJSONBytes(byte[] json) {
     return BaseExportRequestJSON.fromJSON(json);
   }

@@ -19,15 +19,15 @@ public record ValidateDeviceRequest(
   public String toJSON() {
     return ValidateDeviceRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ValidateDeviceRequestJSON.toJSONBytes(this);
   }
-
+  
   public static ValidateDeviceRequest fromJSON(String json) {
     return ValidateDeviceRequestJSON.fromJSON(json);
   }
-
+  
   public static ValidateDeviceRequest fromJSONBytes(byte[] json) {
     return ValidateDeviceRequestJSON.fromJSON(json);
   }

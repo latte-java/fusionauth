@@ -17,15 +17,15 @@ public record UserDeleteEvent(
   public String toJSON() {
     return UserDeleteEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserDeleteEventJSON.toJSONBytes(this);
   }
-
+  
   public static UserDeleteEvent fromJSON(String json) {
     return UserDeleteEventJSON.fromJSON(json);
   }
-
+  
   public static UserDeleteEvent fromJSONBytes(byte[] json) {
     return UserDeleteEventJSON.fromJSON(json);
   }

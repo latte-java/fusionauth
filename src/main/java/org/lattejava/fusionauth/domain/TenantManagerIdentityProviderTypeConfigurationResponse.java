@@ -17,15 +17,15 @@ public record TenantManagerIdentityProviderTypeConfigurationResponse(
   public String toJSON() {
     return TenantManagerIdentityProviderTypeConfigurationResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TenantManagerIdentityProviderTypeConfigurationResponseJSON.toJSONBytes(this);
   }
-
+  
   public static TenantManagerIdentityProviderTypeConfigurationResponse fromJSON(String json) {
     return TenantManagerIdentityProviderTypeConfigurationResponseJSON.fromJSON(json);
   }
-
+  
   public static TenantManagerIdentityProviderTypeConfigurationResponse fromJSONBytes(byte[] json) {
     return TenantManagerIdentityProviderTypeConfigurationResponseJSON.fromJSON(json);
   }

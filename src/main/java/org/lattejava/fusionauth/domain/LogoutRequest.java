@@ -19,15 +19,15 @@ public record LogoutRequest(
   public String toJSON() {
     return LogoutRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return LogoutRequestJSON.toJSONBytes(this);
   }
-
+  
   public static LogoutRequest fromJSON(String json) {
     return LogoutRequestJSON.fromJSON(json);
   }
-
+  
   public static LogoutRequest fromJSONBytes(byte[] json) {
     return LogoutRequestJSON.fromJSON(json);
   }

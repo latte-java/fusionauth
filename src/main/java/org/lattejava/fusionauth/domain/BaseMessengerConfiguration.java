@@ -25,15 +25,15 @@ public record BaseMessengerConfiguration(
   public String toJSON() {
     return BaseMessengerConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return BaseMessengerConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static BaseMessengerConfiguration fromJSON(String json) {
     return BaseMessengerConfigurationJSON.fromJSON(json);
   }
-
+  
   public static BaseMessengerConfiguration fromJSONBytes(byte[] json) {
     return BaseMessengerConfigurationJSON.fromJSON(json);
   }

@@ -30,15 +30,15 @@ public record TwilioMessengerConfiguration(
   public String toJSON() {
     return TwilioMessengerConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TwilioMessengerConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static TwilioMessengerConfiguration fromJSON(String json) {
     return TwilioMessengerConfigurationJSON.fromJSON(json);
   }
-
+  
   public static TwilioMessengerConfiguration fromJSONBytes(byte[] json) {
     return TwilioMessengerConfigurationJSON.fromJSON(json);
   }

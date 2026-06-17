@@ -25,15 +25,15 @@ public record Trust(
   public String toJSON() {
     return TrustJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TrustJSON.toJSONBytes(this);
   }
-
+  
   public static Trust fromJSON(String json) {
     return TrustJSON.fromJSON(json);
   }
-
+  
   public static Trust fromJSONBytes(byte[] json) {
     return TrustJSON.fromJSON(json);
   }

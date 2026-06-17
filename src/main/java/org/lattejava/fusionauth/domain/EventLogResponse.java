@@ -17,15 +17,15 @@ public record EventLogResponse(
   public String toJSON() {
     return EventLogResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EventLogResponseJSON.toJSONBytes(this);
   }
-
+  
   public static EventLogResponse fromJSON(String json) {
     return EventLogResponseJSON.fromJSON(json);
   }
-
+  
   public static EventLogResponse fromJSONBytes(byte[] json) {
     return EventLogResponseJSON.fromJSON(json);
   }

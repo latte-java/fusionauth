@@ -18,15 +18,15 @@ public record SecureGeneratorConfiguration(
   public String toJSON() {
     return SecureGeneratorConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return SecureGeneratorConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static SecureGeneratorConfiguration fromJSON(String json) {
     return SecureGeneratorConfigurationJSON.fromJSON(json);
   }
-
+  
   public static SecureGeneratorConfiguration fromJSONBytes(byte[] json) {
     return SecureGeneratorConfigurationJSON.fromJSON(json);
   }

@@ -17,15 +17,15 @@ public record JWTVendResponse(
   public String toJSON() {
     return JWTVendResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return JWTVendResponseJSON.toJSONBytes(this);
   }
-
+  
   public static JWTVendResponse fromJSON(String json) {
     return JWTVendResponseJSON.fromJSON(json);
   }
-
+  
   public static JWTVendResponse fromJSONBytes(byte[] json) {
     return JWTVendResponseJSON.fromJSON(json);
   }

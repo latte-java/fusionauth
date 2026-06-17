@@ -18,15 +18,15 @@ public record AuditLogSearchResponse(
   public String toJSON() {
     return AuditLogSearchResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return AuditLogSearchResponseJSON.toJSONBytes(this);
   }
-
+  
   public static AuditLogSearchResponse fromJSON(String json) {
     return AuditLogSearchResponseJSON.fromJSON(json);
   }
-
+  
   public static AuditLogSearchResponse fromJSONBytes(byte[] json) {
     return AuditLogSearchResponseJSON.fromJSON(json);
   }

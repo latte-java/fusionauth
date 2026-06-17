@@ -27,15 +27,15 @@ public record UserIdentity(
   public String toJSON() {
     return UserIdentityJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserIdentityJSON.toJSONBytes(this);
   }
-
+  
   public static UserIdentity fromJSON(String json) {
     return UserIdentityJSON.fromJSON(json);
   }
-
+  
   public static UserIdentity fromJSONBytes(byte[] json) {
     return UserIdentityJSON.fromJSON(json);
   }

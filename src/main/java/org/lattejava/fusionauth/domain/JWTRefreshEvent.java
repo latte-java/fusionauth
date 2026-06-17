@@ -26,15 +26,15 @@ public record JWTRefreshEvent(
   public String toJSON() {
     return JWTRefreshEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return JWTRefreshEventJSON.toJSONBytes(this);
   }
-
+  
   public static JWTRefreshEvent fromJSON(String json) {
     return JWTRefreshEventJSON.fromJSON(json);
   }
-
+  
   public static JWTRefreshEvent fromJSONBytes(byte[] json) {
     return JWTRefreshEventJSON.fromJSON(json);
   }

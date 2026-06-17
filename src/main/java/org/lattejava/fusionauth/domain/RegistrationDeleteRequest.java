@@ -17,15 +17,15 @@ public record RegistrationDeleteRequest(
   public String toJSON() {
     return RegistrationDeleteRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return RegistrationDeleteRequestJSON.toJSONBytes(this);
   }
-
+  
   public static RegistrationDeleteRequest fromJSON(String json) {
     return RegistrationDeleteRequestJSON.fromJSON(json);
   }
-
+  
   public static RegistrationDeleteRequest fromJSONBytes(byte[] json) {
     return RegistrationDeleteRequestJSON.fromJSON(json);
   }

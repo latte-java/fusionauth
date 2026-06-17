@@ -42,15 +42,15 @@ public record ReactorStatus(
   public String toJSON() {
     return ReactorStatusJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ReactorStatusJSON.toJSONBytes(this);
   }
-
+  
   public static ReactorStatus fromJSON(String json) {
     return ReactorStatusJSON.fromJSON(json);
   }
-
+  
   public static ReactorStatus fromJSONBytes(byte[] json) {
     return ReactorStatusJSON.fromJSON(json);
   }

@@ -22,15 +22,15 @@ public record UserBulkCreateEvent(
   public String toJSON() {
     return UserBulkCreateEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserBulkCreateEventJSON.toJSONBytes(this);
   }
-
+  
   public static UserBulkCreateEvent fromJSON(String json) {
     return UserBulkCreateEventJSON.fromJSON(json);
   }
-
+  
   public static UserBulkCreateEvent fromJSONBytes(byte[] json) {
     return UserBulkCreateEventJSON.fromJSON(json);
   }

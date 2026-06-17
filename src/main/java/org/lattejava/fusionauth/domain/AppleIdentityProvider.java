@@ -36,15 +36,15 @@ public record AppleIdentityProvider(
   public String toJSON() {
     return AppleIdentityProviderJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return AppleIdentityProviderJSON.toJSONBytes(this);
   }
-
+  
   public static AppleIdentityProvider fromJSON(String json) {
     return AppleIdentityProviderJSON.fromJSON(json);
   }
-
+  
   public static AppleIdentityProvider fromJSONBytes(byte[] json) {
     return AppleIdentityProviderJSON.fromJSON(json);
   }

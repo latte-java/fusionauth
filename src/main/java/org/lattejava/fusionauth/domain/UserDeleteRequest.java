@@ -23,15 +23,15 @@ public record UserDeleteRequest(
   public String toJSON() {
     return UserDeleteRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserDeleteRequestJSON.toJSONBytes(this);
   }
-
+  
   public static UserDeleteRequest fromJSON(String json) {
     return UserDeleteRequestJSON.fromJSON(json);
   }
-
+  
   public static UserDeleteRequest fromJSONBytes(byte[] json) {
     return UserDeleteRequestJSON.fromJSON(json);
   }

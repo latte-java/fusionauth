@@ -18,15 +18,15 @@ public record VerifyStartResponse(
   public String toJSON() {
     return VerifyStartResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return VerifyStartResponseJSON.toJSONBytes(this);
   }
-
+  
   public static VerifyStartResponse fromJSON(String json) {
     return VerifyStartResponseJSON.fromJSON(json);
   }
-
+  
   public static VerifyStartResponse fromJSONBytes(byte[] json) {
     return VerifyStartResponseJSON.fromJSON(json);
   }

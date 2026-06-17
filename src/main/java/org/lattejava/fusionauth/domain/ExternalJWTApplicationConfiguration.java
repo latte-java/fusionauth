@@ -18,15 +18,15 @@ public record ExternalJWTApplicationConfiguration(
   public String toJSON() {
     return ExternalJWTApplicationConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ExternalJWTApplicationConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static ExternalJWTApplicationConfiguration fromJSON(String json) {
     return ExternalJWTApplicationConfigurationJSON.fromJSON(json);
   }
-
+  
   public static ExternalJWTApplicationConfiguration fromJSONBytes(byte[] json) {
     return ExternalJWTApplicationConfigurationJSON.fromJSON(json);
   }

@@ -22,15 +22,15 @@ public record BaseLoginRequest(
   public String toJSON() {
     return BaseLoginRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return BaseLoginRequestJSON.toJSONBytes(this);
   }
-
+  
   public static BaseLoginRequest fromJSON(String json) {
     return BaseLoginRequestJSON.fromJSON(json);
   }
-
+  
   public static BaseLoginRequest fromJSONBytes(byte[] json) {
     return BaseLoginRequestJSON.fromJSON(json);
   }

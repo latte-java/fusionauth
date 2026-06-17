@@ -17,15 +17,15 @@ public record UserReactivateEvent(
   public String toJSON() {
     return UserReactivateEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserReactivateEventJSON.toJSONBytes(this);
   }
-
+  
   public static UserReactivateEvent fromJSON(String json) {
     return UserReactivateEventJSON.fromJSON(json);
   }
-
+  
   public static UserReactivateEvent fromJSONBytes(byte[] json) {
     return UserReactivateEventJSON.fromJSON(json);
   }

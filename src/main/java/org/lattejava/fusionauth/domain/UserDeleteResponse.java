@@ -20,15 +20,15 @@ public record UserDeleteResponse(
   public String toJSON() {
     return UserDeleteResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserDeleteResponseJSON.toJSONBytes(this);
   }
-
+  
   public static UserDeleteResponse fromJSON(String json) {
     return UserDeleteResponseJSON.fromJSON(json);
   }
-
+  
   public static UserDeleteResponse fromJSONBytes(byte[] json) {
     return UserDeleteResponseJSON.fromJSON(json);
   }

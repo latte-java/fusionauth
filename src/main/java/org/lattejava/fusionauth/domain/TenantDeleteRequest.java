@@ -18,15 +18,15 @@ public record TenantDeleteRequest(
   public String toJSON() {
     return TenantDeleteRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TenantDeleteRequestJSON.toJSONBytes(this);
   }
-
+  
   public static TenantDeleteRequest fromJSON(String json) {
     return TenantDeleteRequestJSON.fromJSON(json);
   }
-
+  
   public static TenantDeleteRequest fromJSONBytes(byte[] json) {
     return TenantDeleteRequestJSON.fromJSON(json);
   }

@@ -17,15 +17,15 @@ public record MultiFactorEmailTemplate(
   public String toJSON() {
     return MultiFactorEmailTemplateJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return MultiFactorEmailTemplateJSON.toJSONBytes(this);
   }
-
+  
   public static MultiFactorEmailTemplate fromJSON(String json) {
     return MultiFactorEmailTemplateJSON.fromJSON(json);
   }
-
+  
   public static MultiFactorEmailTemplate fromJSONBytes(byte[] json) {
     return MultiFactorEmailTemplateJSON.fromJSON(json);
   }

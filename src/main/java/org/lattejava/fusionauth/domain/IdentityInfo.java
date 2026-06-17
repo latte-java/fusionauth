@@ -18,15 +18,15 @@ public record IdentityInfo(
   public String toJSON() {
     return IdentityInfoJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return IdentityInfoJSON.toJSONBytes(this);
   }
-
+  
   public static IdentityInfo fromJSON(String json) {
     return IdentityInfoJSON.fromJSON(json);
   }
-
+  
   public static IdentityInfo fromJSONBytes(byte[] json) {
     return IdentityInfoJSON.fromJSON(json);
   }

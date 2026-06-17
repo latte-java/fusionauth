@@ -18,15 +18,15 @@ public record VerifyEmailResponse(
   public String toJSON() {
     return VerifyEmailResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return VerifyEmailResponseJSON.toJSONBytes(this);
   }
-
+  
   public static VerifyEmailResponse fromJSON(String json) {
     return VerifyEmailResponseJSON.fromJSON(json);
   }
-
+  
   public static VerifyEmailResponse fromJSONBytes(byte[] json) {
     return VerifyEmailResponseJSON.fromJSON(json);
   }

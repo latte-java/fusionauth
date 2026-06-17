@@ -21,15 +21,15 @@ public record VoiceMessage(
   public String toJSON() {
     return VoiceMessageJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return VoiceMessageJSON.toJSONBytes(this);
   }
-
+  
   public static VoiceMessage fromJSON(String json) {
     return VoiceMessageJSON.fromJSON(json);
   }
-
+  
   public static VoiceMessage fromJSONBytes(byte[] json) {
     return VoiceMessageJSON.fromJSON(json);
   }

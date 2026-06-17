@@ -18,15 +18,15 @@ public record IPAccessControlListSearchResponse(
   public String toJSON() {
     return IPAccessControlListSearchResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return IPAccessControlListSearchResponseJSON.toJSONBytes(this);
   }
-
+  
   public static IPAccessControlListSearchResponse fromJSON(String json) {
     return IPAccessControlListSearchResponseJSON.fromJSON(json);
   }
-
+  
   public static IPAccessControlListSearchResponse fromJSONBytes(byte[] json) {
     return IPAccessControlListSearchResponseJSON.fromJSON(json);
   }

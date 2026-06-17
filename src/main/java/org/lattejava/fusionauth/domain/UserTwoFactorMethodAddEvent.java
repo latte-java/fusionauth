@@ -18,15 +18,15 @@ public record UserTwoFactorMethodAddEvent(
   public String toJSON() {
     return UserTwoFactorMethodAddEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserTwoFactorMethodAddEventJSON.toJSONBytes(this);
   }
-
+  
   public static UserTwoFactorMethodAddEvent fromJSON(String json) {
     return UserTwoFactorMethodAddEventJSON.fromJSON(json);
   }
-
+  
   public static UserTwoFactorMethodAddEvent fromJSONBytes(byte[] json) {
     return UserTwoFactorMethodAddEventJSON.fromJSON(json);
   }

@@ -22,15 +22,15 @@ public record TestEvent(
   public String toJSON() {
     return TestEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TestEventJSON.toJSONBytes(this);
   }
-
+  
   public static TestEvent fromJSON(String json) {
     return TestEventJSON.fromJSON(json);
   }
-
+  
   public static TestEvent fromJSONBytes(byte[] json) {
     return TestEventJSON.fromJSON(json);
   }

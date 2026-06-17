@@ -18,15 +18,15 @@ public record ConnectorResponse(
   public String toJSON() {
     return ConnectorResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ConnectorResponseJSON.toJSONBytes(this);
   }
-
+  
   public static ConnectorResponse fromJSON(String json) {
     return ConnectorResponseJSON.fromJSON(json);
   }
-
+  
   public static ConnectorResponse fromJSONBytes(byte[] json) {
     return ConnectorResponseJSON.fromJSON(json);
   }

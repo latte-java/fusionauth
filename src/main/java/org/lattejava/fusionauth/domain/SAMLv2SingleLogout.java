@@ -20,15 +20,15 @@ public record SAMLv2SingleLogout(
   public String toJSON() {
     return SAMLv2SingleLogoutJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return SAMLv2SingleLogoutJSON.toJSONBytes(this);
   }
-
+  
   public static SAMLv2SingleLogout fromJSON(String json) {
     return SAMLv2SingleLogoutJSON.fromJSON(json);
   }
-
+  
   public static SAMLv2SingleLogout fromJSONBytes(byte[] json) {
     return SAMLv2SingleLogoutJSON.fromJSON(json);
   }

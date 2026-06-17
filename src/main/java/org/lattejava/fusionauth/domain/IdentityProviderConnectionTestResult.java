@@ -23,15 +23,15 @@ public record IdentityProviderConnectionTestResult(
   public String toJSON() {
     return IdentityProviderConnectionTestResultJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return IdentityProviderConnectionTestResultJSON.toJSONBytes(this);
   }
-
+  
   public static IdentityProviderConnectionTestResult fromJSON(String json) {
     return IdentityProviderConnectionTestResultJSON.fromJSON(json);
   }
-
+  
   public static IdentityProviderConnectionTestResult fromJSONBytes(byte[] json) {
     return IdentityProviderConnectionTestResultJSON.fromJSON(json);
   }

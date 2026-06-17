@@ -39,15 +39,15 @@ public record UserActionEvent(
   public String toJSON() {
     return UserActionEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserActionEventJSON.toJSONBytes(this);
   }
-
+  
   public static UserActionEvent fromJSON(String json) {
     return UserActionEventJSON.fromJSON(json);
   }
-
+  
   public static UserActionEvent fromJSONBytes(byte[] json) {
     return UserActionEventJSON.fromJSON(json);
   }

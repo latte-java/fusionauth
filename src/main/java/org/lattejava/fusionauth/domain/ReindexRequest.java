@@ -17,15 +17,15 @@ public record ReindexRequest(
   public String toJSON() {
     return ReindexRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ReindexRequestJSON.toJSONBytes(this);
   }
-
+  
   public static ReindexRequest fromJSON(String json) {
     return ReindexRequestJSON.fromJSON(json);
   }
-
+  
   public static ReindexRequest fromJSONBytes(byte[] json) {
     return ReindexRequestJSON.fromJSON(json);
   }

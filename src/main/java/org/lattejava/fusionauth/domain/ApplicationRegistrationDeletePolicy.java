@@ -17,15 +17,15 @@ public record ApplicationRegistrationDeletePolicy(
   public String toJSON() {
     return ApplicationRegistrationDeletePolicyJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ApplicationRegistrationDeletePolicyJSON.toJSONBytes(this);
   }
-
+  
   public static ApplicationRegistrationDeletePolicy fromJSON(String json) {
     return ApplicationRegistrationDeletePolicyJSON.fromJSON(json);
   }
-
+  
   public static ApplicationRegistrationDeletePolicy fromJSONBytes(byte[] json) {
     return ApplicationRegistrationDeletePolicyJSON.fromJSON(json);
   }

@@ -17,15 +17,15 @@ public record UserPasswordBreachEvent(
   public String toJSON() {
     return UserPasswordBreachEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserPasswordBreachEventJSON.toJSONBytes(this);
   }
-
+  
   public static UserPasswordBreachEvent fromJSON(String json) {
     return UserPasswordBreachEventJSON.fromJSON(json);
   }
-
+  
   public static UserPasswordBreachEvent fromJSONBytes(byte[] json) {
     return UserPasswordBreachEventJSON.fromJSON(json);
   }

@@ -20,15 +20,15 @@ public record EntityTypeSearchCriteria(
   public String toJSON() {
     return EntityTypeSearchCriteriaJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EntityTypeSearchCriteriaJSON.toJSONBytes(this);
   }
-
+  
   public static EntityTypeSearchCriteria fromJSON(String json) {
     return EntityTypeSearchCriteriaJSON.fromJSON(json);
   }
-
+  
   public static EntityTypeSearchCriteria fromJSONBytes(byte[] json) {
     return EntityTypeSearchCriteriaJSON.fromJSON(json);
   }

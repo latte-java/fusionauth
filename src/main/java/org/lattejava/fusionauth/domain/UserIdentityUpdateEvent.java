@@ -20,15 +20,15 @@ public record UserIdentityUpdateEvent(
   public String toJSON() {
     return UserIdentityUpdateEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserIdentityUpdateEventJSON.toJSONBytes(this);
   }
-
+  
   public static UserIdentityUpdateEvent fromJSON(String json) {
     return UserIdentityUpdateEventJSON.fromJSON(json);
   }
-
+  
   public static UserIdentityUpdateEvent fromJSONBytes(byte[] json) {
     return UserIdentityUpdateEventJSON.fromJSON(json);
   }

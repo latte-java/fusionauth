@@ -19,15 +19,15 @@ public record AuthenticatorConfiguration(
   public String toJSON() {
     return AuthenticatorConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return AuthenticatorConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static AuthenticatorConfiguration fromJSON(String json) {
     return AuthenticatorConfigurationJSON.fromJSON(json);
   }
-
+  
   public static AuthenticatorConfiguration fromJSONBytes(byte[] json) {
     return AuthenticatorConfigurationJSON.fromJSON(json);
   }

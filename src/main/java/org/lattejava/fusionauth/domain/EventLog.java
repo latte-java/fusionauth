@@ -20,15 +20,15 @@ public record EventLog(
   public String toJSON() {
     return EventLogJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EventLogJSON.toJSONBytes(this);
   }
-
+  
   public static EventLog fromJSON(String json) {
     return EventLogJSON.fromJSON(json);
   }
-
+  
   public static EventLog fromJSONBytes(byte[] json) {
     return EventLogJSON.fromJSON(json);
   }

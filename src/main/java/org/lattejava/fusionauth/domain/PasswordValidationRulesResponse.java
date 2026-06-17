@@ -17,15 +17,15 @@ public record PasswordValidationRulesResponse(
   public String toJSON() {
     return PasswordValidationRulesResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return PasswordValidationRulesResponseJSON.toJSONBytes(this);
   }
-
+  
   public static PasswordValidationRulesResponse fromJSON(String json) {
     return PasswordValidationRulesResponseJSON.fromJSON(json);
   }
-
+  
   public static PasswordValidationRulesResponse fromJSONBytes(byte[] json) {
     return PasswordValidationRulesResponseJSON.fromJSON(json);
   }

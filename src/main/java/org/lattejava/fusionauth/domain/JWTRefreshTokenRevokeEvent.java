@@ -13,7 +13,7 @@ import org.lattejava.fusionauth.domain.internal.JWTRefreshTokenRevokeEventJSON;
 public record JWTRefreshTokenRevokeEvent(
     User user,
     UUID applicationId,
-    Map<String, Integer> applicationTimeToLiveInSeconds,
+    Map<String, Object> applicationTimeToLiveInSeconds,
     RefreshToken refreshToken,
     UUID userId,
     @JSONField(instant = InstantFormat.EPOCH_MILLIS) Instant createInstant,
@@ -26,15 +26,15 @@ public record JWTRefreshTokenRevokeEvent(
   public String toJSON() {
     return JWTRefreshTokenRevokeEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return JWTRefreshTokenRevokeEventJSON.toJSONBytes(this);
   }
-
+  
   public static JWTRefreshTokenRevokeEvent fromJSON(String json) {
     return JWTRefreshTokenRevokeEventJSON.fromJSON(json);
   }
-
+  
   public static JWTRefreshTokenRevokeEvent fromJSONBytes(byte[] json) {
     return JWTRefreshTokenRevokeEventJSON.fromJSON(json);
   }
@@ -42,7 +42,7 @@ public record JWTRefreshTokenRevokeEvent(
   public static final class Builder {
     private User user;
     private UUID applicationId;
-    private Map<String, Integer> applicationTimeToLiveInSeconds;
+    private Map<String, Object> applicationTimeToLiveInSeconds;
     private RefreshToken refreshToken;
     private UUID userId;
     private Instant createInstant;
@@ -52,7 +52,7 @@ public record JWTRefreshTokenRevokeEvent(
     private EventType type;
     public Builder user(User user) { this.user = user; return this; }
     public Builder applicationId(UUID applicationId) { this.applicationId = applicationId; return this; }
-    public Builder applicationTimeToLiveInSeconds(Map<String, Integer> applicationTimeToLiveInSeconds) { this.applicationTimeToLiveInSeconds = applicationTimeToLiveInSeconds; return this; }
+    public Builder applicationTimeToLiveInSeconds(Map<String, Object> applicationTimeToLiveInSeconds) { this.applicationTimeToLiveInSeconds = applicationTimeToLiveInSeconds; return this; }
     public Builder refreshToken(RefreshToken refreshToken) { this.refreshToken = refreshToken; return this; }
     public Builder userId(UUID userId) { this.userId = userId; return this; }
     public Builder createInstant(Instant createInstant) { this.createInstant = createInstant; return this; }

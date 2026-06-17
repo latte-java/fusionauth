@@ -22,15 +22,15 @@ public record TwoFactorStatusRequest(
   public String toJSON() {
     return TwoFactorStatusRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TwoFactorStatusRequestJSON.toJSONBytes(this);
   }
-
+  
   public static TwoFactorStatusRequest fromJSON(String json) {
     return TwoFactorStatusRequestJSON.fromJSON(json);
   }
-
+  
   public static TwoFactorStatusRequest fromJSONBytes(byte[] json) {
     return TwoFactorStatusRequestJSON.fromJSON(json);
   }

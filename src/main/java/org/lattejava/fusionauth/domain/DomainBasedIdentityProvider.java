@@ -16,15 +16,15 @@ public record DomainBasedIdentityProvider() {
   public String toJSON() {
     return DomainBasedIdentityProviderJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return DomainBasedIdentityProviderJSON.toJSONBytes(this);
   }
-
+  
   public static DomainBasedIdentityProvider fromJSON(String json) {
     return DomainBasedIdentityProviderJSON.fromJSON(json);
   }
-
+  
   public static DomainBasedIdentityProvider fromJSONBytes(byte[] json) {
     return DomainBasedIdentityProviderJSON.fromJSON(json);
   }

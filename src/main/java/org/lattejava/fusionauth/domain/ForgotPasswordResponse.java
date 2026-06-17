@@ -17,15 +17,15 @@ public record ForgotPasswordResponse(
   public String toJSON() {
     return ForgotPasswordResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ForgotPasswordResponseJSON.toJSONBytes(this);
   }
-
+  
   public static ForgotPasswordResponse fromJSON(String json) {
     return ForgotPasswordResponseJSON.fromJSON(json);
   }
-
+  
   public static ForgotPasswordResponse fromJSONBytes(byte[] json) {
     return ForgotPasswordResponseJSON.fromJSON(json);
   }

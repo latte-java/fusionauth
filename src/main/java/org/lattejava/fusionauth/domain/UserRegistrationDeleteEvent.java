@@ -19,15 +19,15 @@ public record UserRegistrationDeleteEvent(
   public String toJSON() {
     return UserRegistrationDeleteEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserRegistrationDeleteEventJSON.toJSONBytes(this);
   }
-
+  
   public static UserRegistrationDeleteEvent fromJSON(String json) {
     return UserRegistrationDeleteEventJSON.fromJSON(json);
   }
-
+  
   public static UserRegistrationDeleteEvent fromJSONBytes(byte[] json) {
     return UserRegistrationDeleteEventJSON.fromJSON(json);
   }

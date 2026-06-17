@@ -17,15 +17,15 @@ public record AuditLogResponse(
   public String toJSON() {
     return AuditLogResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return AuditLogResponseJSON.toJSONBytes(this);
   }
-
+  
   public static AuditLogResponse fromJSON(String json) {
     return AuditLogResponseJSON.fromJSON(json);
   }
-
+  
   public static AuditLogResponse fromJSONBytes(byte[] json) {
     return AuditLogResponseJSON.fromJSON(json);
   }

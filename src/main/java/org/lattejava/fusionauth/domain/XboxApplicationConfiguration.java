@@ -22,15 +22,15 @@ public record XboxApplicationConfiguration(
   public String toJSON() {
     return XboxApplicationConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return XboxApplicationConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static XboxApplicationConfiguration fromJSON(String json) {
     return XboxApplicationConfigurationJSON.fromJSON(json);
   }
-
+  
   public static XboxApplicationConfiguration fromJSONBytes(byte[] json) {
     return XboxApplicationConfigurationJSON.fromJSON(json);
   }

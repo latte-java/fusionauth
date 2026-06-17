@@ -21,15 +21,15 @@ public record UserLoginFailedEvent(
   public String toJSON() {
     return UserLoginFailedEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserLoginFailedEventJSON.toJSONBytes(this);
   }
-
+  
   public static UserLoginFailedEvent fromJSON(String json) {
     return UserLoginFailedEventJSON.fromJSON(json);
   }
-
+  
   public static UserLoginFailedEvent fromJSONBytes(byte[] json) {
     return UserLoginFailedEventJSON.fromJSON(json);
   }

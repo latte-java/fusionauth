@@ -23,15 +23,15 @@ public record FailedAuthenticationConfiguration(
   public String toJSON() {
     return FailedAuthenticationConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return FailedAuthenticationConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static FailedAuthenticationConfiguration fromJSON(String json) {
     return FailedAuthenticationConfigurationJSON.fromJSON(json);
   }
-
+  
   public static FailedAuthenticationConfiguration fromJSONBytes(byte[] json) {
     return FailedAuthenticationConfigurationJSON.fromJSON(json);
   }

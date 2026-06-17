@@ -20,15 +20,15 @@ public record HistoryItem(
   public String toJSON() {
     return HistoryItemJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return HistoryItemJSON.toJSONBytes(this);
   }
-
+  
   public static HistoryItem fromJSON(String json) {
     return HistoryItemJSON.fromJSON(json);
   }
-
+  
   public static HistoryItem fromJSONBytes(byte[] json) {
     return HistoryItemJSON.fromJSON(json);
   }

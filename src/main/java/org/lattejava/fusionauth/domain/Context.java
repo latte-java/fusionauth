@@ -24,15 +24,15 @@ public record Context(
   public String toJSON() {
     return ContextJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ContextJSON.toJSONBytes(this);
   }
-
+  
   public static Context fromJSON(String json) {
     return ContextJSON.fromJSON(json);
   }
-
+  
   public static Context fromJSONBytes(byte[] json) {
     return ContextJSON.fromJSON(json);
   }

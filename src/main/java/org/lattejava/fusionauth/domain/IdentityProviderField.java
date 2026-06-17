@@ -31,15 +31,15 @@ public sealed interface IdentityProviderField
   default String toJSON() {
     return IdentityProviderFieldJSON.toJSON(this);
   }
-
+  
   default byte[] toJSONBytes() {
     return IdentityProviderFieldJSON.toJSONBytes(this);
   }
-
+  
   static IdentityProviderField fromJSON(String json) {
     return IdentityProviderFieldJSON.fromJSON(json);
   }
-
+  
   static IdentityProviderField fromJSONBytes(byte[] json) {
     return IdentityProviderFieldJSON.fromJSON(json);
   }

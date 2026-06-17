@@ -20,15 +20,15 @@ public record RawLogin(
   public String toJSON() {
     return RawLoginJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return RawLoginJSON.toJSONBytes(this);
   }
-
+  
   public static RawLogin fromJSON(String json) {
     return RawLoginJSON.fromJSON(json);
   }
-
+  
   public static RawLogin fromJSONBytes(byte[] json) {
     return RawLoginJSON.fromJSON(json);
   }

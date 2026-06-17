@@ -18,15 +18,15 @@ public record ThemeRequest(
   public String toJSON() {
     return ThemeRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ThemeRequestJSON.toJSONBytes(this);
   }
-
+  
   public static ThemeRequest fromJSON(String json) {
     return ThemeRequestJSON.fromJSON(json);
   }
-
+  
   public static ThemeRequest fromJSONBytes(byte[] json) {
     return ThemeRequestJSON.fromJSON(json);
   }

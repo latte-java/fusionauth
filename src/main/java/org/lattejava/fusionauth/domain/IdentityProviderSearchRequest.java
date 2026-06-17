@@ -17,15 +17,15 @@ public record IdentityProviderSearchRequest(
   public String toJSON() {
     return IdentityProviderSearchRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return IdentityProviderSearchRequestJSON.toJSONBytes(this);
   }
-
+  
   public static IdentityProviderSearchRequest fromJSON(String json) {
     return IdentityProviderSearchRequestJSON.fromJSON(json);
   }
-
+  
   public static IdentityProviderSearchRequest fromJSONBytes(byte[] json) {
     return IdentityProviderSearchRequestJSON.fromJSON(json);
   }

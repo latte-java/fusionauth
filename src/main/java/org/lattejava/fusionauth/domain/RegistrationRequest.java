@@ -26,15 +26,15 @@ public record RegistrationRequest(
   public String toJSON() {
     return RegistrationRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return RegistrationRequestJSON.toJSONBytes(this);
   }
-
+  
   public static RegistrationRequest fromJSON(String json) {
     return RegistrationRequestJSON.fromJSON(json);
   }
-
+  
   public static RegistrationRequest fromJSONBytes(byte[] json) {
     return RegistrationRequestJSON.fromJSON(json);
   }

@@ -28,15 +28,15 @@ public record IdentityProviderOauth2Configuration(
   public String toJSON() {
     return IdentityProviderOauth2ConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return IdentityProviderOauth2ConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static IdentityProviderOauth2Configuration fromJSON(String json) {
     return IdentityProviderOauth2ConfigurationJSON.fromJSON(json);
   }
-
+  
   public static IdentityProviderOauth2Configuration fromJSONBytes(byte[] json) {
     return IdentityProviderOauth2ConfigurationJSON.fromJSON(json);
   }

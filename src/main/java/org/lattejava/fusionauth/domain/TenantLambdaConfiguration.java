@@ -24,15 +24,15 @@ public record TenantLambdaConfiguration(
   public String toJSON() {
     return TenantLambdaConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TenantLambdaConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static TenantLambdaConfiguration fromJSON(String json) {
     return TenantLambdaConfigurationJSON.fromJSON(json);
   }
-
+  
   public static TenantLambdaConfiguration fromJSONBytes(byte[] json) {
     return TenantLambdaConfigurationJSON.fromJSON(json);
   }

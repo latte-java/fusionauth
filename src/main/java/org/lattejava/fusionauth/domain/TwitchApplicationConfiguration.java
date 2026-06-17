@@ -22,15 +22,15 @@ public record TwitchApplicationConfiguration(
   public String toJSON() {
     return TwitchApplicationConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TwitchApplicationConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static TwitchApplicationConfiguration fromJSON(String json) {
     return TwitchApplicationConfigurationJSON.fromJSON(json);
   }
-
+  
   public static TwitchApplicationConfiguration fromJSONBytes(byte[] json) {
     return TwitchApplicationConfigurationJSON.fromJSON(json);
   }

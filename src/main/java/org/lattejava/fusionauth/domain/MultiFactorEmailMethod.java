@@ -18,15 +18,15 @@ public record MultiFactorEmailMethod(
   public String toJSON() {
     return MultiFactorEmailMethodJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return MultiFactorEmailMethodJSON.toJSONBytes(this);
   }
-
+  
   public static MultiFactorEmailMethod fromJSON(String json) {
     return MultiFactorEmailMethodJSON.fromJSON(json);
   }
-
+  
   public static MultiFactorEmailMethod fromJSONBytes(byte[] json) {
     return MultiFactorEmailMethodJSON.fromJSON(json);
   }

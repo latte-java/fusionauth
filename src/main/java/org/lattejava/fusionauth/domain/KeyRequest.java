@@ -17,15 +17,15 @@ public record KeyRequest(
   public String toJSON() {
     return KeyRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return KeyRequestJSON.toJSONBytes(this);
   }
-
+  
   public static KeyRequest fromJSON(String json) {
     return KeyRequestJSON.fromJSON(json);
   }
-
+  
   public static KeyRequest fromJSONBytes(byte[] json) {
     return KeyRequestJSON.fromJSON(json);
   }

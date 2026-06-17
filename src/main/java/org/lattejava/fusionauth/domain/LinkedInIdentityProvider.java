@@ -34,15 +34,15 @@ public record LinkedInIdentityProvider(
   public String toJSON() {
     return LinkedInIdentityProviderJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return LinkedInIdentityProviderJSON.toJSONBytes(this);
   }
-
+  
   public static LinkedInIdentityProvider fromJSON(String json) {
     return LinkedInIdentityProviderJSON.fromJSON(json);
   }
-
+  
   public static LinkedInIdentityProvider fromJSONBytes(byte[] json) {
     return LinkedInIdentityProviderJSON.fromJSON(json);
   }

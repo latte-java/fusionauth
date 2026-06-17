@@ -37,15 +37,15 @@ public record NintendoIdentityProvider(
   public String toJSON() {
     return NintendoIdentityProviderJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return NintendoIdentityProviderJSON.toJSONBytes(this);
   }
-
+  
   public static NintendoIdentityProvider fromJSON(String json) {
     return NintendoIdentityProviderJSON.fromJSON(json);
   }
-
+  
   public static NintendoIdentityProvider fromJSONBytes(byte[] json) {
     return NintendoIdentityProviderJSON.fromJSON(json);
   }

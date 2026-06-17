@@ -24,15 +24,15 @@ public record EntityGrant(
   public String toJSON() {
     return EntityGrantJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EntityGrantJSON.toJSONBytes(this);
   }
-
+  
   public static EntityGrant fromJSON(String json) {
     return EntityGrantJSON.fromJSON(json);
   }
-
+  
   public static EntityGrant fromJSONBytes(byte[] json) {
     return EntityGrantJSON.fromJSON(json);
   }

@@ -26,15 +26,15 @@ public record ApplicationOAuthScope(
   public String toJSON() {
     return ApplicationOAuthScopeJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ApplicationOAuthScopeJSON.toJSONBytes(this);
   }
-
+  
   public static ApplicationOAuthScope fromJSON(String json) {
     return ApplicationOAuthScopeJSON.fromJSON(json);
   }
-
+  
   public static ApplicationOAuthScope fromJSONBytes(byte[] json) {
     return ApplicationOAuthScopeJSON.fromJSON(json);
   }

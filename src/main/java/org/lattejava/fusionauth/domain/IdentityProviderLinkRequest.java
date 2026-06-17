@@ -19,15 +19,15 @@ public record IdentityProviderLinkRequest(
   public String toJSON() {
     return IdentityProviderLinkRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return IdentityProviderLinkRequestJSON.toJSONBytes(this);
   }
-
+  
   public static IdentityProviderLinkRequest fromJSON(String json) {
     return IdentityProviderLinkRequestJSON.fromJSON(json);
   }
-
+  
   public static IdentityProviderLinkRequest fromJSONBytes(byte[] json) {
     return IdentityProviderLinkRequestJSON.fromJSON(json);
   }

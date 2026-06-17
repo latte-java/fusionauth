@@ -18,15 +18,15 @@ public record ReactorRequest(
   public String toJSON() {
     return ReactorRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ReactorRequestJSON.toJSONBytes(this);
   }
-
+  
   public static ReactorRequest fromJSON(String json) {
     return ReactorRequestJSON.fromJSON(json);
   }
-
+  
   public static ReactorRequest fromJSONBytes(byte[] json) {
     return ReactorRequestJSON.fromJSON(json);
   }

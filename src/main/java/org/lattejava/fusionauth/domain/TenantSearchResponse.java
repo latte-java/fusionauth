@@ -18,15 +18,15 @@ public record TenantSearchResponse(
   public String toJSON() {
     return TenantSearchResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TenantSearchResponseJSON.toJSONBytes(this);
   }
-
+  
   public static TenantSearchResponse fromJSON(String json) {
     return TenantSearchResponseJSON.fromJSON(json);
   }
-
+  
   public static TenantSearchResponse fromJSONBytes(byte[] json) {
     return TenantSearchResponseJSON.fromJSON(json);
   }

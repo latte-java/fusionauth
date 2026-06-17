@@ -20,15 +20,15 @@ public record Family(
   public String toJSON() {
     return FamilyJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return FamilyJSON.toJSONBytes(this);
   }
-
+  
   public static Family fromJSON(String json) {
     return FamilyJSON.fromJSON(json);
   }
-
+  
   public static Family fromJSONBytes(byte[] json) {
     return FamilyJSON.fromJSON(json);
   }

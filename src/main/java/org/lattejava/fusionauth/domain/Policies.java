@@ -19,15 +19,15 @@ public record Policies(
   public String toJSON() {
     return PoliciesJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return PoliciesJSON.toJSONBytes(this);
   }
-
+  
   public static Policies fromJSON(String json) {
     return PoliciesJSON.fromJSON(json);
   }
-
+  
   public static Policies fromJSONBytes(byte[] json) {
     return PoliciesJSON.fromJSON(json);
   }

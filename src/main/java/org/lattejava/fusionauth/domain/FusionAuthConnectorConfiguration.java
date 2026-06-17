@@ -23,15 +23,15 @@ public record FusionAuthConnectorConfiguration(
   public String toJSON() {
     return FusionAuthConnectorConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return FusionAuthConnectorConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static FusionAuthConnectorConfiguration fromJSON(String json) {
     return FusionAuthConnectorConfigurationJSON.fromJSON(json);
   }
-
+  
   public static FusionAuthConnectorConfiguration fromJSONBytes(byte[] json) {
     return FusionAuthConnectorConfigurationJSON.fromJSON(json);
   }

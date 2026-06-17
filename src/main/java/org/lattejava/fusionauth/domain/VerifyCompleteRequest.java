@@ -19,15 +19,15 @@ public record VerifyCompleteRequest(
   public String toJSON() {
     return VerifyCompleteRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return VerifyCompleteRequestJSON.toJSONBytes(this);
   }
-
+  
   public static VerifyCompleteRequest fromJSON(String json) {
     return VerifyCompleteRequestJSON.fromJSON(json);
   }
-
+  
   public static VerifyCompleteRequest fromJSONBytes(byte[] json) {
     return VerifyCompleteRequestJSON.fromJSON(json);
   }

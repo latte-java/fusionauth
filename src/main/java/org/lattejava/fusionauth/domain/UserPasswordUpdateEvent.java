@@ -17,15 +17,15 @@ public record UserPasswordUpdateEvent(
   public String toJSON() {
     return UserPasswordUpdateEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserPasswordUpdateEventJSON.toJSONBytes(this);
   }
-
+  
   public static UserPasswordUpdateEvent fromJSON(String json) {
     return UserPasswordUpdateEventJSON.fromJSON(json);
   }
-
+  
   public static UserPasswordUpdateEvent fromJSONBytes(byte[] json) {
     return UserPasswordUpdateEventJSON.fromJSON(json);
   }

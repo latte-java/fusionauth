@@ -24,15 +24,15 @@ public record EventInfo(
   public String toJSON() {
     return EventInfoJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EventInfoJSON.toJSONBytes(this);
   }
-
+  
   public static EventInfo fromJSON(String json) {
     return EventInfoJSON.fromJSON(json);
   }
-
+  
   public static EventInfo fromJSONBytes(byte[] json) {
     return EventInfoJSON.fromJSON(json);
   }

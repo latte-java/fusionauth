@@ -16,15 +16,15 @@ public record Message() {
   public String toJSON() {
     return MessageJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return MessageJSON.toJSONBytes(this);
   }
-
+  
   public static Message fromJSON(String json) {
     return MessageJSON.fromJSON(json);
   }
-
+  
   public static Message fromJSONBytes(byte[] json) {
     return MessageJSON.fromJSON(json);
   }

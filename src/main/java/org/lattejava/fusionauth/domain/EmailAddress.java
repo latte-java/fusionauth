@@ -18,15 +18,15 @@ public record EmailAddress(
   public String toJSON() {
     return EmailAddressJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EmailAddressJSON.toJSONBytes(this);
   }
-
+  
   public static EmailAddress fromJSON(String json) {
     return EmailAddressJSON.fromJSON(json);
   }
-
+  
   public static EmailAddress fromJSONBytes(byte[] json) {
     return EmailAddressJSON.fromJSON(json);
   }

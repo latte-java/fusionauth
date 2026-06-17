@@ -18,15 +18,15 @@ public record RegistrationReportResponse(
   public String toJSON() {
     return RegistrationReportResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return RegistrationReportResponseJSON.toJSONBytes(this);
   }
-
+  
   public static RegistrationReportResponse fromJSON(String json) {
     return RegistrationReportResponseJSON.fromJSON(json);
   }
-
+  
   public static RegistrationReportResponse fromJSONBytes(byte[] json) {
     return RegistrationReportResponseJSON.fromJSON(json);
   }

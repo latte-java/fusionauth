@@ -27,15 +27,15 @@ public record Theme(
   public String toJSON() {
     return ThemeJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ThemeJSON.toJSONBytes(this);
   }
-
+  
   public static Theme fromJSON(String json) {
     return ThemeJSON.fromJSON(json);
   }
-
+  
   public static Theme fromJSONBytes(byte[] json) {
     return ThemeJSON.fromJSON(json);
   }

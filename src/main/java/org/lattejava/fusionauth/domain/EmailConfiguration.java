@@ -45,15 +45,15 @@ public record EmailConfiguration(
   public String toJSON() {
     return EmailConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EmailConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static EmailConfiguration fromJSON(String json) {
     return EmailConfigurationJSON.fromJSON(json);
   }
-
+  
   public static EmailConfiguration fromJSONBytes(byte[] json) {
     return EmailConfigurationJSON.fromJSON(json);
   }

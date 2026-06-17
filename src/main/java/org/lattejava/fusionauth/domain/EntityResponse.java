@@ -17,15 +17,15 @@ public record EntityResponse(
   public String toJSON() {
     return EntityResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EntityResponseJSON.toJSONBytes(this);
   }
-
+  
   public static EntityResponse fromJSON(String json) {
     return EntityResponseJSON.fromJSON(json);
   }
-
+  
   public static EntityResponse fromJSONBytes(byte[] json) {
     return EntityResponseJSON.fromJSON(json);
   }

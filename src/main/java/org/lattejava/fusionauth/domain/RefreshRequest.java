@@ -20,15 +20,15 @@ public record RefreshRequest(
   public String toJSON() {
     return RefreshRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return RefreshRequestJSON.toJSONBytes(this);
   }
-
+  
   public static RefreshRequest fromJSON(String json) {
     return RefreshRequestJSON.fromJSON(json);
   }
-
+  
   public static RefreshRequest fromJSONBytes(byte[] json) {
     return RefreshRequestJSON.fromJSON(json);
   }

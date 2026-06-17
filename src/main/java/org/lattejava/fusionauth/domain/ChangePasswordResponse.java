@@ -18,15 +18,15 @@ public record ChangePasswordResponse(
   public String toJSON() {
     return ChangePasswordResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ChangePasswordResponseJSON.toJSONBytes(this);
   }
-
+  
   public static ChangePasswordResponse fromJSON(String json) {
     return ChangePasswordResponseJSON.fromJSON(json);
   }
-
+  
   public static ChangePasswordResponse fromJSONBytes(byte[] json) {
     return ChangePasswordResponseJSON.fromJSON(json);
   }

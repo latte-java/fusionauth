@@ -18,15 +18,15 @@ public record IssueResponse(
   public String toJSON() {
     return IssueResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return IssueResponseJSON.toJSONBytes(this);
   }
-
+  
   public static IssueResponse fromJSON(String json) {
     return IssueResponseJSON.fromJSON(json);
   }
-
+  
   public static IssueResponse fromJSONBytes(byte[] json) {
     return IssueResponseJSON.fromJSON(json);
   }

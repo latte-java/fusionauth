@@ -18,15 +18,15 @@ public record EntityTypeRequest(
   public String toJSON() {
     return EntityTypeRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EntityTypeRequestJSON.toJSONBytes(this);
   }
-
+  
   public static EntityTypeRequest fromJSON(String json) {
     return EntityTypeRequestJSON.fromJSON(json);
   }
-
+  
   public static EntityTypeRequest fromJSONBytes(byte[] json) {
     return EntityTypeRequestJSON.fromJSON(json);
   }

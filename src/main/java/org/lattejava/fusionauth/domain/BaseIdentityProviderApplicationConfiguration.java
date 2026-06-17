@@ -19,15 +19,15 @@ public record BaseIdentityProviderApplicationConfiguration(
   public String toJSON() {
     return BaseIdentityProviderApplicationConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return BaseIdentityProviderApplicationConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static BaseIdentityProviderApplicationConfiguration fromJSON(String json) {
     return BaseIdentityProviderApplicationConfigurationJSON.fromJSON(json);
   }
-
+  
   public static BaseIdentityProviderApplicationConfiguration fromJSONBytes(byte[] json) {
     return BaseIdentityProviderApplicationConfigurationJSON.fromJSON(json);
   }

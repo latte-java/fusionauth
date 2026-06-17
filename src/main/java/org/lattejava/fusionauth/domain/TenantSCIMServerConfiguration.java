@@ -20,15 +20,15 @@ public record TenantSCIMServerConfiguration(
   public String toJSON() {
     return TenantSCIMServerConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TenantSCIMServerConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static TenantSCIMServerConfiguration fromJSON(String json) {
     return TenantSCIMServerConfigurationJSON.fromJSON(json);
   }
-
+  
   public static TenantSCIMServerConfiguration fromJSONBytes(byte[] json) {
     return TenantSCIMServerConfigurationJSON.fromJSON(json);
   }

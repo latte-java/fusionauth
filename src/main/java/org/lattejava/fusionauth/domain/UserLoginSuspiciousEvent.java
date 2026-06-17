@@ -23,15 +23,15 @@ public record UserLoginSuspiciousEvent(
   public String toJSON() {
     return UserLoginSuspiciousEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserLoginSuspiciousEventJSON.toJSONBytes(this);
   }
-
+  
   public static UserLoginSuspiciousEvent fromJSON(String json) {
     return UserLoginSuspiciousEventJSON.fromJSON(json);
   }
-
+  
   public static UserLoginSuspiciousEvent fromJSONBytes(byte[] json) {
     return UserLoginSuspiciousEventJSON.fromJSON(json);
   }

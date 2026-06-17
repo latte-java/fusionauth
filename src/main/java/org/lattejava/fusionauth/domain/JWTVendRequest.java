@@ -19,15 +19,15 @@ public record JWTVendRequest(
   public String toJSON() {
     return JWTVendRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return JWTVendRequestJSON.toJSONBytes(this);
   }
-
+  
   public static JWTVendRequest fromJSON(String json) {
     return JWTVendRequestJSON.fromJSON(json);
   }
-
+  
   public static JWTVendRequest fromJSONBytes(byte[] json) {
     return JWTVendRequestJSON.fromJSON(json);
   }

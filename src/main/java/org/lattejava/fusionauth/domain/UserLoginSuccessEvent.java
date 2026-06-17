@@ -23,15 +23,15 @@ public record UserLoginSuccessEvent(
   public String toJSON() {
     return UserLoginSuccessEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserLoginSuccessEventJSON.toJSONBytes(this);
   }
-
+  
   public static UserLoginSuccessEvent fromJSON(String json) {
     return UserLoginSuccessEventJSON.fromJSON(json);
   }
-
+  
   public static UserLoginSuccessEvent fromJSONBytes(byte[] json) {
     return UserLoginSuccessEventJSON.fromJSON(json);
   }

@@ -18,15 +18,15 @@ public record Requirable(
   public String toJSON() {
     return RequirableJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return RequirableJSON.toJSONBytes(this);
   }
-
+  
   public static Requirable fromJSON(String json) {
     return RequirableJSON.fromJSON(json);
   }
-
+  
   public static Requirable fromJSONBytes(byte[] json) {
     return RequirableJSON.fromJSON(json);
   }

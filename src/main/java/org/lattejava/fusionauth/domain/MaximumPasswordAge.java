@@ -18,15 +18,15 @@ public record MaximumPasswordAge(
   public String toJSON() {
     return MaximumPasswordAgeJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return MaximumPasswordAgeJSON.toJSONBytes(this);
   }
-
+  
   public static MaximumPasswordAge fromJSON(String json) {
     return MaximumPasswordAgeJSON.fromJSON(json);
   }
-
+  
   public static MaximumPasswordAge fromJSONBytes(byte[] json) {
     return MaximumPasswordAgeJSON.fromJSON(json);
   }

@@ -18,15 +18,15 @@ public record DailyActiveUserReportResponse(
   public String toJSON() {
     return DailyActiveUserReportResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return DailyActiveUserReportResponseJSON.toJSONBytes(this);
   }
-
+  
   public static DailyActiveUserReportResponse fromJSON(String json) {
     return DailyActiveUserReportResponseJSON.fromJSON(json);
   }
-
+  
   public static DailyActiveUserReportResponse fromJSONBytes(byte[] json) {
     return DailyActiveUserReportResponseJSON.fromJSON(json);
   }

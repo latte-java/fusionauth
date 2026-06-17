@@ -23,15 +23,15 @@ public record BaseConnectorConfiguration(
   public String toJSON() {
     return BaseConnectorConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return BaseConnectorConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static BaseConnectorConfiguration fromJSON(String json) {
     return BaseConnectorConfigurationJSON.fromJSON(json);
   }
-
+  
   public static BaseConnectorConfiguration fromJSONBytes(byte[] json) {
     return BaseConnectorConfigurationJSON.fromJSON(json);
   }

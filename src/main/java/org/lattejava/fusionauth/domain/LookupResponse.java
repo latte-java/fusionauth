@@ -17,15 +17,15 @@ public record LookupResponse(
   public String toJSON() {
     return LookupResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return LookupResponseJSON.toJSONBytes(this);
   }
-
+  
   public static LookupResponse fromJSON(String json) {
     return LookupResponseJSON.fromJSON(json);
   }
-
+  
   public static LookupResponse fromJSONBytes(byte[] json) {
     return LookupResponseJSON.fromJSON(json);
   }

@@ -18,15 +18,15 @@ public record RefreshTokenImportRequest(
   public String toJSON() {
     return RefreshTokenImportRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return RefreshTokenImportRequestJSON.toJSONBytes(this);
   }
-
+  
   public static RefreshTokenImportRequest fromJSON(String json) {
     return RefreshTokenImportRequestJSON.fromJSON(json);
   }
-
+  
   public static RefreshTokenImportRequest fromJSONBytes(byte[] json) {
     return RefreshTokenImportRequestJSON.fromJSON(json);
   }

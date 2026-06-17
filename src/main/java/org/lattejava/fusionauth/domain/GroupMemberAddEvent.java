@@ -18,15 +18,15 @@ public record GroupMemberAddEvent(
   public String toJSON() {
     return GroupMemberAddEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return GroupMemberAddEventJSON.toJSONBytes(this);
   }
-
+  
   public static GroupMemberAddEvent fromJSON(String json) {
     return GroupMemberAddEventJSON.fromJSON(json);
   }
-
+  
   public static GroupMemberAddEvent fromJSONBytes(byte[] json) {
     return GroupMemberAddEventJSON.fromJSON(json);
   }

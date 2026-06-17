@@ -19,15 +19,15 @@ public record PublicKeyCredentialUserEntity(
   public String toJSON() {
     return PublicKeyCredentialUserEntityJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return PublicKeyCredentialUserEntityJSON.toJSONBytes(this);
   }
-
+  
   public static PublicKeyCredentialUserEntity fromJSON(String json) {
     return PublicKeyCredentialUserEntityJSON.fromJSON(json);
   }
-
+  
   public static PublicKeyCredentialUserEntity fromJSONBytes(byte[] json) {
     return PublicKeyCredentialUserEntityJSON.fromJSON(json);
   }

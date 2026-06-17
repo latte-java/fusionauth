@@ -20,15 +20,15 @@ public record SMSMessage(
   public String toJSON() {
     return SMSMessageJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return SMSMessageJSON.toJSONBytes(this);
   }
-
+  
   public static SMSMessage fromJSON(String json) {
     return SMSMessageJSON.fromJSON(json);
   }
-
+  
   public static SMSMessage fromJSONBytes(byte[] json) {
     return SMSMessageJSON.fromJSON(json);
   }

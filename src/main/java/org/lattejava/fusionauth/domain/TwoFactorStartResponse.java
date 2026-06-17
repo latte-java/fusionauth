@@ -19,15 +19,15 @@ public record TwoFactorStartResponse(
   public String toJSON() {
     return TwoFactorStartResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TwoFactorStartResponseJSON.toJSONBytes(this);
   }
-
+  
   public static TwoFactorStartResponse fromJSON(String json) {
     return TwoFactorStartResponseJSON.fromJSON(json);
   }
-
+  
   public static TwoFactorStartResponse fromJSONBytes(byte[] json) {
     return TwoFactorStartResponseJSON.fromJSON(json);
   }

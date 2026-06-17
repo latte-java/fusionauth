@@ -17,15 +17,15 @@ public record EventConfiguration(
   public String toJSON() {
     return EventConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EventConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static EventConfiguration fromJSON(String json) {
     return EventConfigurationJSON.fromJSON(json);
   }
-
+  
   public static EventConfiguration fromJSONBytes(byte[] json) {
     return EventConfigurationJSON.fromJSON(json);
   }

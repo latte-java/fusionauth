@@ -17,15 +17,15 @@ public record UserPasswordResetStartEvent(
   public String toJSON() {
     return UserPasswordResetStartEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserPasswordResetStartEventJSON.toJSONBytes(this);
   }
-
+  
   public static UserPasswordResetStartEvent fromJSON(String json) {
     return UserPasswordResetStartEventJSON.fromJSON(json);
   }
-
+  
   public static UserPasswordResetStartEvent fromJSONBytes(byte[] json) {
     return UserPasswordResetStartEventJSON.fromJSON(json);
   }

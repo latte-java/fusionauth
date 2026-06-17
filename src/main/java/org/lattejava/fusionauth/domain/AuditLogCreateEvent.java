@@ -22,15 +22,15 @@ public record AuditLogCreateEvent(
   public String toJSON() {
     return AuditLogCreateEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return AuditLogCreateEventJSON.toJSONBytes(this);
   }
-
+  
   public static AuditLogCreateEvent fromJSON(String json) {
     return AuditLogCreateEventJSON.fromJSON(json);
   }
-
+  
   public static AuditLogCreateEvent fromJSONBytes(byte[] json) {
     return AuditLogCreateEventJSON.fromJSON(json);
   }

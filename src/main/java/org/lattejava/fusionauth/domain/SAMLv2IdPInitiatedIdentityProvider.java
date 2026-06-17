@@ -24,15 +24,15 @@ public record SAMLv2IdPInitiatedIdentityProvider(
   public String toJSON() {
     return SAMLv2IdPInitiatedIdentityProviderJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return SAMLv2IdPInitiatedIdentityProviderJSON.toJSONBytes(this);
   }
-
+  
   public static SAMLv2IdPInitiatedIdentityProvider fromJSON(String json) {
     return SAMLv2IdPInitiatedIdentityProviderJSON.fromJSON(json);
   }
-
+  
   public static SAMLv2IdPInitiatedIdentityProvider fromJSONBytes(byte[] json) {
     return SAMLv2IdPInitiatedIdentityProviderJSON.fromJSON(json);
   }

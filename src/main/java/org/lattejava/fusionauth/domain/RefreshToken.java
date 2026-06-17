@@ -25,15 +25,15 @@ public record RefreshToken(
   public String toJSON() {
     return RefreshTokenJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return RefreshTokenJSON.toJSONBytes(this);
   }
-
+  
   public static RefreshToken fromJSON(String json) {
     return RefreshTokenJSON.fromJSON(json);
   }
-
+  
   public static RefreshToken fromJSONBytes(byte[] json) {
     return RefreshTokenJSON.fromJSON(json);
   }

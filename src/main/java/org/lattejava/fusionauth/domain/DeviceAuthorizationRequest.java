@@ -20,15 +20,15 @@ public record DeviceAuthorizationRequest(
   public String toJSON() {
     return DeviceAuthorizationRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return DeviceAuthorizationRequestJSON.toJSONBytes(this);
   }
-
+  
   public static DeviceAuthorizationRequest fromJSON(String json) {
     return DeviceAuthorizationRequestJSON.fromJSON(json);
   }
-
+  
   public static DeviceAuthorizationRequest fromJSONBytes(byte[] json) {
     return DeviceAuthorizationRequestJSON.fromJSON(json);
   }

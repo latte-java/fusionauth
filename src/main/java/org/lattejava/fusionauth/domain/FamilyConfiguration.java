@@ -26,15 +26,15 @@ public record FamilyConfiguration(
   public String toJSON() {
     return FamilyConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return FamilyConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static FamilyConfiguration fromJSON(String json) {
     return FamilyConfigurationJSON.fromJSON(json);
   }
-
+  
   public static FamilyConfiguration fromJSONBytes(byte[] json) {
     return FamilyConfigurationJSON.fromJSON(json);
   }

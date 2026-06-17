@@ -18,15 +18,15 @@ public record WebhookSignatureConfiguration(
   public String toJSON() {
     return WebhookSignatureConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return WebhookSignatureConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static WebhookSignatureConfiguration fromJSON(String json) {
     return WebhookSignatureConfigurationJSON.fromJSON(json);
   }
-
+  
   public static WebhookSignatureConfiguration fromJSONBytes(byte[] json) {
     return WebhookSignatureConfigurationJSON.fromJSON(json);
   }

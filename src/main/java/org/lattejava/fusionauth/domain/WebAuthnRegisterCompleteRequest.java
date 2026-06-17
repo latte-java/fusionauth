@@ -20,15 +20,15 @@ public record WebAuthnRegisterCompleteRequest(
   public String toJSON() {
     return WebAuthnRegisterCompleteRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return WebAuthnRegisterCompleteRequestJSON.toJSONBytes(this);
   }
-
+  
   public static WebAuthnRegisterCompleteRequest fromJSON(String json) {
     return WebAuthnRegisterCompleteRequestJSON.fromJSON(json);
   }
-
+  
   public static WebAuthnRegisterCompleteRequest fromJSONBytes(byte[] json) {
     return WebAuthnRegisterCompleteRequestJSON.fromJSON(json);
   }

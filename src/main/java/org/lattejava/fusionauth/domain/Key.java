@@ -32,15 +32,15 @@ public record Key(
   public String toJSON() {
     return KeyJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return KeyJSON.toJSONBytes(this);
   }
-
+  
   public static Key fromJSON(String json) {
     return KeyJSON.fromJSON(json);
   }
-
+  
   public static Key fromJSONBytes(byte[] json) {
     return KeyJSON.fromJSON(json);
   }

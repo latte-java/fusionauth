@@ -24,15 +24,15 @@ public record AppleApplicationConfiguration(
   public String toJSON() {
     return AppleApplicationConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return AppleApplicationConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static AppleApplicationConfiguration fromJSON(String json) {
     return AppleApplicationConfigurationJSON.fromJSON(json);
   }
-
+  
   public static AppleApplicationConfiguration fromJSONBytes(byte[] json) {
     return AppleApplicationConfigurationJSON.fromJSON(json);
   }

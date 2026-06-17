@@ -18,15 +18,15 @@ public record MessageTemplateResponse(
   public String toJSON() {
     return MessageTemplateResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return MessageTemplateResponseJSON.toJSONBytes(this);
   }
-
+  
   public static MessageTemplateResponse fromJSON(String json) {
     return MessageTemplateResponseJSON.fromJSON(json);
   }
-
+  
   public static MessageTemplateResponse fromJSONBytes(byte[] json) {
     return MessageTemplateResponseJSON.fromJSON(json);
   }

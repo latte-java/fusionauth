@@ -17,15 +17,15 @@ public record IntegrationResponse(
   public String toJSON() {
     return IntegrationResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return IntegrationResponseJSON.toJSONBytes(this);
   }
-
+  
   public static IntegrationResponse fromJSON(String json) {
     return IntegrationResponseJSON.fromJSON(json);
   }
-
+  
   public static IntegrationResponse fromJSONBytes(byte[] json) {
     return IntegrationResponseJSON.fromJSON(json);
   }

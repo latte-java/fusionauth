@@ -19,15 +19,15 @@ public record MultiFactorVoiceMethod(
   public String toJSON() {
     return MultiFactorVoiceMethodJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return MultiFactorVoiceMethodJSON.toJSONBytes(this);
   }
-
+  
   public static MultiFactorVoiceMethod fromJSON(String json) {
     return MultiFactorVoiceMethodJSON.fromJSON(json);
   }
-
+  
   public static MultiFactorVoiceMethod fromJSONBytes(byte[] json) {
     return MultiFactorVoiceMethodJSON.fromJSON(json);
   }

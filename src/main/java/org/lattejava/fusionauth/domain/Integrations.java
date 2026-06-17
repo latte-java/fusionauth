@@ -18,15 +18,15 @@ public record Integrations(
   public String toJSON() {
     return IntegrationsJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return IntegrationsJSON.toJSONBytes(this);
   }
-
+  
   public static Integrations fromJSON(String json) {
     return IntegrationsJSON.fromJSON(json);
   }
-
+  
   public static Integrations fromJSONBytes(byte[] json) {
     return IntegrationsJSON.fromJSON(json);
   }

@@ -11,30 +11,30 @@ import org.lattejava.fusionauth.domain.internal.ClientCredentialsAccessTokenIntr
 
 @JSON
 public record ClientCredentialsAccessTokenIntrospectRequest(
-    String tenantId,
+    UUID tenantId,
     String token) {
   public static Builder builder() { return new Builder(); }
 
   public String toJSON() {
     return ClientCredentialsAccessTokenIntrospectRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ClientCredentialsAccessTokenIntrospectRequestJSON.toJSONBytes(this);
   }
-
+  
   public static ClientCredentialsAccessTokenIntrospectRequest fromJSON(String json) {
     return ClientCredentialsAccessTokenIntrospectRequestJSON.fromJSON(json);
   }
-
+  
   public static ClientCredentialsAccessTokenIntrospectRequest fromJSONBytes(byte[] json) {
     return ClientCredentialsAccessTokenIntrospectRequestJSON.fromJSON(json);
   }
 
   public static final class Builder {
-    private String tenantId;
+    private UUID tenantId;
     private String token;
-    public Builder tenantId(String tenantId) { this.tenantId = tenantId; return this; }
+    public Builder tenantId(UUID tenantId) { this.tenantId = tenantId; return this; }
     public Builder token(String token) { this.token = token; return this; }
     public ClientCredentialsAccessTokenIntrospectRequest build() { return new ClientCredentialsAccessTokenIntrospectRequest(tenantId, token); }
   }

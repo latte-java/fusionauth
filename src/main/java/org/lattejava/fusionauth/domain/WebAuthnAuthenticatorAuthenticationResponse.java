@@ -20,15 +20,15 @@ public record WebAuthnAuthenticatorAuthenticationResponse(
   public String toJSON() {
     return WebAuthnAuthenticatorAuthenticationResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return WebAuthnAuthenticatorAuthenticationResponseJSON.toJSONBytes(this);
   }
-
+  
   public static WebAuthnAuthenticatorAuthenticationResponse fromJSON(String json) {
     return WebAuthnAuthenticatorAuthenticationResponseJSON.fromJSON(json);
   }
-
+  
   public static WebAuthnAuthenticatorAuthenticationResponse fromJSONBytes(byte[] json) {
     return WebAuthnAuthenticatorAuthenticationResponseJSON.fromJSON(json);
   }

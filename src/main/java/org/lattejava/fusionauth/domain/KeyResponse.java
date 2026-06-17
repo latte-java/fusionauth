@@ -18,15 +18,15 @@ public record KeyResponse(
   public String toJSON() {
     return KeyResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return KeyResponseJSON.toJSONBytes(this);
   }
-
+  
   public static KeyResponse fromJSON(String json) {
     return KeyResponseJSON.fromJSON(json);
   }
-
+  
   public static KeyResponse fromJSONBytes(byte[] json) {
     return KeyResponseJSON.fromJSON(json);
   }

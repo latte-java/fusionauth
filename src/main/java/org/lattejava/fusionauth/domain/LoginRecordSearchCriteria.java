@@ -23,15 +23,15 @@ public record LoginRecordSearchCriteria(
   public String toJSON() {
     return LoginRecordSearchCriteriaJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return LoginRecordSearchCriteriaJSON.toJSONBytes(this);
   }
-
+  
   public static LoginRecordSearchCriteria fromJSON(String json) {
     return LoginRecordSearchCriteriaJSON.fromJSON(json);
   }
-
+  
   public static LoginRecordSearchCriteria fromJSONBytes(byte[] json) {
     return LoginRecordSearchCriteriaJSON.fromJSON(json);
   }

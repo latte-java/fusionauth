@@ -18,15 +18,15 @@ public record FormFieldValidator(
   public String toJSON() {
     return FormFieldValidatorJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return FormFieldValidatorJSON.toJSONBytes(this);
   }
-
+  
   public static FormFieldValidator fromJSON(String json) {
     return FormFieldValidatorJSON.fromJSON(json);
   }
-
+  
   public static FormFieldValidator fromJSONBytes(byte[] json) {
     return FormFieldValidatorJSON.fromJSON(json);
   }

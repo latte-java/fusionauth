@@ -18,15 +18,15 @@ public record EmailTemplateErrors(
   public String toJSON() {
     return EmailTemplateErrorsJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EmailTemplateErrorsJSON.toJSONBytes(this);
   }
-
+  
   public static EmailTemplateErrors fromJSON(String json) {
     return EmailTemplateErrorsJSON.fromJSON(json);
   }
-
+  
   public static EmailTemplateErrors fromJSONBytes(byte[] json) {
     return EmailTemplateErrorsJSON.fromJSON(json);
   }

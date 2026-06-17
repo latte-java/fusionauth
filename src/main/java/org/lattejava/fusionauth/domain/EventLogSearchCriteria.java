@@ -23,15 +23,15 @@ public record EventLogSearchCriteria(
   public String toJSON() {
     return EventLogSearchCriteriaJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EventLogSearchCriteriaJSON.toJSONBytes(this);
   }
-
+  
   public static EventLogSearchCriteria fromJSON(String json) {
     return EventLogSearchCriteriaJSON.fromJSON(json);
   }
-
+  
   public static EventLogSearchCriteria fromJSONBytes(byte[] json) {
     return EventLogSearchCriteriaJSON.fromJSON(json);
   }

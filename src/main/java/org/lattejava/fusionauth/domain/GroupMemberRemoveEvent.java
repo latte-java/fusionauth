@@ -18,15 +18,15 @@ public record GroupMemberRemoveEvent(
   public String toJSON() {
     return GroupMemberRemoveEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return GroupMemberRemoveEventJSON.toJSONBytes(this);
   }
-
+  
   public static GroupMemberRemoveEvent fromJSON(String json) {
     return GroupMemberRemoveEventJSON.fromJSON(json);
   }
-
+  
   public static GroupMemberRemoveEvent fromJSONBytes(byte[] json) {
     return GroupMemberRemoveEventJSON.fromJSON(json);
   }

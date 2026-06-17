@@ -17,15 +17,15 @@ public record Enableable(
   public String toJSON() {
     return EnableableJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EnableableJSON.toJSONBytes(this);
   }
-
+  
   public static Enableable fromJSON(String json) {
     return EnableableJSON.fromJSON(json);
   }
-
+  
   public static Enableable fromJSONBytes(byte[] json) {
     return EnableableJSON.fromJSON(json);
   }

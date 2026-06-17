@@ -17,15 +17,15 @@ public record ApplicationExternalIdentifierConfiguration(
   public String toJSON() {
     return ApplicationExternalIdentifierConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ApplicationExternalIdentifierConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static ApplicationExternalIdentifierConfiguration fromJSON(String json) {
     return ApplicationExternalIdentifierConfigurationJSON.fromJSON(json);
   }
-
+  
   public static ApplicationExternalIdentifierConfiguration fromJSONBytes(byte[] json) {
     return ApplicationExternalIdentifierConfigurationJSON.fromJSON(json);
   }

@@ -16,15 +16,15 @@ public record UserinfoResponse() {
   public String toJSON() {
     return UserinfoResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserinfoResponseJSON.toJSONBytes(this);
   }
-
+  
   public static UserinfoResponse fromJSON(String json) {
     return UserinfoResponseJSON.fromJSON(json);
   }
-
+  
   public static UserinfoResponse fromJSONBytes(byte[] json) {
     return UserinfoResponseJSON.fromJSON(json);
   }

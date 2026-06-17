@@ -21,15 +21,15 @@ public record PublicKeyCredentialRequestOptions(
   public String toJSON() {
     return PublicKeyCredentialRequestOptionsJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return PublicKeyCredentialRequestOptionsJSON.toJSONBytes(this);
   }
-
+  
   public static PublicKeyCredentialRequestOptions fromJSON(String json) {
     return PublicKeyCredentialRequestOptionsJSON.fromJSON(json);
   }
-
+  
   public static PublicKeyCredentialRequestOptions fromJSONBytes(byte[] json) {
     return PublicKeyCredentialRequestOptionsJSON.fromJSON(json);
   }

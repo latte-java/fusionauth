@@ -19,15 +19,15 @@ public record UserLoginFailedReason(
   public String toJSON() {
     return UserLoginFailedReasonJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserLoginFailedReasonJSON.toJSONBytes(this);
   }
-
+  
   public static UserLoginFailedReason fromJSON(String json) {
     return UserLoginFailedReasonJSON.fromJSON(json);
   }
-
+  
   public static UserLoginFailedReason fromJSONBytes(byte[] json) {
     return UserLoginFailedReasonJSON.fromJSON(json);
   }

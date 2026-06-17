@@ -18,15 +18,15 @@ public record WebhookSearchResponse(
   public String toJSON() {
     return WebhookSearchResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return WebhookSearchResponseJSON.toJSONBytes(this);
   }
-
+  
   public static WebhookSearchResponse fromJSON(String json) {
     return WebhookSearchResponseJSON.fromJSON(json);
   }
-
+  
   public static WebhookSearchResponse fromJSONBytes(byte[] json) {
     return WebhookSearchResponseJSON.fromJSON(json);
   }

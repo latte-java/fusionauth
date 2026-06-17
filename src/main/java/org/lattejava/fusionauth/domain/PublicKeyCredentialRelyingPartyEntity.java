@@ -18,15 +18,15 @@ public record PublicKeyCredentialRelyingPartyEntity(
   public String toJSON() {
     return PublicKeyCredentialRelyingPartyEntityJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return PublicKeyCredentialRelyingPartyEntityJSON.toJSONBytes(this);
   }
-
+  
   public static PublicKeyCredentialRelyingPartyEntity fromJSON(String json) {
     return PublicKeyCredentialRelyingPartyEntityJSON.fromJSON(json);
   }
-
+  
   public static PublicKeyCredentialRelyingPartyEntity fromJSONBytes(byte[] json) {
     return PublicKeyCredentialRelyingPartyEntityJSON.fromJSON(json);
   }

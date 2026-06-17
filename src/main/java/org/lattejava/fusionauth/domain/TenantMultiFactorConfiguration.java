@@ -21,15 +21,15 @@ public record TenantMultiFactorConfiguration(
   public String toJSON() {
     return TenantMultiFactorConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TenantMultiFactorConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static TenantMultiFactorConfiguration fromJSON(String json) {
     return TenantMultiFactorConfigurationJSON.fromJSON(json);
   }
-
+  
   public static TenantMultiFactorConfiguration fromJSONBytes(byte[] json) {
     return TenantMultiFactorConfigurationJSON.fromJSON(json);
   }

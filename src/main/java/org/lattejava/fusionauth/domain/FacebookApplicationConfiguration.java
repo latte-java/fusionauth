@@ -24,15 +24,15 @@ public record FacebookApplicationConfiguration(
   public String toJSON() {
     return FacebookApplicationConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return FacebookApplicationConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static FacebookApplicationConfiguration fromJSON(String json) {
     return FacebookApplicationConfigurationJSON.fromJSON(json);
   }
-
+  
   public static FacebookApplicationConfiguration fromJSONBytes(byte[] json) {
     return FacebookApplicationConfigurationJSON.fromJSON(json);
   }

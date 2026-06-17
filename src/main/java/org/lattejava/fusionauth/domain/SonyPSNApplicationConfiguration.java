@@ -22,15 +22,15 @@ public record SonyPSNApplicationConfiguration(
   public String toJSON() {
     return SonyPSNApplicationConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return SonyPSNApplicationConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static SonyPSNApplicationConfiguration fromJSON(String json) {
     return SonyPSNApplicationConfigurationJSON.fromJSON(json);
   }
-
+  
   public static SonyPSNApplicationConfiguration fromJSONBytes(byte[] json) {
     return SonyPSNApplicationConfigurationJSON.fromJSON(json);
   }

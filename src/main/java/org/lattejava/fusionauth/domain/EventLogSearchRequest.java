@@ -17,15 +17,15 @@ public record EventLogSearchRequest(
   public String toJSON() {
     return EventLogSearchRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EventLogSearchRequestJSON.toJSONBytes(this);
   }
-
+  
   public static EventLogSearchRequest fromJSON(String json) {
     return EventLogSearchRequestJSON.fromJSON(json);
   }
-
+  
   public static EventLogSearchRequest fromJSONBytes(byte[] json) {
     return EventLogSearchRequestJSON.fromJSON(json);
   }

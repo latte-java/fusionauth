@@ -18,15 +18,15 @@ public record GoogleIdentityProviderProperties(
   public String toJSON() {
     return GoogleIdentityProviderPropertiesJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return GoogleIdentityProviderPropertiesJSON.toJSONBytes(this);
   }
-
+  
   public static GoogleIdentityProviderProperties fromJSON(String json) {
     return GoogleIdentityProviderPropertiesJSON.fromJSON(json);
   }
-
+  
   public static GoogleIdentityProviderProperties fromJSONBytes(byte[] json) {
     return GoogleIdentityProviderPropertiesJSON.fromJSON(json);
   }

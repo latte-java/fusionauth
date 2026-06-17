@@ -22,15 +22,15 @@ public record DeviceResponse(
   public String toJSON() {
     return DeviceResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return DeviceResponseJSON.toJSONBytes(this);
   }
-
+  
   public static DeviceResponse fromJSON(String json) {
     return DeviceResponseJSON.fromJSON(json);
   }
-
+  
   public static DeviceResponse fromJSONBytes(byte[] json) {
     return DeviceResponseJSON.fromJSON(json);
   }

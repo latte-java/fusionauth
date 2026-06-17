@@ -22,15 +22,15 @@ public record EventLogCreateEvent(
   public String toJSON() {
     return EventLogCreateEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EventLogCreateEventJSON.toJSONBytes(this);
   }
-
+  
   public static EventLogCreateEvent fromJSON(String json) {
     return EventLogCreateEventJSON.fromJSON(json);
   }
-
+  
   public static EventLogCreateEvent fromJSONBytes(byte[] json) {
     return EventLogCreateEventJSON.fromJSON(json);
   }

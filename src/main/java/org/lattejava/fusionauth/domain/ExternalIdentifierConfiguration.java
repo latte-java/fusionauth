@@ -49,15 +49,15 @@ public record ExternalIdentifierConfiguration(
   public String toJSON() {
     return ExternalIdentifierConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ExternalIdentifierConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static ExternalIdentifierConfiguration fromJSON(String json) {
     return ExternalIdentifierConfigurationJSON.fromJSON(json);
   }
-
+  
   public static ExternalIdentifierConfiguration fromJSONBytes(byte[] json) {
     return ExternalIdentifierConfigurationJSON.fromJSON(json);
   }

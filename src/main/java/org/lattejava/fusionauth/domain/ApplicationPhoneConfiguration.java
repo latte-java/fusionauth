@@ -30,15 +30,15 @@ public record ApplicationPhoneConfiguration(
   public String toJSON() {
     return ApplicationPhoneConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ApplicationPhoneConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static ApplicationPhoneConfiguration fromJSON(String json) {
     return ApplicationPhoneConfigurationJSON.fromJSON(json);
   }
-
+  
   public static ApplicationPhoneConfiguration fromJSONBytes(byte[] json) {
     return ApplicationPhoneConfigurationJSON.fromJSON(json);
   }

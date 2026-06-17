@@ -22,15 +22,15 @@ public record UserLoginIdDuplicateOnCreateEvent(
   public String toJSON() {
     return UserLoginIdDuplicateOnCreateEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserLoginIdDuplicateOnCreateEventJSON.toJSONBytes(this);
   }
-
+  
   public static UserLoginIdDuplicateOnCreateEvent fromJSON(String json) {
     return UserLoginIdDuplicateOnCreateEventJSON.fromJSON(json);
   }
-
+  
   public static UserLoginIdDuplicateOnCreateEvent fromJSONBytes(byte[] json) {
     return UserLoginIdDuplicateOnCreateEventJSON.fromJSON(json);
   }

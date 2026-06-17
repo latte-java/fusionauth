@@ -18,15 +18,15 @@ public record IdentityProviderLimitUserLinkingPolicy(
   public String toJSON() {
     return IdentityProviderLimitUserLinkingPolicyJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return IdentityProviderLimitUserLinkingPolicyJSON.toJSONBytes(this);
   }
-
+  
   public static IdentityProviderLimitUserLinkingPolicy fromJSON(String json) {
     return IdentityProviderLimitUserLinkingPolicyJSON.fromJSON(json);
   }
-
+  
   public static IdentityProviderLimitUserLinkingPolicy fromJSONBytes(byte[] json) {
     return IdentityProviderLimitUserLinkingPolicyJSON.fromJSON(json);
   }

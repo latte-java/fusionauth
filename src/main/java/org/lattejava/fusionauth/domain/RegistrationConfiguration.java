@@ -29,15 +29,15 @@ public record RegistrationConfiguration(
   public String toJSON() {
     return RegistrationConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return RegistrationConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static RegistrationConfiguration fromJSON(String json) {
     return RegistrationConfigurationJSON.fromJSON(json);
   }
-
+  
   public static RegistrationConfiguration fromJSONBytes(byte[] json) {
     return RegistrationConfigurationJSON.fromJSON(json);
   }

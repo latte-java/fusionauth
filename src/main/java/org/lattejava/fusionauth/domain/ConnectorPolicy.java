@@ -20,15 +20,15 @@ public record ConnectorPolicy(
   public String toJSON() {
     return ConnectorPolicyJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ConnectorPolicyJSON.toJSONBytes(this);
   }
-
+  
   public static ConnectorPolicy fromJSON(String json) {
     return ConnectorPolicyJSON.fromJSON(json);
   }
-
+  
   public static ConnectorPolicy fromJSONBytes(byte[] json) {
     return ConnectorPolicyJSON.fromJSON(json);
   }

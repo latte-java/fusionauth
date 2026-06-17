@@ -19,15 +19,15 @@ public record UIConfiguration(
   public String toJSON() {
     return UIConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UIConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static UIConfiguration fromJSON(String json) {
     return UIConfigurationJSON.fromJSON(json);
   }
-
+  
   public static UIConfiguration fromJSONBytes(byte[] json) {
     return UIConfigurationJSON.fromJSON(json);
   }

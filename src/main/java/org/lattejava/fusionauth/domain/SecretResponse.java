@@ -18,15 +18,15 @@ public record SecretResponse(
   public String toJSON() {
     return SecretResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return SecretResponseJSON.toJSONBytes(this);
   }
-
+  
   public static SecretResponse fromJSON(String json) {
     return SecretResponseJSON.fromJSON(json);
   }
-
+  
   public static SecretResponse fromJSONBytes(byte[] json) {
     return SecretResponseJSON.fromJSON(json);
   }

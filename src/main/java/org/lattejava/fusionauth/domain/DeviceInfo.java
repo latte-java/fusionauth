@@ -21,15 +21,15 @@ public record DeviceInfo(
   public String toJSON() {
     return DeviceInfoJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return DeviceInfoJSON.toJSONBytes(this);
   }
-
+  
   public static DeviceInfo fromJSON(String json) {
     return DeviceInfoJSON.fromJSON(json);
   }
-
+  
   public static DeviceInfo fromJSONBytes(byte[] json) {
     return DeviceInfoJSON.fromJSON(json);
   }

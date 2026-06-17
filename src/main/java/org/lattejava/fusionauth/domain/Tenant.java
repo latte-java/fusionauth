@@ -53,15 +53,15 @@ public record Tenant(
   public String toJSON() {
     return TenantJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TenantJSON.toJSONBytes(this);
   }
-
+  
   public static Tenant fromJSON(String json) {
     return TenantJSON.fromJSON(json);
   }
-
+  
   public static Tenant fromJSONBytes(byte[] json) {
     return TenantJSON.fromJSON(json);
   }

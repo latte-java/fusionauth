@@ -18,15 +18,15 @@ public record LambdaResponse(
   public String toJSON() {
     return LambdaResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return LambdaResponseJSON.toJSONBytes(this);
   }
-
+  
   public static LambdaResponse fromJSON(String json) {
     return LambdaResponseJSON.fromJSON(json);
   }
-
+  
   public static LambdaResponse fromJSONBytes(byte[] json) {
     return LambdaResponseJSON.fromJSON(json);
   }

@@ -24,15 +24,15 @@ public record PasswordlessLoginRequest(
   public String toJSON() {
     return PasswordlessLoginRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return PasswordlessLoginRequestJSON.toJSONBytes(this);
   }
-
+  
   public static PasswordlessLoginRequest fromJSON(String json) {
     return PasswordlessLoginRequestJSON.fromJSON(json);
   }
-
+  
   public static PasswordlessLoginRequest fromJSONBytes(byte[] json) {
     return PasswordlessLoginRequestJSON.fromJSON(json);
   }

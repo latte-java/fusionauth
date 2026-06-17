@@ -24,15 +24,15 @@ public record CORSConfiguration(
   public String toJSON() {
     return CORSConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return CORSConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static CORSConfiguration fromJSON(String json) {
     return CORSConfigurationJSON.fromJSON(json);
   }
-
+  
   public static CORSConfiguration fromJSONBytes(byte[] json) {
     return CORSConfigurationJSON.fromJSON(json);
   }

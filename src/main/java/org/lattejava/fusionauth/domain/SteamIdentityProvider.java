@@ -35,15 +35,15 @@ public record SteamIdentityProvider(
   public String toJSON() {
     return SteamIdentityProviderJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return SteamIdentityProviderJSON.toJSONBytes(this);
   }
-
+  
   public static SteamIdentityProvider fromJSON(String json) {
     return SteamIdentityProviderJSON.fromJSON(json);
   }
-
+  
   public static SteamIdentityProvider fromJSONBytes(byte[] json) {
     return SteamIdentityProviderJSON.fromJSON(json);
   }

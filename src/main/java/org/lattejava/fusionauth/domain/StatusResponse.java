@@ -16,15 +16,15 @@ public record StatusResponse() {
   public String toJSON() {
     return StatusResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return StatusResponseJSON.toJSONBytes(this);
   }
-
+  
   public static StatusResponse fromJSON(String json) {
     return StatusResponseJSON.fromJSON(json);
   }
-
+  
   public static StatusResponse fromJSONBytes(byte[] json) {
     return StatusResponseJSON.fromJSON(json);
   }

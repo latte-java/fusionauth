@@ -17,15 +17,15 @@ public record ProviderLambdaConfiguration(
   public String toJSON() {
     return ProviderLambdaConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ProviderLambdaConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static ProviderLambdaConfiguration fromJSON(String json) {
     return ProviderLambdaConfigurationJSON.fromJSON(json);
   }
-
+  
   public static ProviderLambdaConfiguration fromJSONBytes(byte[] json) {
     return ProviderLambdaConfigurationJSON.fromJSON(json);
   }

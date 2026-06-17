@@ -17,15 +17,15 @@ public record ConsentRequest(
   public String toJSON() {
     return ConsentRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ConsentRequestJSON.toJSONBytes(this);
   }
-
+  
   public static ConsentRequest fromJSON(String json) {
     return ConsentRequestJSON.fromJSON(json);
   }
-
+  
   public static ConsentRequest fromJSONBytes(byte[] json) {
     return ConsentRequestJSON.fromJSON(json);
   }

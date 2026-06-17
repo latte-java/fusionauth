@@ -30,15 +30,15 @@ public record GenericConnectorConfiguration(
   public String toJSON() {
     return GenericConnectorConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return GenericConnectorConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static GenericConnectorConfiguration fromJSON(String json) {
     return GenericConnectorConfigurationJSON.fromJSON(json);
   }
-
+  
   public static GenericConnectorConfiguration fromJSONBytes(byte[] json) {
     return GenericConnectorConfigurationJSON.fromJSON(json);
   }

@@ -21,15 +21,15 @@ public record DeviceApprovalResponse(
   public String toJSON() {
     return DeviceApprovalResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return DeviceApprovalResponseJSON.toJSONBytes(this);
   }
-
+  
   public static DeviceApprovalResponse fromJSON(String json) {
     return DeviceApprovalResponseJSON.fromJSON(json);
   }
-
+  
   public static DeviceApprovalResponse fromJSONBytes(byte[] json) {
     return DeviceApprovalResponseJSON.fromJSON(json);
   }

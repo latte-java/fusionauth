@@ -24,15 +24,15 @@ public record JWT(
   public String toJSON() {
     return JWTJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return JWTJSON.toJSONBytes(this);
   }
-
+  
   public static JWT fromJSON(String json) {
     return JWTJSON.fromJSON(json);
   }
-
+  
   public static JWT fromJSONBytes(byte[] json) {
     return JWTJSON.fromJSON(json);
   }

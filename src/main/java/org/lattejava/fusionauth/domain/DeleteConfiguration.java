@@ -18,15 +18,15 @@ public record DeleteConfiguration(
   public String toJSON() {
     return DeleteConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return DeleteConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static DeleteConfiguration fromJSON(String json) {
     return DeleteConfigurationJSON.fromJSON(json);
   }
-
+  
   public static DeleteConfiguration fromJSONBytes(byte[] json) {
     return DeleteConfigurationJSON.fromJSON(json);
   }

@@ -17,15 +17,15 @@ public record PendingResponse(
   public String toJSON() {
     return PendingResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return PendingResponseJSON.toJSONBytes(this);
   }
-
+  
   public static PendingResponse fromJSON(String json) {
     return PendingResponseJSON.fromJSON(json);
   }
-
+  
   public static PendingResponse fromJSONBytes(byte[] json) {
     return PendingResponseJSON.fromJSON(json);
   }

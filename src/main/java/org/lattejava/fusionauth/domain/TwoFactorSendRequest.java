@@ -23,15 +23,15 @@ public record TwoFactorSendRequest(
   public String toJSON() {
     return TwoFactorSendRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TwoFactorSendRequestJSON.toJSONBytes(this);
   }
-
+  
   public static TwoFactorSendRequest fromJSON(String json) {
     return TwoFactorSendRequestJSON.fromJSON(json);
   }
-
+  
   public static TwoFactorSendRequest fromJSONBytes(byte[] json) {
     return TwoFactorSendRequestJSON.fromJSON(json);
   }

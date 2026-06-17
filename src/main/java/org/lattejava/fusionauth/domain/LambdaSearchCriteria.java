@@ -22,15 +22,15 @@ public record LambdaSearchCriteria(
   public String toJSON() {
     return LambdaSearchCriteriaJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return LambdaSearchCriteriaJSON.toJSONBytes(this);
   }
-
+  
   public static LambdaSearchCriteria fromJSON(String json) {
     return LambdaSearchCriteriaJSON.fromJSON(json);
   }
-
+  
   public static LambdaSearchCriteria fromJSONBytes(byte[] json) {
     return LambdaSearchCriteriaJSON.fromJSON(json);
   }

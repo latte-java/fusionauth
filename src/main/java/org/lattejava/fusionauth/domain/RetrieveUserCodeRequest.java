@@ -20,15 +20,15 @@ public record RetrieveUserCodeRequest(
   public String toJSON() {
     return RetrieveUserCodeRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return RetrieveUserCodeRequestJSON.toJSONBytes(this);
   }
-
+  
   public static RetrieveUserCodeRequest fromJSON(String json) {
     return RetrieveUserCodeRequestJSON.fromJSON(json);
   }
-
+  
   public static RetrieveUserCodeRequest fromJSONBytes(byte[] json) {
     return RetrieveUserCodeRequestJSON.fromJSON(json);
   }

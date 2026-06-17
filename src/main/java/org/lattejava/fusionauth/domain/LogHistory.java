@@ -17,15 +17,15 @@ public record LogHistory(
   public String toJSON() {
     return LogHistoryJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return LogHistoryJSON.toJSONBytes(this);
   }
-
+  
   public static LogHistory fromJSON(String json) {
     return LogHistoryJSON.fromJSON(json);
   }
-
+  
   public static LogHistory fromJSONBytes(byte[] json) {
     return LogHistoryJSON.fromJSON(json);
   }

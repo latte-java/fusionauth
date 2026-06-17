@@ -22,15 +22,15 @@ public record UserLoginNewDeviceEvent(
   public String toJSON() {
     return UserLoginNewDeviceEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserLoginNewDeviceEventJSON.toJSONBytes(this);
   }
-
+  
   public static UserLoginNewDeviceEvent fromJSON(String json) {
     return UserLoginNewDeviceEventJSON.fromJSON(json);
   }
-
+  
   public static UserLoginNewDeviceEvent fromJSONBytes(byte[] json) {
     return UserLoginNewDeviceEventJSON.fromJSON(json);
   }

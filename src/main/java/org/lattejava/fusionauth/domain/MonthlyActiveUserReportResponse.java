@@ -18,15 +18,15 @@ public record MonthlyActiveUserReportResponse(
   public String toJSON() {
     return MonthlyActiveUserReportResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return MonthlyActiveUserReportResponseJSON.toJSONBytes(this);
   }
-
+  
   public static MonthlyActiveUserReportResponse fromJSON(String json) {
     return MonthlyActiveUserReportResponseJSON.fromJSON(json);
   }
-
+  
   public static MonthlyActiveUserReportResponse fromJSONBytes(byte[] json) {
     return MonthlyActiveUserReportResponseJSON.fromJSON(json);
   }

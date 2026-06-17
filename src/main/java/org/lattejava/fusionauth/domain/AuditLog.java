@@ -25,15 +25,15 @@ public record AuditLog(
   public String toJSON() {
     return AuditLogJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return AuditLogJSON.toJSONBytes(this);
   }
-
+  
   public static AuditLog fromJSON(String json) {
     return AuditLogJSON.fromJSON(json);
   }
-
+  
   public static AuditLog fromJSONBytes(byte[] json) {
     return AuditLogJSON.fromJSON(json);
   }

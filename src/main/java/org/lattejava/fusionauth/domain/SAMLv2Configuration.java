@@ -32,15 +32,15 @@ public record SAMLv2Configuration(
   public String toJSON() {
     return SAMLv2ConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return SAMLv2ConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static SAMLv2Configuration fromJSON(String json) {
     return SAMLv2ConfigurationJSON.fromJSON(json);
   }
-
+  
   public static SAMLv2Configuration fromJSONBytes(byte[] json) {
     return SAMLv2ConfigurationJSON.fromJSON(json);
   }

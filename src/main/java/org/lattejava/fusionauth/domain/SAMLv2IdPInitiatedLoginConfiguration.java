@@ -18,15 +18,15 @@ public record SAMLv2IdPInitiatedLoginConfiguration(
   public String toJSON() {
     return SAMLv2IdPInitiatedLoginConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return SAMLv2IdPInitiatedLoginConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static SAMLv2IdPInitiatedLoginConfiguration fromJSON(String json) {
     return SAMLv2IdPInitiatedLoginConfigurationJSON.fromJSON(json);
   }
-
+  
   public static SAMLv2IdPInitiatedLoginConfiguration fromJSONBytes(byte[] json) {
     return SAMLv2IdPInitiatedLoginConfigurationJSON.fromJSON(json);
   }

@@ -24,15 +24,15 @@ public record GoogleApplicationConfiguration(
   public String toJSON() {
     return GoogleApplicationConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return GoogleApplicationConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static GoogleApplicationConfiguration fromJSON(String json) {
     return GoogleApplicationConfigurationJSON.fromJSON(json);
   }
-
+  
   public static GoogleApplicationConfiguration fromJSONBytes(byte[] json) {
     return GoogleApplicationConfigurationJSON.fromJSON(json);
   }

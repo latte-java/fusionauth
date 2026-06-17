@@ -16,15 +16,15 @@ public record PasswordlessIdentityProvider() {
   public String toJSON() {
     return PasswordlessIdentityProviderJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return PasswordlessIdentityProviderJSON.toJSONBytes(this);
   }
-
+  
   public static PasswordlessIdentityProvider fromJSON(String json) {
     return PasswordlessIdentityProviderJSON.fromJSON(json);
   }
-
+  
   public static PasswordlessIdentityProvider fromJSONBytes(byte[] json) {
     return PasswordlessIdentityProviderJSON.fromJSON(json);
   }

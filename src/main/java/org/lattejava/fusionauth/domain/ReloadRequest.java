@@ -17,15 +17,15 @@ public record ReloadRequest(
   public String toJSON() {
     return ReloadRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ReloadRequestJSON.toJSONBytes(this);
   }
-
+  
   public static ReloadRequest fromJSON(String json) {
     return ReloadRequestJSON.fromJSON(json);
   }
-
+  
   public static ReloadRequest fromJSONBytes(byte[] json) {
     return ReloadRequestJSON.fromJSON(json);
   }

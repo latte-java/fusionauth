@@ -16,15 +16,15 @@ public record InstanceEvent() {
   public String toJSON() {
     return InstanceEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return InstanceEventJSON.toJSONBytes(this);
   }
-
+  
   public static InstanceEvent fromJSON(String json) {
     return InstanceEventJSON.fromJSON(json);
   }
-
+  
   public static InstanceEvent fromJSONBytes(byte[] json) {
     return InstanceEventJSON.fromJSON(json);
   }

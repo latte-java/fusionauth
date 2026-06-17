@@ -19,15 +19,15 @@ public record LoginRecordExportRequest(
   public String toJSON() {
     return LoginRecordExportRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return LoginRecordExportRequestJSON.toJSONBytes(this);
   }
-
+  
   public static LoginRecordExportRequest fromJSON(String json) {
     return LoginRecordExportRequestJSON.fromJSON(json);
   }
-
+  
   public static LoginRecordExportRequest fromJSONBytes(byte[] json) {
     return LoginRecordExportRequestJSON.fromJSON(json);
   }

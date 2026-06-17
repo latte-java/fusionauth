@@ -30,15 +30,15 @@ public record ApplicationEmailConfiguration(
   public String toJSON() {
     return ApplicationEmailConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ApplicationEmailConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static ApplicationEmailConfiguration fromJSON(String json) {
     return ApplicationEmailConfigurationJSON.fromJSON(json);
   }
-
+  
   public static ApplicationEmailConfiguration fromJSONBytes(byte[] json) {
     return ApplicationEmailConfigurationJSON.fromJSON(json);
   }

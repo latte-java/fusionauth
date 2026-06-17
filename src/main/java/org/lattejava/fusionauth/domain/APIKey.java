@@ -23,8 +23,22 @@ public record APIKey(
     APIKeyPermissions permissions,
     Boolean retrievable,
     UUID tenantId) {
-  public static Builder builder() {
-    return new Builder();
+  public static Builder builder() { return new Builder(); }
+
+  public String toJSON() {
+    return APIKeyJSON.toJSON(this);
+  }
+  
+  public byte[] toJSONBytes() {
+    return APIKeyJSON.toJSONBytes(this);
+  }
+  
+  public static APIKey fromJSON(String json) {
+    return APIKeyJSON.fromJSON(json);
+  }
+  
+  public static APIKey fromJSONBytes(byte[] json) {
+    return APIKeyJSON.fromJSON(json);
   }
 
   public static final class Builder {
@@ -40,7 +54,6 @@ public record APIKey(
     private APIKeyPermissions permissions;
     private Boolean retrievable;
     private UUID tenantId;
-
     public Builder expirationInstant(Instant expirationInstant) { this.expirationInstant = expirationInstant; return this; }
     public Builder id(UUID id) { this.id = id; return this; }
     public Builder insertInstant(Instant insertInstant) { this.insertInstant = insertInstant; return this; }
@@ -53,26 +66,6 @@ public record APIKey(
     public Builder permissions(APIKeyPermissions permissions) { this.permissions = permissions; return this; }
     public Builder retrievable(Boolean retrievable) { this.retrievable = retrievable; return this; }
     public Builder tenantId(UUID tenantId) { this.tenantId = tenantId; return this; }
-
-    public APIKey build() {
-      return new APIKey(expirationInstant, id, insertInstant, ipAccessControlListId, key, keyManager,
-          lastUpdateInstant, metaData, name, permissions, retrievable, tenantId);
-    }
-  }
-
-  public String toJSON() {
-    return APIKeyJSON.toJSON(this);
-  }
-
-  public byte[] toJSONBytes() {
-    return APIKeyJSON.toJSONBytes(this);
-  }
-
-  public static APIKey fromJSON(String json) {
-    return APIKeyJSON.fromJSON(json);
-  }
-
-  public static APIKey fromJSONBytes(byte[] json) {
-    return APIKeyJSON.fromJSON(json);
+    public APIKey build() { return new APIKey(expirationInstant, id, insertInstant, ipAccessControlListId, key, keyManager, lastUpdateInstant, metaData, name, permissions, retrievable, tenantId); }
   }
 }

@@ -18,15 +18,15 @@ public record LoginHintConfiguration(
   public String toJSON() {
     return LoginHintConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return LoginHintConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static LoginHintConfiguration fromJSON(String json) {
     return LoginHintConfigurationJSON.fromJSON(json);
   }
-
+  
   public static LoginHintConfiguration fromJSONBytes(byte[] json) {
     return LoginHintConfigurationJSON.fromJSON(json);
   }

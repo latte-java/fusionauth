@@ -18,15 +18,15 @@ public record IdentityProviderTenantConfiguration(
   public String toJSON() {
     return IdentityProviderTenantConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return IdentityProviderTenantConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static IdentityProviderTenantConfiguration fromJSON(String json) {
     return IdentityProviderTenantConfigurationJSON.fromJSON(json);
   }
-
+  
   public static IdentityProviderTenantConfiguration fromJSONBytes(byte[] json) {
     return IdentityProviderTenantConfigurationJSON.fromJSON(json);
   }

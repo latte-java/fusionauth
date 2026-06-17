@@ -17,15 +17,15 @@ public record TwoFactorRecoveryCodeResponse(
   public String toJSON() {
     return TwoFactorRecoveryCodeResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TwoFactorRecoveryCodeResponseJSON.toJSONBytes(this);
   }
-
+  
   public static TwoFactorRecoveryCodeResponse fromJSON(String json) {
     return TwoFactorRecoveryCodeResponseJSON.fromJSON(json);
   }
-
+  
   public static TwoFactorRecoveryCodeResponse fromJSONBytes(byte[] json) {
     return TwoFactorRecoveryCodeResponseJSON.fromJSON(json);
   }

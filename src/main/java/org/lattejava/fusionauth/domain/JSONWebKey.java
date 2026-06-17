@@ -35,15 +35,15 @@ public record JSONWebKey(
   public String toJSON() {
     return JSONWebKeyJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return JSONWebKeyJSON.toJSONBytes(this);
   }
-
+  
   public static JSONWebKey fromJSON(String json) {
     return JSONWebKeyJSON.fromJSON(json);
   }
-
+  
   public static JSONWebKey fromJSONBytes(byte[] json) {
     return JSONWebKeyJSON.fromJSON(json);
   }

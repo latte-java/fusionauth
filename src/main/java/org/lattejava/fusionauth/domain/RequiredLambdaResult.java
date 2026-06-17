@@ -18,15 +18,15 @@ public record RequiredLambdaResult(
   public String toJSON() {
     return RequiredLambdaResultJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return RequiredLambdaResultJSON.toJSONBytes(this);
   }
-
+  
   public static RequiredLambdaResult fromJSON(String json) {
     return RequiredLambdaResultJSON.fromJSON(json);
   }
-
+  
   public static RequiredLambdaResult fromJSONBytes(byte[] json) {
     return RequiredLambdaResultJSON.fromJSON(json);
   }

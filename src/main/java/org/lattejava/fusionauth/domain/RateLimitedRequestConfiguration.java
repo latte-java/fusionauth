@@ -19,15 +19,15 @@ public record RateLimitedRequestConfiguration(
   public String toJSON() {
     return RateLimitedRequestConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return RateLimitedRequestConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static RateLimitedRequestConfiguration fromJSON(String json) {
     return RateLimitedRequestConfigurationJSON.fromJSON(json);
   }
-
+  
   public static RateLimitedRequestConfiguration fromJSONBytes(byte[] json) {
     return RateLimitedRequestConfigurationJSON.fromJSON(json);
   }

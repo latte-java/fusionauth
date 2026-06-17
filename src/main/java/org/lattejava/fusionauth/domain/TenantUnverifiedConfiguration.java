@@ -18,15 +18,15 @@ public record TenantUnverifiedConfiguration(
   public String toJSON() {
     return TenantUnverifiedConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TenantUnverifiedConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static TenantUnverifiedConfiguration fromJSON(String json) {
     return TenantUnverifiedConfigurationJSON.fromJSON(json);
   }
-
+  
   public static TenantUnverifiedConfiguration fromJSONBytes(byte[] json) {
     return TenantUnverifiedConfigurationJSON.fromJSON(json);
   }

@@ -221,6 +221,10 @@ public class FusionAuthClient {
     return updateOAuthScopeWithId(applicationId, scopeId, request, null);
   }
 
+  public ConnectorResponse retrieveConnectors() {
+    return execute("GET", "/api/connector", null, null, ConnectorResponse::fromJSON);
+  }
+
   public ConnectorResponse createConnector(ConnectorRequest request) {
     return execute("POST", "/api/connector", request.toJSON(), null, ConnectorResponse::fromJSON);
   }
@@ -251,6 +255,10 @@ public class FusionAuthClient {
 
   public ConsentResponse createConsent(ConsentRequest request) {
     return createConsent(request, null);
+  }
+
+  public ConsentSearchResponse searchConsents(String name, Integer numberOfResults, String orderBy, Integer startRow) {
+    return execute("GET", "/api/consent/search" + query("name", name, "numberOfResults", numberOfResults, "orderBy", orderBy, "startRow", startRow), null, null, ConsentSearchResponse::fromJSON);
   }
 
   public ConsentSearchResponse searchConsentsWithId(ConsentSearchRequest request) {
@@ -373,6 +381,10 @@ public class FusionAuthClient {
     return createEntity(request, null);
   }
 
+  public EntityGrantSearchResponse searchEntityGrants(String entityId, String name, String userId, Integer numberOfResults, String orderBy, Integer startRow) {
+    return execute("GET", "/api/entity/grant/search" + query("entityId", entityId, "name", name, "userId", userId, "numberOfResults", numberOfResults, "orderBy", orderBy, "startRow", startRow), null, null, EntityGrantSearchResponse::fromJSON);
+  }
+
   public EntityGrantSearchResponse searchEntityGrantsWithId(EntityGrantSearchRequest request) {
     return execute("POST", "/api/entity/grant/search", request.toJSON(), null, EntityGrantSearchResponse::fromJSON);
   }
@@ -381,12 +393,16 @@ public class FusionAuthClient {
     return execute("POST", "/api/entity/search", request.toJSON(), null, EntitySearchResponse::fromJSON);
   }
 
-  public EntitySearchResponse searchEntitiesByIdsWithId(String ids) {
+  public EntitySearchResponse searchEntitiesByIdsWithId(List<String> ids) {
     return execute("GET", "/api/entity/search" + query("ids", ids), null, null, EntitySearchResponse::fromJSON);
   }
 
   public EntityTypeResponse createEntityType(EntityTypeRequest request) {
     return execute("POST", "/api/entity/type", request.toJSON(), null, EntityTypeResponse::fromJSON);
+  }
+
+  public EntityTypeSearchResponse searchEntityTypes(String name, Integer numberOfResults, String orderBy, Integer startRow) {
+    return execute("GET", "/api/entity/type/search" + query("name", name, "numberOfResults", numberOfResults, "orderBy", orderBy, "startRow", startRow), null, null, EntityTypeSearchResponse::fromJSON);
   }
 
   public EntityTypeSearchResponse searchEntityTypesWithId(EntityTypeSearchRequest request) {
@@ -415,6 +431,10 @@ public class FusionAuthClient {
 
   public EntityTypeResponse createEntityTypePermission(String entityTypeId, EntityTypeRequest request) {
     return execute("POST", "/api/entity/type/" + encode(entityTypeId) + "/permission", request.toJSON(), null, EntityTypeResponse::fromJSON);
+  }
+
+  public int deleteEntityTypePermission(String entityTypeId, String name) {
+    return executeVoid("DELETE", "/api/entity/type/" + encode(entityTypeId) + "/permission" + query("name", name), null, null);
   }
 
   public EntityTypeResponse createEntityTypePermissionWithId(String entityTypeId, String permissionId, EntityTypeRequest request) {
@@ -497,8 +517,16 @@ public class FusionAuthClient {
     return upsertEntityGrantWithId(entityId, request, null);
   }
 
+  public FormResponse retrieveForms() {
+    return execute("GET", "/api/form", null, null, FormResponse::fromJSON);
+  }
+
   public FormResponse createForm(FormRequest request) {
     return execute("POST", "/api/form", request.toJSON(), null, FormResponse::fromJSON);
+  }
+
+  public FormFieldResponse retrieveFormFields() {
+    return execute("GET", "/api/form/field", null, null, FormFieldResponse::fromJSON);
   }
 
   public FormFieldResponse createFormField(FormFieldRequest request) {
@@ -557,12 +585,16 @@ public class FusionAuthClient {
     return execute("POST", "/api/group/member", request.toJSON(), null, MemberResponse::fromJSON);
   }
 
-  public int deleteGroupMembersWithId(MemberDeleteRequest request) {
-    return executeVoid("DELETE", "/api/group/member", request.toJSON(), null);
+  public int deleteGroupMembersWithId(String groupId, String userId, MemberDeleteRequest request) {
+    return executeVoid("DELETE", "/api/group/member" + query("groupId", groupId, "userId", userId), request.toJSON(), null);
   }
 
   public MemberResponse updateGroupMembersWithId(MemberRequest request) {
     return execute("PUT", "/api/group/member", request.toJSON(), null, MemberResponse::fromJSON);
+  }
+
+  public int deleteGroupMemberWithId(String memberId) {
+    return executeVoid("DELETE", "/api/group/member/" + encode(memberId), null, null);
   }
 
   public GroupMemberSearchResponse searchGroupMembersWithId(GroupMemberSearchRequest request) {
@@ -653,6 +685,10 @@ public class FusionAuthClient {
     return execute("GET", "/api/identity-provider/lookup" + query("domain", domain, "tenantId", tenantId), null, null, LookupResponse::fromJSON);
   }
 
+  public IdentityProviderSearchResponse searchIdentityProviders(String applicationId, String name, String source, String tenantId, String type, Integer numberOfResults, String orderBy, Integer startRow) {
+    return execute("GET", "/api/identity-provider/search" + query("applicationId", applicationId, "name", name, "source", source, "tenantId", tenantId, "type", type, "numberOfResults", numberOfResults, "orderBy", orderBy, "startRow", startRow), null, null, IdentityProviderSearchResponse::fromJSON);
+  }
+
   public IdentityProviderSearchResponse searchIdentityProvidersWithId(IdentityProviderSearchRequest request) {
     return execute("POST", "/api/identity-provider/search", request.toJSON(), null, IdentityProviderSearchResponse::fromJSON);
   }
@@ -717,20 +753,24 @@ public class FusionAuthClient {
     return execute("POST", "/api/ip-acl", request.toJSON(), null, IPAccessControlListResponse::fromJSON);
   }
 
+  public IPAccessControlListSearchResponse searchIPAccessControlLists(String name, Integer numberOfResults, String orderBy, Integer startRow) {
+    return execute("GET", "/api/ip-acl/search" + query("name", name, "numberOfResults", numberOfResults, "orderBy", orderBy, "startRow", startRow), null, null, IPAccessControlListSearchResponse::fromJSON);
+  }
+
   public IPAccessControlListSearchResponse searchIPAccessControlListsWithId(IPAccessControlListSearchRequest request) {
     return execute("POST", "/api/ip-acl/search", request.toJSON(), null, IPAccessControlListSearchResponse::fromJSON);
   }
 
-  public IPAccessControlListResponse createIPAccessControlListWithId(String accessControlListId, IPAccessControlListRequest request) {
-    return execute("POST", "/api/ip-acl/" + encode(accessControlListId), request.toJSON(), null, IPAccessControlListResponse::fromJSON);
+  public IPAccessControlListResponse createIPAccessControlListWithId(String ipAccessControlListId, IPAccessControlListRequest request) {
+    return execute("POST", "/api/ip-acl/" + encode(ipAccessControlListId), request.toJSON(), null, IPAccessControlListResponse::fromJSON);
   }
 
-  public IPAccessControlListResponse patchIPAccessControlListWithId(String accessControlListId, IPAccessControlListRequest request) {
-    return execute("PATCH", "/api/ip-acl/" + encode(accessControlListId), request.toJSON(), null, IPAccessControlListResponse::fromJSON);
+  public IPAccessControlListResponse patchIPAccessControlListWithId(String ipAccessControlListId, IPAccessControlListRequest request) {
+    return execute("PATCH", "/api/ip-acl/" + encode(ipAccessControlListId), request.toJSON(), null, IPAccessControlListResponse::fromJSON);
   }
 
-  public IPAccessControlListResponse updateIPAccessControlListWithId(String accessControlListId, IPAccessControlListRequest request) {
-    return execute("PUT", "/api/ip-acl/" + encode(accessControlListId), request.toJSON(), null, IPAccessControlListResponse::fromJSON);
+  public IPAccessControlListResponse updateIPAccessControlListWithId(String ipAccessControlListId, IPAccessControlListRequest request) {
+    return execute("PUT", "/api/ip-acl/" + encode(ipAccessControlListId), request.toJSON(), null, IPAccessControlListResponse::fromJSON);
   }
 
   public int deleteIPAccessControlListWithId(String ipAccessControlListId) {
@@ -745,8 +785,8 @@ public class FusionAuthClient {
     return execute("GET", "/api/jwt/issue" + query("applicationId", applicationId, "refreshToken", refreshToken), null, null, IssueResponse::fromJSON);
   }
 
-  public PublicKeyResponse retrieveJwtPublicKey(String applicationId, String keyId) {
-    return execute("GET", "/api/jwt/public-key" + query("applicationId", applicationId, "keyId", keyId), null, null, PublicKeyResponse::fromJSON);
+  public PublicKeyResponse retrieveJwtPublicKey(String applicationId, String kid) {
+    return execute("GET", "/api/jwt/public-key" + query("applicationId", applicationId, "kid", kid), null, null, PublicKeyResponse::fromJSON);
   }
 
   public LoginResponse reconcileJWTWithId(IdentityProviderLoginRequest request) {
@@ -799,6 +839,10 @@ public class FusionAuthClient {
 
   public KeyResponse importKeyWithId(String keyId, KeyRequest request) {
     return execute("POST", "/api/key/import/" + encode(keyId), request.toJSON(), null, KeyResponse::fromJSON);
+  }
+
+  public KeySearchResponse searchKeys(String algorithm, String name, String type, Integer numberOfResults, String orderBy, Integer startRow) {
+    return execute("GET", "/api/key/search" + query("algorithm", algorithm, "name", name, "type", type, "numberOfResults", numberOfResults, "orderBy", orderBy, "startRow", startRow), null, null, KeySearchResponse::fromJSON);
   }
 
   public KeySearchResponse searchKeysWithId(KeySearchRequest request) {
@@ -909,6 +953,10 @@ public class FusionAuthClient {
     return execute("PUT", "/api/message/template/" + encode(messageTemplateId), request.toJSON(), null, MessageTemplateResponse::fromJSON);
   }
 
+  public MessengerResponse retrieveMessengers() {
+    return execute("GET", "/api/messenger", null, null, MessengerResponse::fromJSON);
+  }
+
   public MessengerResponse createMessenger(MessengerRequest request) {
     return execute("POST", "/api/messenger", request.toJSON(), null, MessengerResponse::fromJSON);
   }
@@ -953,23 +1001,23 @@ public class FusionAuthClient {
     return execute("GET", "/api/reactor/metrics", null, null, ReactorMetricsResponse::fromJSON);
   }
 
-  public DailyActiveUserReportResponse retrieveDailyActiveReportWithId(String applicationId, String start, String end) {
-    return execute("GET", "/api/report/daily-active-user" + query("applicationId", applicationId, "start", start, "end", end), null, null, DailyActiveUserReportResponse::fromJSON);
+  public DailyActiveUserReportResponse retrieveDailyActiveReportWithId(String applicationId, Long start, Long end, List<String> loginIdTypes) {
+    return execute("GET", "/api/report/daily-active-user" + query("applicationId", applicationId, "start", start, "end", end, "loginIdTypes", loginIdTypes), null, null, DailyActiveUserReportResponse::fromJSON);
   }
 
-  public LoginReportResponse retrieveReportLogin(String applicationId, String loginId, String start, String end, String loginIdTypes, String userId) {
+  public LoginReportResponse retrieveReportLogin(String applicationId, String loginId, Long start, Long end, List<String> loginIdTypes, String userId) {
     return execute("GET", "/api/report/login" + query("applicationId", applicationId, "loginId", loginId, "start", start, "end", end, "loginIdTypes", loginIdTypes, "userId", userId), null, null, LoginReportResponse::fromJSON);
   }
 
-  public MonthlyActiveUserReportResponse retrieveMonthlyActiveReportWithId(String applicationId, String start, String end) {
-    return execute("GET", "/api/report/monthly-active-user" + query("applicationId", applicationId, "start", start, "end", end), null, null, MonthlyActiveUserReportResponse::fromJSON);
+  public MonthlyActiveUserReportResponse retrieveMonthlyActiveReportWithId(String applicationId, Long start, Long end, List<String> loginIdTypes) {
+    return execute("GET", "/api/report/monthly-active-user" + query("applicationId", applicationId, "start", start, "end", end, "loginIdTypes", loginIdTypes), null, null, MonthlyActiveUserReportResponse::fromJSON);
   }
 
-  public RegistrationReportResponse retrieveRegistrationReportWithId(String applicationId, String start, String end) {
-    return execute("GET", "/api/report/registration" + query("applicationId", applicationId, "start", start, "end", end), null, null, RegistrationReportResponse::fromJSON);
+  public RegistrationReportResponse retrieveRegistrationReportWithId(String applicationId, Long start, Long end, List<String> loginIdTypes) {
+    return execute("GET", "/api/report/registration" + query("applicationId", applicationId, "start", start, "end", end, "loginIdTypes", loginIdTypes), null, null, RegistrationReportResponse::fromJSON);
   }
 
-  public TotalsReportResponse retrieveTotalReportWithExcludesWithId(String excludes) {
+  public TotalsReportResponse retrieveTotalReportWithExcludesWithId(List<String> excludes) {
     return execute("GET", "/api/report/totals" + query("excludes", excludes), null, null, TotalsReportResponse::fromJSON);
   }
 
@@ -1007,6 +1055,10 @@ public class FusionAuthClient {
 
   public LoginRecordSearchResponse searchLoginRecordsWithId(LoginRecordSearchRequest request) {
     return execute("POST", "/api/system/login-record/search", request.toJSON(), null, LoginRecordSearchResponse::fromJSON);
+  }
+
+  public int retrieveReindexStatus() {
+    return executeVoid("GET", "/api/system/reindex", null, null);
   }
 
   public int reindexWithId(ReindexRequest request) {
@@ -1113,6 +1165,10 @@ public class FusionAuthClient {
     return updateTenantWithId(tenantId, request, null);
   }
 
+  public ThemeResponse retrieveThemes() {
+    return execute("GET", "/api/theme", null, null, ThemeResponse::fromJSON);
+  }
+
   public ThemeResponse createTheme(ThemeRequest request) {
     return execute("POST", "/api/theme", request.toJSON(), null, ThemeResponse::fromJSON);
   }
@@ -1177,11 +1233,11 @@ public class FusionAuthClient {
     return createUser(request, null);
   }
 
-  public UserResponse retrieveUser(String verificationId, String username, String loginId, String loginIdTypes, String email, String changePasswordId, UUID xFusionAuthTenantId) {
+  public UserResponse retrieveUser(String verificationId, String username, String loginId, List<String> loginIdTypes, String email, String changePasswordId, UUID xFusionAuthTenantId) {
     return execute("GET", "/api/user" + query("verificationId", verificationId, "username", username, "loginId", loginId, "loginIdTypes", loginIdTypes, "email", email, "changePasswordId", changePasswordId), null, xFusionAuthTenantId, UserResponse::fromJSON);
   }
 
-  public UserResponse retrieveUser(String verificationId, String username, String loginId, String loginIdTypes, String email, String changePasswordId) {
+  public UserResponse retrieveUser(String verificationId, String username, String loginId, List<String> loginIdTypes, String email, String changePasswordId) {
     return retrieveUser(verificationId, username, loginId, loginIdTypes, email, changePasswordId, null);
   }
 
@@ -1289,7 +1345,7 @@ public class FusionAuthClient {
     return execute("GET", "/api/user/action/" + encode(actionId), null, null, ActionResponse::fromJSON);
   }
 
-  public UserDeleteResponse deleteUserBulk(String userIds, String dryRun, String hardDelete, UserDeleteRequest request) {
+  public UserDeleteResponse deleteUserBulk(List<String> userIds, String dryRun, String hardDelete, UserDeleteRequest request) {
     return execute("DELETE", "/api/user/bulk" + query("userIds", userIds, "dryRun", dryRun, "hardDelete", hardDelete), request.toJSON(), null, UserDeleteResponse::fromJSON);
   }
 
@@ -1297,7 +1353,7 @@ public class FusionAuthClient {
     return execute("POST", "/api/user/change-password", request.toJSON(), null, ChangePasswordResponse::fromJSON);
   }
 
-  public int retrieveUserChangePassword(String loginId, String loginIdTypes, String ipAddress) {
+  public int retrieveUserChangePassword(String loginId, List<String> loginIdTypes, String ipAddress) {
     return executeVoid("GET", "/api/user/change-password" + query("loginId", loginId, "loginIdTypes", loginIdTypes, "ipAddress", ipAddress), null, null);
   }
 
@@ -1421,8 +1477,8 @@ public class FusionAuthClient {
     return executeVoid("POST", "/api/user/import", request.toJSON(), null);
   }
 
-  public RecentLoginResponse retrieveUserRecentLogin(String userId, String offset, String limit) {
-    return execute("GET", "/api/user/recent-login" + query("userId", userId, "offset", offset, "limit", limit), null, null, RecentLoginResponse::fromJSON);
+  public RecentLoginResponse retrieveUserRecentLogin(String applicationId, String userId, Integer offset, Integer limit) {
+    return execute("GET", "/api/user/recent-login" + query("applicationId", applicationId, "userId", userId, "offset", offset, "limit", limit), null, null, RecentLoginResponse::fromJSON);
   }
 
   public int importRefreshTokensWithId(RefreshTokenImportRequest request) {
@@ -1477,8 +1533,8 @@ public class FusionAuthClient {
     return retrieveRegistrationWithId(userId, applicationId, null);
   }
 
-  public SearchResponse searchUsersByIdsWithId(String... ids) {
-    return execute("GET", "/api/user/search" + queryList("ids", ids), null, null, SearchResponse::fromJSON);
+  public SearchResponse searchUsersByIdsWithId(List<String> ids, String queryString, String query, Integer numberOfResults, Integer startRow, String accurateTotal) {
+    return execute("GET", "/api/user/search" + query("ids", ids, "queryString", queryString, "query", query, "numberOfResults", numberOfResults, "startRow", startRow, "accurateTotal", accurateTotal), null, null, SearchResponse::fromJSON);
   }
 
   public SearchResponse searchUsersByQueryWithId(SearchRequest request) {
@@ -1605,6 +1661,10 @@ public class FusionAuthClient {
     return execute("GET", "/api/webhook", null, null, WebhookResponse::fromJSON);
   }
 
+  public WebhookSearchResponse searchWebhooks(String description, String tenantId, String url, Integer numberOfResults, String orderBy, Integer startRow) {
+    return execute("GET", "/api/webhook/search" + query("description", description, "tenantId", tenantId, "url", url, "numberOfResults", numberOfResults, "orderBy", orderBy, "startRow", startRow), null, null, WebhookSearchResponse::fromJSON);
+  }
+
   public WebhookSearchResponse searchWebhooksWithId(WebhookSearchRequest request) {
     return execute("POST", "/api/webhook/search", request.toJSON(), null, WebhookSearchResponse::fromJSON);
   }
@@ -1727,14 +1787,23 @@ public class FusionAuthClient {
     return URLEncoder.encode(value, StandardCharsets.UTF_8);
   }
 
-  private static String query(String... nameValues) {
+  private static String query(Object... nameValues) {
     StringBuilder sb = new StringBuilder();
     for (int i = 0; i + 1 < nameValues.length; i += 2) {
-      String value = nameValues[i + 1];
+      String name = (String) nameValues[i];
+      Object value = nameValues[i + 1];
       if (value == null) {
         continue;
       }
-      sb.append(sb.isEmpty() ? "?" : "&").append(nameValues[i]).append("=").append(encode(value));
+      if (value instanceof Iterable<?> values) {
+        for (Object element : values) {
+          if (element != null) {
+            sb.append(sb.isEmpty() ? "?" : "&").append(name).append("=").append(encode(element.toString()));
+          }
+        }
+      } else {
+        sb.append(sb.isEmpty() ? "?" : "&").append(name).append("=").append(encode(value.toString()));
+      }
     }
     return sb.toString();
   }

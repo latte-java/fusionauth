@@ -30,15 +30,15 @@ public record FormField(
   public String toJSON() {
     return FormFieldJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return FormFieldJSON.toJSONBytes(this);
   }
-
+  
   public static FormField fromJSON(String json) {
     return FormFieldJSON.fromJSON(json);
   }
-
+  
   public static FormField fromJSONBytes(byte[] json) {
     return FormFieldJSON.fromJSON(json);
   }

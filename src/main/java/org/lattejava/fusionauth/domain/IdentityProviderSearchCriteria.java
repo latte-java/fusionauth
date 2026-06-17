@@ -24,15 +24,15 @@ public record IdentityProviderSearchCriteria(
   public String toJSON() {
     return IdentityProviderSearchCriteriaJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return IdentityProviderSearchCriteriaJSON.toJSONBytes(this);
   }
-
+  
   public static IdentityProviderSearchCriteria fromJSON(String json) {
     return IdentityProviderSearchCriteriaJSON.fromJSON(json);
   }
-
+  
   public static IdentityProviderSearchCriteria fromJSONBytes(byte[] json) {
     return IdentityProviderSearchCriteriaJSON.fromJSON(json);
   }

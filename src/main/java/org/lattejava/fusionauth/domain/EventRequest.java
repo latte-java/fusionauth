@@ -17,15 +17,15 @@ public record EventRequest(
   public String toJSON() {
     return EventRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EventRequestJSON.toJSONBytes(this);
   }
-
+  
   public static EventRequest fromJSON(String json) {
     return EventRequestJSON.fromJSON(json);
   }
-
+  
   public static EventRequest fromJSONBytes(byte[] json) {
     return EventRequestJSON.fromJSON(json);
   }

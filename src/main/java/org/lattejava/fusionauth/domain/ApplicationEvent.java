@@ -16,15 +16,15 @@ public record ApplicationEvent() {
   public String toJSON() {
     return ApplicationEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ApplicationEventJSON.toJSONBytes(this);
   }
-
+  
   public static ApplicationEvent fromJSON(String json) {
     return ApplicationEventJSON.fromJSON(json);
   }
-
+  
   public static ApplicationEvent fromJSONBytes(byte[] json) {
     return ApplicationEventJSON.fromJSON(json);
   }

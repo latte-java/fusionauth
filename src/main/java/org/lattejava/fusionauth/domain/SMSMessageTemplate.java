@@ -24,15 +24,15 @@ public record SMSMessageTemplate(
   public String toJSON() {
     return SMSMessageTemplateJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return SMSMessageTemplateJSON.toJSONBytes(this);
   }
-
+  
   public static SMSMessageTemplate fromJSON(String json) {
     return SMSMessageTemplateJSON.fromJSON(json);
   }
-
+  
   public static SMSMessageTemplate fromJSONBytes(byte[] json) {
     return SMSMessageTemplateJSON.fromJSON(json);
   }

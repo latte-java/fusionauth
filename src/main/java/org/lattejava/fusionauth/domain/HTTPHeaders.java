@@ -16,15 +16,15 @@ public record HTTPHeaders() {
   public String toJSON() {
     return HTTPHeadersJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return HTTPHeadersJSON.toJSONBytes(this);
   }
-
+  
   public static HTTPHeaders fromJSON(String json) {
     return HTTPHeadersJSON.fromJSON(json);
   }
-
+  
   public static HTTPHeaders fromJSONBytes(byte[] json) {
     return HTTPHeadersJSON.fromJSON(json);
   }

@@ -17,15 +17,15 @@ public record WebAuthnRegistrationExtensionOptions(
   public String toJSON() {
     return WebAuthnRegistrationExtensionOptionsJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return WebAuthnRegistrationExtensionOptionsJSON.toJSONBytes(this);
   }
-
+  
   public static WebAuthnRegistrationExtensionOptions fromJSON(String json) {
     return WebAuthnRegistrationExtensionOptionsJSON.fromJSON(json);
   }
-
+  
   public static WebAuthnRegistrationExtensionOptions fromJSONBytes(byte[] json) {
     return WebAuthnRegistrationExtensionOptionsJSON.fromJSON(json);
   }

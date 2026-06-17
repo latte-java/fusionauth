@@ -18,15 +18,15 @@ public record IdentityProviderLinkResponse(
   public String toJSON() {
     return IdentityProviderLinkResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return IdentityProviderLinkResponseJSON.toJSONBytes(this);
   }
-
+  
   public static IdentityProviderLinkResponse fromJSON(String json) {
     return IdentityProviderLinkResponseJSON.fromJSON(json);
   }
-
+  
   public static IdentityProviderLinkResponse fromJSONBytes(byte[] json) {
     return IdentityProviderLinkResponseJSON.fromJSON(json);
   }

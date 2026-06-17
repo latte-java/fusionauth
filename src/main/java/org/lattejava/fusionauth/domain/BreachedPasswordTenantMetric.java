@@ -22,15 +22,15 @@ public record BreachedPasswordTenantMetric(
   public String toJSON() {
     return BreachedPasswordTenantMetricJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return BreachedPasswordTenantMetricJSON.toJSONBytes(this);
   }
-
+  
   public static BreachedPasswordTenantMetric fromJSON(String json) {
     return BreachedPasswordTenantMetricJSON.fromJSON(json);
   }
-
+  
   public static BreachedPasswordTenantMetric fromJSONBytes(byte[] json) {
     return BreachedPasswordTenantMetricJSON.fromJSON(json);
   }

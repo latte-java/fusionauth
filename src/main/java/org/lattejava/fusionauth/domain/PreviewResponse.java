@@ -18,15 +18,15 @@ public record PreviewResponse(
   public String toJSON() {
     return PreviewResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return PreviewResponseJSON.toJSONBytes(this);
   }
-
+  
   public static PreviewResponse fromJSON(String json) {
     return PreviewResponseJSON.fromJSON(json);
   }
-
+  
   public static PreviewResponse fromJSONBytes(byte[] json) {
     return PreviewResponseJSON.fromJSON(json);
   }

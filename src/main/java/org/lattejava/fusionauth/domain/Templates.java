@@ -68,15 +68,15 @@ public record Templates(
   public String toJSON() {
     return TemplatesJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TemplatesJSON.toJSONBytes(this);
   }
-
+  
   public static Templates fromJSON(String json) {
     return TemplatesJSON.fromJSON(json);
   }
-
+  
   public static Templates fromJSONBytes(byte[] json) {
     return TemplatesJSON.fromJSON(json);
   }

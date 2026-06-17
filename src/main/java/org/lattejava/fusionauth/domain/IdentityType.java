@@ -17,15 +17,15 @@ public record IdentityType(
   public String toJSON() {
     return IdentityTypeJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return IdentityTypeJSON.toJSONBytes(this);
   }
-
+  
   public static IdentityType fromJSON(String json) {
     return IdentityTypeJSON.fromJSON(json);
   }
-
+  
   public static IdentityType fromJSONBytes(byte[] json) {
     return IdentityTypeJSON.fromJSON(json);
   }

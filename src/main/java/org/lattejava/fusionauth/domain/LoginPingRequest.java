@@ -22,15 +22,15 @@ public record LoginPingRequest(
   public String toJSON() {
     return LoginPingRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return LoginPingRequestJSON.toJSONBytes(this);
   }
-
+  
   public static LoginPingRequest fromJSON(String json) {
     return LoginPingRequestJSON.fromJSON(json);
   }
-
+  
   public static LoginPingRequest fromJSONBytes(byte[] json) {
     return LoginPingRequestJSON.fromJSON(json);
   }

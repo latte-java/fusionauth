@@ -17,15 +17,15 @@ public record ConnectorRequest(
   public String toJSON() {
     return ConnectorRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ConnectorRequestJSON.toJSONBytes(this);
   }
-
+  
   public static ConnectorRequest fromJSON(String json) {
     return ConnectorRequestJSON.fromJSON(json);
   }
-
+  
   public static ConnectorRequest fromJSONBytes(byte[] json) {
     return ConnectorRequestJSON.fromJSON(json);
   }

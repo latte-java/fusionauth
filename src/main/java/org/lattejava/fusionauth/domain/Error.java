@@ -19,15 +19,15 @@ public record Error(
   public String toJSON() {
     return ErrorJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ErrorJSON.toJSONBytes(this);
   }
-
+  
   public static Error fromJSON(String json) {
     return ErrorJSON.fromJSON(json);
   }
-
+  
   public static Error fromJSONBytes(byte[] json) {
     return ErrorJSON.fromJSON(json);
   }

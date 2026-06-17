@@ -68,7 +68,7 @@ public class FusionAuthClientTest {
     client.createUserWithId(id2, userRequest("it-" + id2 + "@example.com"));
 
     try {
-      SearchResponse response = client.searchUsersByIdsWithId(id1, id2);
+      SearchResponse response = client.searchUsersByIdsWithId(List.of(id1, id2), null, null, null, null, null);
       Assert.assertNotNull(response);
       Assert.assertEquals(response.total(), Long.valueOf(2));
       Set<String> returned = response.users().stream().map(u -> u.id().toString()).collect(Collectors.toSet());

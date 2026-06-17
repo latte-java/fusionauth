@@ -16,15 +16,15 @@ public record LocalizedStrings() {
   public String toJSON() {
     return LocalizedStringsJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return LocalizedStringsJSON.toJSONBytes(this);
   }
-
+  
   public static LocalizedStrings fromJSON(String json) {
     return LocalizedStringsJSON.fromJSON(json);
   }
-
+  
   public static LocalizedStrings fromJSONBytes(byte[] json) {
     return LocalizedStringsJSON.fromJSON(json);
   }

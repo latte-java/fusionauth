@@ -35,15 +35,15 @@ public record OpenIdConnectIdentityProvider(
   public String toJSON() {
     return OpenIdConnectIdentityProviderJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return OpenIdConnectIdentityProviderJSON.toJSONBytes(this);
   }
-
+  
   public static OpenIdConnectIdentityProvider fromJSON(String json) {
     return OpenIdConnectIdentityProviderJSON.fromJSON(json);
   }
-
+  
   public static OpenIdConnectIdentityProvider fromJSONBytes(byte[] json) {
     return OpenIdConnectIdentityProviderJSON.fromJSON(json);
   }

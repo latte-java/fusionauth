@@ -20,15 +20,15 @@ public record ConsentSearchCriteria(
   public String toJSON() {
     return ConsentSearchCriteriaJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ConsentSearchCriteriaJSON.toJSONBytes(this);
   }
-
+  
   public static ConsentSearchCriteria fromJSON(String json) {
     return ConsentSearchCriteriaJSON.fromJSON(json);
   }
-
+  
   public static ConsentSearchCriteria fromJSONBytes(byte[] json) {
     return ConsentSearchCriteriaJSON.fromJSON(json);
   }

@@ -20,15 +20,15 @@ public record EmailTemplateSearchCriteria(
   public String toJSON() {
     return EmailTemplateSearchCriteriaJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EmailTemplateSearchCriteriaJSON.toJSONBytes(this);
   }
-
+  
   public static EmailTemplateSearchCriteria fromJSON(String json) {
     return EmailTemplateSearchCriteriaJSON.fromJSON(json);
   }
-
+  
   public static EmailTemplateSearchCriteria fromJSONBytes(byte[] json) {
     return EmailTemplateSearchCriteriaJSON.fromJSON(json);
   }

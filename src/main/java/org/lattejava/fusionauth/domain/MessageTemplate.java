@@ -22,15 +22,15 @@ public record MessageTemplate(
   public String toJSON() {
     return MessageTemplateJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return MessageTemplateJSON.toJSONBytes(this);
   }
-
+  
   public static MessageTemplate fromJSON(String json) {
     return MessageTemplateJSON.fromJSON(json);
   }
-
+  
   public static MessageTemplate fromJSONBytes(byte[] json) {
     return MessageTemplateJSON.fromJSON(json);
   }

@@ -23,15 +23,15 @@ public record SendRequest(
   public String toJSON() {
     return SendRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return SendRequestJSON.toJSONBytes(this);
   }
-
+  
   public static SendRequest fromJSON(String json) {
     return SendRequestJSON.fromJSON(json);
   }
-
+  
   public static SendRequest fromJSONBytes(byte[] json) {
     return SendRequestJSON.fromJSON(json);
   }

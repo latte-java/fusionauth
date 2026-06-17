@@ -18,15 +18,15 @@ public record UsernameModeration(
   public String toJSON() {
     return UsernameModerationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UsernameModerationJSON.toJSONBytes(this);
   }
-
+  
   public static UsernameModeration fromJSON(String json) {
     return UsernameModerationJSON.fromJSON(json);
   }
-
+  
   public static UsernameModeration fromJSONBytes(byte[] json) {
     return UsernameModerationJSON.fromJSON(json);
   }

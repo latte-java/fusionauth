@@ -26,15 +26,15 @@ public record CertificateInformation(
   public String toJSON() {
     return CertificateInformationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return CertificateInformationJSON.toJSONBytes(this);
   }
-
+  
   public static CertificateInformation fromJSON(String json) {
     return CertificateInformationJSON.fromJSON(json);
   }
-
+  
   public static CertificateInformation fromJSONBytes(byte[] json) {
     return CertificateInformationJSON.fromJSON(json);
   }

@@ -18,15 +18,15 @@ public record Count(
   public String toJSON() {
     return CountJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return CountJSON.toJSONBytes(this);
   }
-
+  
   public static Count fromJSON(String json) {
     return CountJSON.fromJSON(json);
   }
-
+  
   public static Count fromJSONBytes(byte[] json) {
     return CountJSON.fromJSON(json);
   }

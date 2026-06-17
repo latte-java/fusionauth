@@ -22,15 +22,15 @@ public record FamilyMember(
   public String toJSON() {
     return FamilyMemberJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return FamilyMemberJSON.toJSONBytes(this);
   }
-
+  
   public static FamilyMember fromJSON(String json) {
     return FamilyMemberJSON.fromJSON(json);
   }
-
+  
   public static FamilyMember fromJSONBytes(byte[] json) {
     return FamilyMemberJSON.fromJSON(json);
   }

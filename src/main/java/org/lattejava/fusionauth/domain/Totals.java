@@ -19,15 +19,15 @@ public record Totals(
   public String toJSON() {
     return TotalsJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TotalsJSON.toJSONBytes(this);
   }
-
+  
   public static Totals fromJSON(String json) {
     return TotalsJSON.fromJSON(json);
   }
-
+  
   public static Totals fromJSONBytes(byte[] json) {
     return TotalsJSON.fromJSON(json);
   }

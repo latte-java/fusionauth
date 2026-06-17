@@ -34,15 +34,15 @@ public record SonyPSNIdentityProvider(
   public String toJSON() {
     return SonyPSNIdentityProviderJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return SonyPSNIdentityProviderJSON.toJSONBytes(this);
   }
-
+  
   public static SonyPSNIdentityProvider fromJSON(String json) {
     return SonyPSNIdentityProviderJSON.fromJSON(json);
   }
-
+  
   public static SonyPSNIdentityProvider fromJSONBytes(byte[] json) {
     return SonyPSNIdentityProviderJSON.fromJSON(json);
   }

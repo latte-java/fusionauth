@@ -17,15 +17,15 @@ public record TenantUserDeletePolicy(
   public String toJSON() {
     return TenantUserDeletePolicyJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TenantUserDeletePolicyJSON.toJSONBytes(this);
   }
-
+  
   public static TenantUserDeletePolicy fromJSON(String json) {
     return TenantUserDeletePolicyJSON.fromJSON(json);
   }
-
+  
   public static TenantUserDeletePolicy fromJSONBytes(byte[] json) {
     return TenantUserDeletePolicyJSON.fromJSON(json);
   }

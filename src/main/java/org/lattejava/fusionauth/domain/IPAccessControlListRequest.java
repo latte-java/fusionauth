@@ -17,15 +17,15 @@ public record IPAccessControlListRequest(
   public String toJSON() {
     return IPAccessControlListRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return IPAccessControlListRequestJSON.toJSONBytes(this);
   }
-
+  
   public static IPAccessControlListRequest fromJSON(String json) {
     return IPAccessControlListRequestJSON.fromJSON(json);
   }
-
+  
   public static IPAccessControlListRequest fromJSONBytes(byte[] json) {
     return IPAccessControlListRequestJSON.fromJSON(json);
   }

@@ -22,15 +22,15 @@ public record LinkedInApplicationConfiguration(
   public String toJSON() {
     return LinkedInApplicationConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return LinkedInApplicationConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static LinkedInApplicationConfiguration fromJSON(String json) {
     return LinkedInApplicationConfigurationJSON.fromJSON(json);
   }
-
+  
   public static LinkedInApplicationConfiguration fromJSONBytes(byte[] json) {
     return LinkedInApplicationConfigurationJSON.fromJSON(json);
   }

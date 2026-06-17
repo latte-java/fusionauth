@@ -23,15 +23,15 @@ public record Location(
   public String toJSON() {
     return LocationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return LocationJSON.toJSONBytes(this);
   }
-
+  
   public static Location fromJSON(String json) {
     return LocationJSON.fromJSON(json);
   }
-
+  
   public static Location fromJSONBytes(byte[] json) {
     return LocationJSON.fromJSON(json);
   }

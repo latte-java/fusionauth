@@ -18,15 +18,15 @@ public record GroupUpdateCompleteEvent(
   public String toJSON() {
     return GroupUpdateCompleteEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return GroupUpdateCompleteEventJSON.toJSONBytes(this);
   }
-
+  
   public static GroupUpdateCompleteEvent fromJSON(String json) {
     return GroupUpdateCompleteEventJSON.fromJSON(json);
   }
-
+  
   public static GroupUpdateCompleteEvent fromJSONBytes(byte[] json) {
     return GroupUpdateCompleteEventJSON.fromJSON(json);
   }

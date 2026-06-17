@@ -19,15 +19,15 @@ public record WebhookCallResponse(
   public String toJSON() {
     return WebhookCallResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return WebhookCallResponseJSON.toJSONBytes(this);
   }
-
+  
   public static WebhookCallResponse fromJSON(String json) {
     return WebhookCallResponseJSON.fromJSON(json);
   }
-
+  
   public static WebhookCallResponse fromJSONBytes(byte[] json) {
     return WebhookCallResponseJSON.fromJSON(json);
   }

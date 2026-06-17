@@ -20,15 +20,15 @@ public record TenantRequest(
   public String toJSON() {
     return TenantRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TenantRequestJSON.toJSONBytes(this);
   }
-
+  
   public static TenantRequest fromJSON(String json) {
     return TenantRequestJSON.fromJSON(json);
   }
-
+  
   public static TenantRequest fromJSONBytes(byte[] json) {
     return TenantRequestJSON.fromJSON(json);
   }

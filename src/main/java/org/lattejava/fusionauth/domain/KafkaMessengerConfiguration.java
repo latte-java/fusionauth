@@ -27,15 +27,15 @@ public record KafkaMessengerConfiguration(
   public String toJSON() {
     return KafkaMessengerConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return KafkaMessengerConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static KafkaMessengerConfiguration fromJSON(String json) {
     return KafkaMessengerConfigurationJSON.fromJSON(json);
   }
-
+  
   public static KafkaMessengerConfiguration fromJSONBytes(byte[] json) {
     return KafkaMessengerConfigurationJSON.fromJSON(json);
   }

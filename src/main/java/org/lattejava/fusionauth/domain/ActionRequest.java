@@ -19,15 +19,15 @@ public record ActionRequest(
   public String toJSON() {
     return ActionRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ActionRequestJSON.toJSONBytes(this);
   }
-
+  
   public static ActionRequest fromJSON(String json) {
     return ActionRequestJSON.fromJSON(json);
   }
-
+  
   public static ActionRequest fromJSONBytes(byte[] json) {
     return ActionRequestJSON.fromJSON(json);
   }

@@ -26,15 +26,15 @@ public record Entity(
   public String toJSON() {
     return EntityJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EntityJSON.toJSONBytes(this);
   }
-
+  
   public static Entity fromJSON(String json) {
     return EntityJSON.fromJSON(json);
   }
-
+  
   public static Entity fromJSONBytes(byte[] json) {
     return EntityJSON.fromJSON(json);
   }

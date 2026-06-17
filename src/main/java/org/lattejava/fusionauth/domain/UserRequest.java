@@ -25,15 +25,15 @@ public record UserRequest(
   public String toJSON() {
     return UserRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserRequestJSON.toJSONBytes(this);
   }
-
+  
   public static UserRequest fromJSON(String json) {
     return UserRequestJSON.fromJSON(json);
   }
-
+  
   public static UserRequest fromJSONBytes(byte[] json) {
     return UserRequestJSON.fromJSON(json);
   }

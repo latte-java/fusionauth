@@ -24,15 +24,15 @@ public record AccessToken(
   public String toJSON() {
     return AccessTokenJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return AccessTokenJSON.toJSONBytes(this);
   }
-
+  
   public static AccessToken fromJSON(String json) {
     return AccessTokenJSON.fromJSON(json);
   }
-
+  
   public static AccessToken fromJSONBytes(byte[] json) {
     return AccessTokenJSON.fromJSON(json);
   }

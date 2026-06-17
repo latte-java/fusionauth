@@ -18,15 +18,15 @@ public record FamilyResponse(
   public String toJSON() {
     return FamilyResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return FamilyResponseJSON.toJSONBytes(this);
   }
-
+  
   public static FamilyResponse fromJSON(String json) {
     return FamilyResponseJSON.fromJSON(json);
   }
-
+  
   public static FamilyResponse fromJSONBytes(byte[] json) {
     return FamilyResponseJSON.fromJSON(json);
   }

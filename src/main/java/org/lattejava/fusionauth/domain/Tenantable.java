@@ -16,15 +16,15 @@ public record Tenantable() {
   public String toJSON() {
     return TenantableJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TenantableJSON.toJSONBytes(this);
   }
-
+  
   public static Tenantable fromJSON(String json) {
     return TenantableJSON.fromJSON(json);
   }
-
+  
   public static Tenantable fromJSONBytes(byte[] json) {
     return TenantableJSON.fromJSON(json);
   }

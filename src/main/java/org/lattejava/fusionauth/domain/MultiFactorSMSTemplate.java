@@ -17,15 +17,15 @@ public record MultiFactorSMSTemplate(
   public String toJSON() {
     return MultiFactorSMSTemplateJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return MultiFactorSMSTemplateJSON.toJSONBytes(this);
   }
-
+  
   public static MultiFactorSMSTemplate fromJSON(String json) {
     return MultiFactorSMSTemplateJSON.fromJSON(json);
   }
-
+  
   public static MultiFactorSMSTemplate fromJSONBytes(byte[] json) {
     return MultiFactorSMSTemplateJSON.fromJSON(json);
   }

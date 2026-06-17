@@ -26,15 +26,15 @@ public record JWTConfiguration(
   public String toJSON() {
     return JWTConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return JWTConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static JWTConfiguration fromJSON(String json) {
     return JWTConfigurationJSON.fromJSON(json);
   }
-
+  
   public static JWTConfiguration fromJSONBytes(byte[] json) {
     return JWTConfigurationJSON.fromJSON(json);
   }

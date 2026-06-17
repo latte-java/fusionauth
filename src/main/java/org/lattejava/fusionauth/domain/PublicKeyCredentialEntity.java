@@ -17,15 +17,15 @@ public record PublicKeyCredentialEntity(
   public String toJSON() {
     return PublicKeyCredentialEntityJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return PublicKeyCredentialEntityJSON.toJSONBytes(this);
   }
-
+  
   public static PublicKeyCredentialEntity fromJSON(String json) {
     return PublicKeyCredentialEntityJSON.fromJSON(json);
   }
-
+  
   public static PublicKeyCredentialEntity fromJSONBytes(byte[] json) {
     return PublicKeyCredentialEntityJSON.fromJSON(json);
   }

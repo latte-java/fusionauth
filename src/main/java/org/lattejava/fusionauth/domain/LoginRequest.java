@@ -26,15 +26,15 @@ public record LoginRequest(
   public String toJSON() {
     return LoginRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return LoginRequestJSON.toJSONBytes(this);
   }
-
+  
   public static LoginRequest fromJSON(String json) {
     return LoginRequestJSON.fromJSON(json);
   }
-
+  
   public static LoginRequest fromJSONBytes(byte[] json) {
     return LoginRequestJSON.fromJSON(json);
   }

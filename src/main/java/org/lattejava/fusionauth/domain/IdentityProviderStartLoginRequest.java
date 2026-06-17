@@ -27,15 +27,15 @@ public record IdentityProviderStartLoginRequest(
   public String toJSON() {
     return IdentityProviderStartLoginRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return IdentityProviderStartLoginRequestJSON.toJSONBytes(this);
   }
-
+  
   public static IdentityProviderStartLoginRequest fromJSON(String json) {
     return IdentityProviderStartLoginRequestJSON.fromJSON(json);
   }
-
+  
   public static IdentityProviderStartLoginRequest fromJSONBytes(byte[] json) {
     return IdentityProviderStartLoginRequestJSON.fromJSON(json);
   }

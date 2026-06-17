@@ -17,15 +17,15 @@ public record FamilyRequest(
   public String toJSON() {
     return FamilyRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return FamilyRequestJSON.toJSONBytes(this);
   }
-
+  
   public static FamilyRequest fromJSON(String json) {
     return FamilyRequestJSON.fromJSON(json);
   }
-
+  
   public static FamilyRequest fromJSONBytes(byte[] json) {
     return FamilyRequestJSON.fromJSON(json);
   }

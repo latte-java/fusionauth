@@ -20,15 +20,15 @@ public record PasswordBreachDetection(
   public String toJSON() {
     return PasswordBreachDetectionJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return PasswordBreachDetectionJSON.toJSONBytes(this);
   }
-
+  
   public static PasswordBreachDetection fromJSON(String json) {
     return PasswordBreachDetectionJSON.fromJSON(json);
   }
-
+  
   public static PasswordBreachDetection fromJSONBytes(byte[] json) {
     return PasswordBreachDetectionJSON.fromJSON(json);
   }

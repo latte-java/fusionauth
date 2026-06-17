@@ -25,15 +25,15 @@ public record NintendoApplicationConfiguration(
   public String toJSON() {
     return NintendoApplicationConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return NintendoApplicationConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static NintendoApplicationConfiguration fromJSON(String json) {
     return NintendoApplicationConfigurationJSON.fromJSON(json);
   }
-
+  
   public static NintendoApplicationConfiguration fromJSONBytes(byte[] json) {
     return NintendoApplicationConfigurationJSON.fromJSON(json);
   }

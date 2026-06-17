@@ -19,15 +19,15 @@ public record UserIdentityVerifiedEvent(
   public String toJSON() {
     return UserIdentityVerifiedEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserIdentityVerifiedEventJSON.toJSONBytes(this);
   }
-
+  
   public static UserIdentityVerifiedEvent fromJSON(String json) {
     return UserIdentityVerifiedEventJSON.fromJSON(json);
   }
-
+  
   public static UserIdentityVerifiedEvent fromJSONBytes(byte[] json) {
     return UserIdentityVerifiedEventJSON.fromJSON(json);
   }

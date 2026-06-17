@@ -18,15 +18,15 @@ public record UserIdentityProviderUnlinkEvent(
   public String toJSON() {
     return UserIdentityProviderUnlinkEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserIdentityProviderUnlinkEventJSON.toJSONBytes(this);
   }
-
+  
   public static UserIdentityProviderUnlinkEvent fromJSON(String json) {
     return UserIdentityProviderUnlinkEventJSON.fromJSON(json);
   }
-
+  
   public static UserIdentityProviderUnlinkEvent fromJSONBytes(byte[] json) {
     return UserIdentityProviderUnlinkEventJSON.fromJSON(json);
   }

@@ -19,15 +19,15 @@ public record Attachment(
   public String toJSON() {
     return AttachmentJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return AttachmentJSON.toJSONBytes(this);
   }
-
+  
   public static Attachment fromJSON(String json) {
     return AttachmentJSON.fromJSON(json);
   }
-
+  
   public static Attachment fromJSONBytes(byte[] json) {
     return AttachmentJSON.fromJSON(json);
   }

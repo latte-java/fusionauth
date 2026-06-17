@@ -19,15 +19,15 @@ public record PublicKeyCredentialDescriptor(
   public String toJSON() {
     return PublicKeyCredentialDescriptorJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return PublicKeyCredentialDescriptorJSON.toJSONBytes(this);
   }
-
+  
   public static PublicKeyCredentialDescriptor fromJSON(String json) {
     return PublicKeyCredentialDescriptorJSON.fromJSON(json);
   }
-
+  
   public static PublicKeyCredentialDescriptor fromJSONBytes(byte[] json) {
     return PublicKeyCredentialDescriptorJSON.fromJSON(json);
   }

@@ -17,15 +17,15 @@ public record VerifyCompleteResponse(
   public String toJSON() {
     return VerifyCompleteResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return VerifyCompleteResponseJSON.toJSONBytes(this);
   }
-
+  
   public static VerifyCompleteResponse fromJSON(String json) {
     return VerifyCompleteResponseJSON.fromJSON(json);
   }
-
+  
   public static VerifyCompleteResponse fromJSONBytes(byte[] json) {
     return VerifyCompleteResponseJSON.fromJSON(json);
   }

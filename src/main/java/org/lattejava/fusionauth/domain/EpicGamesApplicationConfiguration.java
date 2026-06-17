@@ -22,15 +22,15 @@ public record EpicGamesApplicationConfiguration(
   public String toJSON() {
     return EpicGamesApplicationConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EpicGamesApplicationConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static EpicGamesApplicationConfiguration fromJSON(String json) {
     return EpicGamesApplicationConfigurationJSON.fromJSON(json);
   }
-
+  
   public static EpicGamesApplicationConfiguration fromJSONBytes(byte[] json) {
     return EpicGamesApplicationConfigurationJSON.fromJSON(json);
   }

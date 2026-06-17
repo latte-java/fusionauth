@@ -16,15 +16,15 @@ public record IntrospectResponse() {
   public String toJSON() {
     return IntrospectResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return IntrospectResponseJSON.toJSONBytes(this);
   }
-
+  
   public static IntrospectResponse fromJSON(String json) {
     return IntrospectResponseJSON.fromJSON(json);
   }
-
+  
   public static IntrospectResponse fromJSONBytes(byte[] json) {
     return IntrospectResponseJSON.fromJSON(json);
   }

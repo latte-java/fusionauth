@@ -20,15 +20,15 @@ public record ProvidedScopePolicy(
   public String toJSON() {
     return ProvidedScopePolicyJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ProvidedScopePolicyJSON.toJSONBytes(this);
   }
-
+  
   public static ProvidedScopePolicy fromJSON(String json) {
     return ProvidedScopePolicyJSON.fromJSON(json);
   }
-
+  
   public static ProvidedScopePolicy fromJSONBytes(byte[] json) {
     return ProvidedScopePolicyJSON.fromJSON(json);
   }

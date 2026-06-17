@@ -32,15 +32,15 @@ public record GenericMessengerConfiguration(
   public String toJSON() {
     return GenericMessengerConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return GenericMessengerConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static GenericMessengerConfiguration fromJSON(String json) {
     return GenericMessengerConfigurationJSON.fromJSON(json);
   }
-
+  
   public static GenericMessengerConfiguration fromJSONBytes(byte[] json) {
     return GenericMessengerConfigurationJSON.fromJSON(json);
   }

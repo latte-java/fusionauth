@@ -19,15 +19,15 @@ public record EntitySearchResponse(
   public String toJSON() {
     return EntitySearchResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EntitySearchResponseJSON.toJSONBytes(this);
   }
-
+  
   public static EntitySearchResponse fromJSON(String json) {
     return EntitySearchResponseJSON.fromJSON(json);
   }
-
+  
   public static EntitySearchResponse fromJSONBytes(byte[] json) {
     return EntitySearchResponseJSON.fromJSON(json);
   }

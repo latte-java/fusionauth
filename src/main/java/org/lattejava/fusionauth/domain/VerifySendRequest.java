@@ -17,15 +17,15 @@ public record VerifySendRequest(
   public String toJSON() {
     return VerifySendRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return VerifySendRequestJSON.toJSONBytes(this);
   }
-
+  
   public static VerifySendRequest fromJSON(String json) {
     return VerifySendRequestJSON.fromJSON(json);
   }
-
+  
   public static VerifySendRequest fromJSONBytes(byte[] json) {
     return VerifySendRequestJSON.fromJSON(json);
   }

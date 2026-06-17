@@ -17,15 +17,15 @@ public record WebAuthnRegisterStartResponse(
   public String toJSON() {
     return WebAuthnRegisterStartResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return WebAuthnRegisterStartResponseJSON.toJSONBytes(this);
   }
-
+  
   public static WebAuthnRegisterStartResponse fromJSON(String json) {
     return WebAuthnRegisterStartResponseJSON.fromJSON(json);
   }
-
+  
   public static WebAuthnRegisterStartResponse fromJSONBytes(byte[] json) {
     return WebAuthnRegisterStartResponseJSON.fromJSON(json);
   }

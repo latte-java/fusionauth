@@ -21,15 +21,15 @@ public record TwitterApplicationConfiguration(
   public String toJSON() {
     return TwitterApplicationConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TwitterApplicationConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static TwitterApplicationConfiguration fromJSON(String json) {
     return TwitterApplicationConfigurationJSON.fromJSON(json);
   }
-
+  
   public static TwitterApplicationConfiguration fromJSONBytes(byte[] json) {
     return TwitterApplicationConfigurationJSON.fromJSON(json);
   }

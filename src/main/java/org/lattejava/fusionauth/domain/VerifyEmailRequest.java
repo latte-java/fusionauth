@@ -20,15 +20,15 @@ public record VerifyEmailRequest(
   public String toJSON() {
     return VerifyEmailRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return VerifyEmailRequestJSON.toJSONBytes(this);
   }
-
+  
   public static VerifyEmailRequest fromJSON(String json) {
     return VerifyEmailRequestJSON.fromJSON(json);
   }
-
+  
   public static VerifyEmailRequest fromJSONBytes(byte[] json) {
     return VerifyEmailRequestJSON.fromJSON(json);
   }

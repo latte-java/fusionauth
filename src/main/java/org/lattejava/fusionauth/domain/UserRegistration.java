@@ -32,15 +32,15 @@ public record UserRegistration(
   public String toJSON() {
     return UserRegistrationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserRegistrationJSON.toJSONBytes(this);
   }
-
+  
   public static UserRegistration fromJSON(String json) {
     return UserRegistrationJSON.fromJSON(json);
   }
-
+  
   public static UserRegistration fromJSONBytes(byte[] json) {
     return UserRegistrationJSON.fromJSON(json);
   }

@@ -18,15 +18,15 @@ public record WebhookEventLogConfiguration(
   public String toJSON() {
     return WebhookEventLogConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return WebhookEventLogConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static WebhookEventLogConfiguration fromJSON(String json) {
     return WebhookEventLogConfigurationJSON.fromJSON(json);
   }
-
+  
   public static WebhookEventLogConfiguration fromJSONBytes(byte[] json) {
     return WebhookEventLogConfigurationJSON.fromJSON(json);
   }

@@ -20,15 +20,15 @@ public record RefreshTokenRevokeRequest(
   public String toJSON() {
     return RefreshTokenRevokeRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return RefreshTokenRevokeRequestJSON.toJSONBytes(this);
   }
-
+  
   public static RefreshTokenRevokeRequest fromJSON(String json) {
     return RefreshTokenRevokeRequestJSON.fromJSON(json);
   }
-
+  
   public static RefreshTokenRevokeRequest fromJSONBytes(byte[] json) {
     return RefreshTokenRevokeRequestJSON.fromJSON(json);
   }

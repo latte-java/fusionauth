@@ -18,15 +18,15 @@ public record LambdaSearchResponse(
   public String toJSON() {
     return LambdaSearchResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return LambdaSearchResponseJSON.toJSONBytes(this);
   }
-
+  
   public static LambdaSearchResponse fromJSON(String json) {
     return LambdaSearchResponseJSON.fromJSON(json);
   }
-
+  
   public static LambdaSearchResponse fromJSONBytes(byte[] json) {
     return LambdaSearchResponseJSON.fromJSON(json);
   }

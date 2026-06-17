@@ -20,15 +20,15 @@ public record UniqueUsernameConfiguration(
   public String toJSON() {
     return UniqueUsernameConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UniqueUsernameConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static UniqueUsernameConfiguration fromJSON(String json) {
     return UniqueUsernameConfigurationJSON.fromJSON(json);
   }
-
+  
   public static UniqueUsernameConfiguration fromJSONBytes(byte[] json) {
     return UniqueUsernameConfigurationJSON.fromJSON(json);
   }

@@ -21,15 +21,15 @@ public record BaseEvent(
   public String toJSON() {
     return BaseEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return BaseEventJSON.toJSONBytes(this);
   }
-
+  
   public static BaseEvent fromJSON(String json) {
     return BaseEventJSON.fromJSON(json);
   }
-
+  
   public static BaseEvent fromJSONBytes(byte[] json) {
     return BaseEventJSON.fromJSON(json);
   }

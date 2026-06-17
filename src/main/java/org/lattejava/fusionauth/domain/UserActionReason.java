@@ -22,15 +22,15 @@ public record UserActionReason(
   public String toJSON() {
     return UserActionReasonJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserActionReasonJSON.toJSONBytes(this);
   }
-
+  
   public static UserActionReason fromJSON(String json) {
     return UserActionReasonJSON.fromJSON(json);
   }
-
+  
   public static UserActionReason fromJSONBytes(byte[] json) {
     return UserActionReasonJSON.fromJSON(json);
   }

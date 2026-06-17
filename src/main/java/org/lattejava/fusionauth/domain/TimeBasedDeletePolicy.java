@@ -19,15 +19,15 @@ public record TimeBasedDeletePolicy(
   public String toJSON() {
     return TimeBasedDeletePolicyJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TimeBasedDeletePolicyJSON.toJSONBytes(this);
   }
-
+  
   public static TimeBasedDeletePolicy fromJSON(String json) {
     return TimeBasedDeletePolicyJSON.fromJSON(json);
   }
-
+  
   public static TimeBasedDeletePolicy fromJSONBytes(byte[] json) {
     return TimeBasedDeletePolicyJSON.fromJSON(json);
   }

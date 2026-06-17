@@ -17,15 +17,15 @@ public record ExpandableRequest(
   public String toJSON() {
     return ExpandableRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ExpandableRequestJSON.toJSONBytes(this);
   }
-
+  
   public static ExpandableRequest fromJSON(String json) {
     return ExpandableRequestJSON.fromJSON(json);
   }
-
+  
   public static ExpandableRequest fromJSONBytes(byte[] json) {
     return ExpandableRequestJSON.fromJSON(json);
   }

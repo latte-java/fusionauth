@@ -20,15 +20,15 @@ public record AuthenticatorSelectionCriteria(
   public String toJSON() {
     return AuthenticatorSelectionCriteriaJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return AuthenticatorSelectionCriteriaJSON.toJSONBytes(this);
   }
-
+  
   public static AuthenticatorSelectionCriteria fromJSON(String json) {
     return AuthenticatorSelectionCriteriaJSON.fromJSON(json);
   }
-
+  
   public static AuthenticatorSelectionCriteria fromJSONBytes(byte[] json) {
     return AuthenticatorSelectionCriteriaJSON.fromJSON(json);
   }

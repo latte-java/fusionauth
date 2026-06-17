@@ -20,15 +20,15 @@ public record SAMLv2ApplicationConfiguration(
   public String toJSON() {
     return SAMLv2ApplicationConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return SAMLv2ApplicationConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static SAMLv2ApplicationConfiguration fromJSON(String json) {
     return SAMLv2ApplicationConfigurationJSON.fromJSON(json);
   }
-
+  
   public static SAMLv2ApplicationConfiguration fromJSONBytes(byte[] json) {
     return SAMLv2ApplicationConfigurationJSON.fromJSON(json);
   }

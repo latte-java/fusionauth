@@ -57,15 +57,15 @@ public record User(
   public String toJSON() {
     return UserJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserJSON.toJSONBytes(this);
   }
-
+  
   public static User fromJSON(String json) {
     return UserJSON.fromJSON(json);
   }
-
+  
   public static User fromJSONBytes(byte[] json) {
     return UserJSON.fromJSON(json);
   }

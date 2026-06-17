@@ -1,4 +1,4 @@
-project(group: "org.lattejava", name: "fusionauth", version: "0.2.0", licenses: ["MIT"]) {
+project(group: "org.lattejava", name: "fusionauth", version: "0.3.0", licenses: ["MIT"]) {
   workflow {
     standard()
   }
@@ -38,6 +38,7 @@ target(name: "clean", description: "Cleans the project") {
 
 target(name: "build", description: "Compiles and JARs the project") {
   file.execute(cmd: "git config core.hooksPath .githooks")
+  file.execute(cmd: "ruby src/main/generator/generate.rb all")
   java.compile()
   java.jar()
 }

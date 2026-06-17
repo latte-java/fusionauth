@@ -17,15 +17,15 @@ public record RegistrationUnverifiedOptions(
   public String toJSON() {
     return RegistrationUnverifiedOptionsJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return RegistrationUnverifiedOptionsJSON.toJSONBytes(this);
   }
-
+  
   public static RegistrationUnverifiedOptions fromJSON(String json) {
     return RegistrationUnverifiedOptionsJSON.fromJSON(json);
   }
-
+  
   public static RegistrationUnverifiedOptions fromJSONBytes(byte[] json) {
     return RegistrationUnverifiedOptionsJSON.fromJSON(json);
   }

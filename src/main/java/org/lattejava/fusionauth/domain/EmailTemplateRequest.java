@@ -17,15 +17,15 @@ public record EmailTemplateRequest(
   public String toJSON() {
     return EmailTemplateRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EmailTemplateRequestJSON.toJSONBytes(this);
   }
-
+  
   public static EmailTemplateRequest fromJSON(String json) {
     return EmailTemplateRequestJSON.fromJSON(json);
   }
-
+  
   public static EmailTemplateRequest fromJSONBytes(byte[] json) {
     return EmailTemplateRequestJSON.fromJSON(json);
   }

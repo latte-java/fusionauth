@@ -21,15 +21,15 @@ public record TenantCaptchaConfiguration(
   public String toJSON() {
     return TenantCaptchaConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TenantCaptchaConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static TenantCaptchaConfiguration fromJSON(String json) {
     return TenantCaptchaConfigurationJSON.fromJSON(json);
   }
-
+  
   public static TenantCaptchaConfiguration fromJSONBytes(byte[] json) {
     return TenantCaptchaConfigurationJSON.fromJSON(json);
   }

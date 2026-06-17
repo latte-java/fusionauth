@@ -17,15 +17,15 @@ public record CredentialPropertiesOutput(
   public String toJSON() {
     return CredentialPropertiesOutputJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return CredentialPropertiesOutputJSON.toJSONBytes(this);
   }
-
+  
   public static CredentialPropertiesOutput fromJSON(String json) {
     return CredentialPropertiesOutputJSON.fromJSON(json);
   }
-
+  
   public static CredentialPropertiesOutput fromJSONBytes(byte[] json) {
     return CredentialPropertiesOutputJSON.fromJSON(json);
   }

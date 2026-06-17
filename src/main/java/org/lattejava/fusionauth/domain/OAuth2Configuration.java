@@ -21,7 +21,7 @@ public record OAuth2Configuration(
     OAuthScopeConsentMode consentMode,
     Boolean debug,
     String deviceVerificationURL,
-    Set<String> enabledGrants,
+    Set<GrantType> enabledGrants,
     Boolean generateRefreshTokens,
     LogoutBehavior logoutBehavior,
     String logoutURL,
@@ -37,15 +37,15 @@ public record OAuth2Configuration(
   public String toJSON() {
     return OAuth2ConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return OAuth2ConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static OAuth2Configuration fromJSON(String json) {
     return OAuth2ConfigurationJSON.fromJSON(json);
   }
-
+  
   public static OAuth2Configuration fromJSONBytes(byte[] json) {
     return OAuth2ConfigurationJSON.fromJSON(json);
   }
@@ -61,7 +61,7 @@ public record OAuth2Configuration(
     private OAuthScopeConsentMode consentMode;
     private Boolean debug;
     private String deviceVerificationURL;
-    private Set<String> enabledGrants;
+    private Set<GrantType> enabledGrants;
     private Boolean generateRefreshTokens;
     private LogoutBehavior logoutBehavior;
     private String logoutURL;
@@ -82,7 +82,7 @@ public record OAuth2Configuration(
     public Builder consentMode(OAuthScopeConsentMode consentMode) { this.consentMode = consentMode; return this; }
     public Builder debug(Boolean debug) { this.debug = debug; return this; }
     public Builder deviceVerificationURL(String deviceVerificationURL) { this.deviceVerificationURL = deviceVerificationURL; return this; }
-    public Builder enabledGrants(Set<String> enabledGrants) { this.enabledGrants = enabledGrants; return this; }
+    public Builder enabledGrants(Set<GrantType> enabledGrants) { this.enabledGrants = enabledGrants; return this; }
     public Builder generateRefreshTokens(Boolean generateRefreshTokens) { this.generateRefreshTokens = generateRefreshTokens; return this; }
     public Builder logoutBehavior(LogoutBehavior logoutBehavior) { this.logoutBehavior = logoutBehavior; return this; }
     public Builder logoutURL(String logoutURL) { this.logoutURL = logoutURL; return this; }

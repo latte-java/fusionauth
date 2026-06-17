@@ -17,15 +17,15 @@ public record JWKSResponse(
   public String toJSON() {
     return JWKSResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return JWKSResponseJSON.toJSONBytes(this);
   }
-
+  
   public static JWKSResponse fromJSON(String json) {
     return JWKSResponseJSON.fromJSON(json);
   }
-
+  
   public static JWKSResponse fromJSONBytes(byte[] json) {
     return JWKSResponseJSON.fromJSON(json);
   }

@@ -17,15 +17,15 @@ public record ApplicationAccessControlConfiguration(
   public String toJSON() {
     return ApplicationAccessControlConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ApplicationAccessControlConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static ApplicationAccessControlConfiguration fromJSON(String json) {
     return ApplicationAccessControlConfigurationJSON.fromJSON(json);
   }
-
+  
   public static ApplicationAccessControlConfiguration fromJSONBytes(byte[] json) {
     return ApplicationAccessControlConfigurationJSON.fromJSON(json);
   }

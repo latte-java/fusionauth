@@ -34,15 +34,15 @@ public record EpicGamesIdentityProvider(
   public String toJSON() {
     return EpicGamesIdentityProviderJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EpicGamesIdentityProviderJSON.toJSONBytes(this);
   }
-
+  
   public static EpicGamesIdentityProvider fromJSON(String json) {
     return EpicGamesIdentityProviderJSON.fromJSON(json);
   }
-
+  
   public static EpicGamesIdentityProvider fromJSONBytes(byte[] json) {
     return EpicGamesIdentityProviderJSON.fromJSON(json);
   }

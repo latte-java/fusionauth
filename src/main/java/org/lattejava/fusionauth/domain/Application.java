@@ -49,15 +49,15 @@ public record Application(
   public String toJSON() {
     return ApplicationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ApplicationJSON.toJSONBytes(this);
   }
-
+  
   public static Application fromJSON(String json) {
     return ApplicationJSON.fromJSON(json);
   }
-
+  
   public static Application fromJSONBytes(byte[] json) {
     return ApplicationJSON.fromJSON(json);
   }

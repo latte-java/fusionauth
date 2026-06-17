@@ -18,15 +18,15 @@ public record Errors(
   public String toJSON() {
     return ErrorsJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ErrorsJSON.toJSONBytes(this);
   }
-
+  
   public static Errors fromJSON(String json) {
     return ErrorsJSON.fromJSON(json);
   }
-
+  
   public static Errors fromJSONBytes(byte[] json) {
     return ErrorsJSON.fromJSON(json);
   }

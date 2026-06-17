@@ -19,15 +19,15 @@ public record LoginConfiguration(
   public String toJSON() {
     return LoginConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return LoginConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static LoginConfiguration fromJSON(String json) {
     return LoginConfigurationJSON.fromJSON(json);
   }
-
+  
   public static LoginConfiguration fromJSONBytes(byte[] json) {
     return LoginConfigurationJSON.fromJSON(json);
   }

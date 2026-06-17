@@ -18,15 +18,15 @@ public record MinimumPasswordAge(
   public String toJSON() {
     return MinimumPasswordAgeJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return MinimumPasswordAgeJSON.toJSONBytes(this);
   }
-
+  
   public static MinimumPasswordAge fromJSON(String json) {
     return MinimumPasswordAgeJSON.fromJSON(json);
   }
-
+  
   public static MinimumPasswordAge fromJSONBytes(byte[] json) {
     return MinimumPasswordAgeJSON.fromJSON(json);
   }

@@ -17,15 +17,15 @@ public record GroupMemberSearchRequest(
   public String toJSON() {
     return GroupMemberSearchRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return GroupMemberSearchRequestJSON.toJSONBytes(this);
   }
-
+  
   public static GroupMemberSearchRequest fromJSON(String json) {
     return GroupMemberSearchRequestJSON.fromJSON(json);
   }
-
+  
   public static GroupMemberSearchRequest fromJSONBytes(byte[] json) {
     return GroupMemberSearchRequestJSON.fromJSON(json);
   }

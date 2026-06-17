@@ -20,15 +20,15 @@ public record MetaData(
   public String toJSON() {
     return MetaDataJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return MetaDataJSON.toJSONBytes(this);
   }
-
+  
   public static MetaData fromJSON(String json) {
     return MetaDataJSON.fromJSON(json);
   }
-
+  
   public static MetaData fromJSONBytes(byte[] json) {
     return MetaDataJSON.fromJSON(json);
   }

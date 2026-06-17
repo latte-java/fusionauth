@@ -19,15 +19,15 @@ public record ApplicationWebAuthnConfiguration(
   public String toJSON() {
     return ApplicationWebAuthnConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ApplicationWebAuthnConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static ApplicationWebAuthnConfiguration fromJSON(String json) {
     return ApplicationWebAuthnConfigurationJSON.fromJSON(json);
   }
-
+  
   public static ApplicationWebAuthnConfiguration fromJSONBytes(byte[] json) {
     return ApplicationWebAuthnConfigurationJSON.fromJSON(json);
   }

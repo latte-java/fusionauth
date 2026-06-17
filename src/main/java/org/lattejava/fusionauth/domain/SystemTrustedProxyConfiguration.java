@@ -18,15 +18,15 @@ public record SystemTrustedProxyConfiguration(
   public String toJSON() {
     return SystemTrustedProxyConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return SystemTrustedProxyConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static SystemTrustedProxyConfiguration fromJSON(String json) {
     return SystemTrustedProxyConfigurationJSON.fromJSON(json);
   }
-
+  
   public static SystemTrustedProxyConfiguration fromJSONBytes(byte[] json) {
     return SystemTrustedProxyConfigurationJSON.fromJSON(json);
   }

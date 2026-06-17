@@ -17,15 +17,15 @@ public record UserEmailVerifiedEvent(
   public String toJSON() {
     return UserEmailVerifiedEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserEmailVerifiedEventJSON.toJSONBytes(this);
   }
-
+  
   public static UserEmailVerifiedEvent fromJSON(String json) {
     return UserEmailVerifiedEventJSON.fromJSON(json);
   }
-
+  
   public static UserEmailVerifiedEvent fromJSONBytes(byte[] json) {
     return UserEmailVerifiedEventJSON.fromJSON(json);
   }

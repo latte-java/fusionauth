@@ -18,15 +18,15 @@ public record WebAuthnCredentialImportRequest(
   public String toJSON() {
     return WebAuthnCredentialImportRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return WebAuthnCredentialImportRequestJSON.toJSONBytes(this);
   }
-
+  
   public static WebAuthnCredentialImportRequest fromJSON(String json) {
     return WebAuthnCredentialImportRequestJSON.fromJSON(json);
   }
-
+  
   public static WebAuthnCredentialImportRequest fromJSONBytes(byte[] json) {
     return WebAuthnCredentialImportRequestJSON.fromJSON(json);
   }

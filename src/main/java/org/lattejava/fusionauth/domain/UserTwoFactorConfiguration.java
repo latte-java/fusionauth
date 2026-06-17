@@ -18,15 +18,15 @@ public record UserTwoFactorConfiguration(
   public String toJSON() {
     return UserTwoFactorConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserTwoFactorConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static UserTwoFactorConfiguration fromJSON(String json) {
     return UserTwoFactorConfigurationJSON.fromJSON(json);
   }
-
+  
   public static UserTwoFactorConfiguration fromJSONBytes(byte[] json) {
     return UserTwoFactorConfigurationJSON.fromJSON(json);
   }

@@ -18,15 +18,15 @@ public record RetrieveUserCodeUsingAPIKeyRequest(
   public String toJSON() {
     return RetrieveUserCodeUsingAPIKeyRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return RetrieveUserCodeUsingAPIKeyRequestJSON.toJSONBytes(this);
   }
-
+  
   public static RetrieveUserCodeUsingAPIKeyRequest fromJSON(String json) {
     return RetrieveUserCodeUsingAPIKeyRequestJSON.fromJSON(json);
   }
-
+  
   public static RetrieveUserCodeUsingAPIKeyRequest fromJSONBytes(byte[] json) {
     return RetrieveUserCodeUsingAPIKeyRequestJSON.fromJSON(json);
   }

@@ -16,15 +16,15 @@ public record ObjectIdentifiable() {
   public String toJSON() {
     return ObjectIdentifiableJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ObjectIdentifiableJSON.toJSONBytes(this);
   }
-
+  
   public static ObjectIdentifiable fromJSON(String json) {
     return ObjectIdentifiableJSON.fromJSON(json);
   }
-
+  
   public static ObjectIdentifiable fromJSONBytes(byte[] json) {
     return ObjectIdentifiableJSON.fromJSON(json);
   }

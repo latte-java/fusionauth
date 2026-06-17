@@ -17,15 +17,15 @@ public record TenantOAuth2Configuration(
   public String toJSON() {
     return TenantOAuth2ConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TenantOAuth2ConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static TenantOAuth2Configuration fromJSON(String json) {
     return TenantOAuth2ConfigurationJSON.fromJSON(json);
   }
-
+  
   public static TenantOAuth2Configuration fromJSONBytes(byte[] json) {
     return TenantOAuth2ConfigurationJSON.fromJSON(json);
   }

@@ -35,15 +35,15 @@ public record LoginResponse(
   public String toJSON() {
     return LoginResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return LoginResponseJSON.toJSONBytes(this);
   }
-
+  
   public static LoginResponse fromJSON(String json) {
     return LoginResponseJSON.fromJSON(json);
   }
-
+  
   public static LoginResponse fromJSONBytes(byte[] json) {
     return LoginResponseJSON.fromJSON(json);
   }

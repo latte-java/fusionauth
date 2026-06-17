@@ -25,15 +25,15 @@ public record BaseElasticSearchCriteria(
   public String toJSON() {
     return BaseElasticSearchCriteriaJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return BaseElasticSearchCriteriaJSON.toJSONBytes(this);
   }
-
+  
   public static BaseElasticSearchCriteria fromJSON(String json) {
     return BaseElasticSearchCriteriaJSON.fromJSON(json);
   }
-
+  
   public static BaseElasticSearchCriteria fromJSONBytes(byte[] json) {
     return BaseElasticSearchCriteriaJSON.fromJSON(json);
   }

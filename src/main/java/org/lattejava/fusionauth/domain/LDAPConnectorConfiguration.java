@@ -34,15 +34,15 @@ public record LDAPConnectorConfiguration(
   public String toJSON() {
     return LDAPConnectorConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return LDAPConnectorConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static LDAPConnectorConfiguration fromJSON(String json) {
     return LDAPConnectorConfigurationJSON.fromJSON(json);
   }
-
+  
   public static LDAPConnectorConfiguration fromJSONBytes(byte[] json) {
     return LDAPConnectorConfigurationJSON.fromJSON(json);
   }

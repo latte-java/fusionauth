@@ -16,15 +16,15 @@ public record FIPS() {
   public String toJSON() {
     return FIPSJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return FIPSJSON.toJSONBytes(this);
   }
-
+  
   public static FIPS fromJSON(String json) {
     return FIPSJSON.fromJSON(json);
   }
-
+  
   public static FIPS fromJSONBytes(byte[] json) {
     return FIPSJSON.fromJSON(json);
   }

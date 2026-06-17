@@ -22,15 +22,15 @@ public record KeySearchCriteria(
   public String toJSON() {
     return KeySearchCriteriaJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return KeySearchCriteriaJSON.toJSONBytes(this);
   }
-
+  
   public static KeySearchCriteria fromJSON(String json) {
     return KeySearchCriteriaJSON.fromJSON(json);
   }
-
+  
   public static KeySearchCriteria fromJSONBytes(byte[] json) {
     return KeySearchCriteriaJSON.fromJSON(json);
   }

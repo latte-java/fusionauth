@@ -19,15 +19,15 @@ public record ApplicationFormConfiguration(
   public String toJSON() {
     return ApplicationFormConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ApplicationFormConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static ApplicationFormConfiguration fromJSON(String json) {
     return ApplicationFormConfigurationJSON.fromJSON(json);
   }
-
+  
   public static ApplicationFormConfiguration fromJSONBytes(byte[] json) {
     return ApplicationFormConfigurationJSON.fromJSON(json);
   }

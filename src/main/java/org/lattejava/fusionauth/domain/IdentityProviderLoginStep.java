@@ -19,15 +19,15 @@ public record IdentityProviderLoginStep(
   public String toJSON() {
     return IdentityProviderLoginStepJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return IdentityProviderLoginStepJSON.toJSONBytes(this);
   }
-
+  
   public static IdentityProviderLoginStep fromJSON(String json) {
     return IdentityProviderLoginStepJSON.fromJSON(json);
   }
-
+  
   public static IdentityProviderLoginStep fromJSONBytes(byte[] json) {
     return IdentityProviderLoginStepJSON.fromJSON(json);
   }

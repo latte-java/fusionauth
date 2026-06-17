@@ -17,15 +17,15 @@ public record RecentLoginResponse(
   public String toJSON() {
     return RecentLoginResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return RecentLoginResponseJSON.toJSONBytes(this);
   }
-
+  
   public static RecentLoginResponse fromJSON(String json) {
     return RecentLoginResponseJSON.fromJSON(json);
   }
-
+  
   public static RecentLoginResponse fromJSONBytes(byte[] json) {
     return RecentLoginResponseJSON.fromJSON(json);
   }

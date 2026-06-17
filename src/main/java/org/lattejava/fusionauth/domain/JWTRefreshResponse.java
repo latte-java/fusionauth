@@ -19,15 +19,15 @@ public record JWTRefreshResponse(
   public String toJSON() {
     return JWTRefreshResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return JWTRefreshResponseJSON.toJSONBytes(this);
   }
-
+  
   public static JWTRefreshResponse fromJSON(String json) {
     return JWTRefreshResponseJSON.fromJSON(json);
   }
-
+  
   public static JWTRefreshResponse fromJSONBytes(byte[] json) {
     return JWTRefreshResponseJSON.fromJSON(json);
   }

@@ -19,15 +19,15 @@ public record OAuthConfigurationResponse(
   public String toJSON() {
     return OAuthConfigurationResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return OAuthConfigurationResponseJSON.toJSONBytes(this);
   }
-
+  
   public static OAuthConfigurationResponse fromJSON(String json) {
     return OAuthConfigurationResponseJSON.fromJSON(json);
   }
-
+  
   public static OAuthConfigurationResponse fromJSONBytes(byte[] json) {
     return OAuthConfigurationResponseJSON.fromJSON(json);
   }

@@ -19,15 +19,15 @@ public record PreviewMessageTemplateResponse(
   public String toJSON() {
     return PreviewMessageTemplateResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return PreviewMessageTemplateResponseJSON.toJSONBytes(this);
   }
-
+  
   public static PreviewMessageTemplateResponse fromJSON(String json) {
     return PreviewMessageTemplateResponseJSON.fromJSON(json);
   }
-
+  
   public static PreviewMessageTemplateResponse fromJSONBytes(byte[] json) {
     return PreviewMessageTemplateResponseJSON.fromJSON(json);
   }

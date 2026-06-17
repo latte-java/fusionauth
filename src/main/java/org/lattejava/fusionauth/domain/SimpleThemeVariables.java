@@ -49,15 +49,15 @@ public record SimpleThemeVariables(
   public String toJSON() {
     return SimpleThemeVariablesJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return SimpleThemeVariablesJSON.toJSONBytes(this);
   }
-
+  
   public static SimpleThemeVariables fromJSON(String json) {
     return SimpleThemeVariablesJSON.fromJSON(json);
   }
-
+  
   public static SimpleThemeVariables fromJSONBytes(byte[] json) {
     return SimpleThemeVariablesJSON.fromJSON(json);
   }

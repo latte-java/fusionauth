@@ -18,15 +18,15 @@ public record WebAuthnAuthenticatorRegistrationResponse(
   public String toJSON() {
     return WebAuthnAuthenticatorRegistrationResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return WebAuthnAuthenticatorRegistrationResponseJSON.toJSONBytes(this);
   }
-
+  
   public static WebAuthnAuthenticatorRegistrationResponse fromJSON(String json) {
     return WebAuthnAuthenticatorRegistrationResponseJSON.fromJSON(json);
   }
-
+  
   public static WebAuthnAuthenticatorRegistrationResponse fromJSONBytes(byte[] json) {
     return WebAuthnAuthenticatorRegistrationResponseJSON.fromJSON(json);
   }

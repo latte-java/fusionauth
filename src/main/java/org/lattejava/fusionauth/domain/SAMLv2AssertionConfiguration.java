@@ -17,15 +17,15 @@ public record SAMLv2AssertionConfiguration(
   public String toJSON() {
     return SAMLv2AssertionConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return SAMLv2AssertionConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static SAMLv2AssertionConfiguration fromJSON(String json) {
     return SAMLv2AssertionConfigurationJSON.fromJSON(json);
   }
-
+  
   public static SAMLv2AssertionConfiguration fromJSONBytes(byte[] json) {
     return SAMLv2AssertionConfigurationJSON.fromJSON(json);
   }

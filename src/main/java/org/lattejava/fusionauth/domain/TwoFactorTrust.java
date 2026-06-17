@@ -19,15 +19,15 @@ public record TwoFactorTrust(
   public String toJSON() {
     return TwoFactorTrustJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TwoFactorTrustJSON.toJSONBytes(this);
   }
-
+  
   public static TwoFactorTrust fromJSON(String json) {
     return TwoFactorTrustJSON.fromJSON(json);
   }
-
+  
   public static TwoFactorTrust fromJSONBytes(byte[] json) {
     return TwoFactorTrustJSON.fromJSON(json);
   }

@@ -17,15 +17,15 @@ public record WebAuthnAssertResponse(
   public String toJSON() {
     return WebAuthnAssertResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return WebAuthnAssertResponseJSON.toJSONBytes(this);
   }
-
+  
   public static WebAuthnAssertResponse fromJSON(String json) {
     return WebAuthnAssertResponseJSON.fromJSON(json);
   }
-
+  
   public static WebAuthnAssertResponse fromJSONBytes(byte[] json) {
     return WebAuthnAssertResponseJSON.fromJSON(json);
   }

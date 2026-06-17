@@ -36,15 +36,15 @@ public record OpenIdConfiguration(
   public String toJSON() {
     return OpenIdConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return OpenIdConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static OpenIdConfiguration fromJSON(String json) {
     return OpenIdConfigurationJSON.fromJSON(json);
   }
-
+  
   public static OpenIdConfiguration fromJSONBytes(byte[] json) {
     return OpenIdConfigurationJSON.fromJSON(json);
   }

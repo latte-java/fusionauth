@@ -23,15 +23,15 @@ public record ApplicationSearchCriteria(
   public String toJSON() {
     return ApplicationSearchCriteriaJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ApplicationSearchCriteriaJSON.toJSONBytes(this);
   }
-
+  
   public static ApplicationSearchCriteria fromJSON(String json) {
     return ApplicationSearchCriteriaJSON.fromJSON(json);
   }
-
+  
   public static ApplicationSearchCriteria fromJSONBytes(byte[] json) {
     return ApplicationSearchCriteriaJSON.fromJSON(json);
   }

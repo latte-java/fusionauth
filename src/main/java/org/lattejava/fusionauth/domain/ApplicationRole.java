@@ -23,15 +23,15 @@ public record ApplicationRole(
   public String toJSON() {
     return ApplicationRoleJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ApplicationRoleJSON.toJSONBytes(this);
   }
-
+  
   public static ApplicationRole fromJSON(String json) {
     return ApplicationRoleJSON.fromJSON(json);
   }
-
+  
   public static ApplicationRole fromJSONBytes(byte[] json) {
     return ApplicationRoleJSON.fromJSON(json);
   }

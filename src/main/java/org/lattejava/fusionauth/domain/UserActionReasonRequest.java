@@ -17,15 +17,15 @@ public record UserActionReasonRequest(
   public String toJSON() {
     return UserActionReasonRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserActionReasonRequestJSON.toJSONBytes(this);
   }
-
+  
   public static UserActionReasonRequest fromJSON(String json) {
     return UserActionReasonRequestJSON.fromJSON(json);
   }
-
+  
   public static UserActionReasonRequest fromJSONBytes(byte[] json) {
     return UserActionReasonRequestJSON.fromJSON(json);
   }

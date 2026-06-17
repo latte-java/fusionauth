@@ -17,15 +17,15 @@ public record GroupDeleteEvent(
   public String toJSON() {
     return GroupDeleteEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return GroupDeleteEventJSON.toJSONBytes(this);
   }
-
+  
   public static GroupDeleteEvent fromJSON(String json) {
     return GroupDeleteEventJSON.fromJSON(json);
   }
-
+  
   public static GroupDeleteEvent fromJSONBytes(byte[] json) {
     return GroupDeleteEventJSON.fromJSON(json);
   }

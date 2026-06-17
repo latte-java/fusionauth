@@ -20,15 +20,15 @@ public record TwoFactorDisableRequest(
   public String toJSON() {
     return TwoFactorDisableRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TwoFactorDisableRequestJSON.toJSONBytes(this);
   }
-
+  
   public static TwoFactorDisableRequest fromJSON(String json) {
     return TwoFactorDisableRequestJSON.fromJSON(json);
   }
-
+  
   public static TwoFactorDisableRequest fromJSONBytes(byte[] json) {
     return TwoFactorDisableRequestJSON.fromJSON(json);
   }

@@ -36,15 +36,15 @@ public record ExternalJWTIdentityProvider(
   public String toJSON() {
     return ExternalJWTIdentityProviderJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ExternalJWTIdentityProviderJSON.toJSONBytes(this);
   }
-
+  
   public static ExternalJWTIdentityProvider fromJSON(String json) {
     return ExternalJWTIdentityProviderJSON.fromJSON(json);
   }
-
+  
   public static ExternalJWTIdentityProvider fromJSONBytes(byte[] json) {
     return ExternalJWTIdentityProviderJSON.fromJSON(json);
   }

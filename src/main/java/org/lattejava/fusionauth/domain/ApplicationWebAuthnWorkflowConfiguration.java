@@ -17,15 +17,15 @@ public record ApplicationWebAuthnWorkflowConfiguration(
   public String toJSON() {
     return ApplicationWebAuthnWorkflowConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ApplicationWebAuthnWorkflowConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static ApplicationWebAuthnWorkflowConfiguration fromJSON(String json) {
     return ApplicationWebAuthnWorkflowConfigurationJSON.fromJSON(json);
   }
-
+  
   public static ApplicationWebAuthnWorkflowConfiguration fromJSONBytes(byte[] json) {
     return ApplicationWebAuthnWorkflowConfigurationJSON.fromJSON(json);
   }

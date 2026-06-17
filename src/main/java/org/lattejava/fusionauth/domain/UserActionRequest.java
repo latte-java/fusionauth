@@ -17,15 +17,15 @@ public record UserActionRequest(
   public String toJSON() {
     return UserActionRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserActionRequestJSON.toJSONBytes(this);
   }
-
+  
   public static UserActionRequest fromJSON(String json) {
     return UserActionRequestJSON.fromJSON(json);
   }
-
+  
   public static UserActionRequest fromJSONBytes(byte[] json) {
     return UserActionRequestJSON.fromJSON(json);
   }

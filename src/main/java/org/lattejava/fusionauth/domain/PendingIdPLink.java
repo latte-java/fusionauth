@@ -26,15 +26,15 @@ public record PendingIdPLink(
   public String toJSON() {
     return PendingIdPLinkJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return PendingIdPLinkJSON.toJSONBytes(this);
   }
-
+  
   public static PendingIdPLink fromJSON(String json) {
     return PendingIdPLinkJSON.fromJSON(json);
   }
-
+  
   public static PendingIdPLink fromJSONBytes(byte[] json) {
     return PendingIdPLinkJSON.fromJSON(json);
   }

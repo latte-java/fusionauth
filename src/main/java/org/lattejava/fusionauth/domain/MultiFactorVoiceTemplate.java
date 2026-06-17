@@ -17,15 +17,15 @@ public record MultiFactorVoiceTemplate(
   public String toJSON() {
     return MultiFactorVoiceTemplateJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return MultiFactorVoiceTemplateJSON.toJSONBytes(this);
   }
-
+  
   public static MultiFactorVoiceTemplate fromJSON(String json) {
     return MultiFactorVoiceTemplateJSON.fromJSON(json);
   }
-
+  
   public static MultiFactorVoiceTemplate fromJSONBytes(byte[] json) {
     return MultiFactorVoiceTemplateJSON.fromJSON(json);
   }

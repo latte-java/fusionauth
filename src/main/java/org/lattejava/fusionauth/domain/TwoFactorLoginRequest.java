@@ -25,15 +25,15 @@ public record TwoFactorLoginRequest(
   public String toJSON() {
     return TwoFactorLoginRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TwoFactorLoginRequestJSON.toJSONBytes(this);
   }
-
+  
   public static TwoFactorLoginRequest fromJSON(String json) {
     return TwoFactorLoginRequestJSON.fromJSON(json);
   }
-
+  
   public static TwoFactorLoginRequest fromJSONBytes(byte[] json) {
     return TwoFactorLoginRequestJSON.fromJSON(json);
   }

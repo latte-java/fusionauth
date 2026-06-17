@@ -21,15 +21,15 @@ public record OpenIdConnectApplicationConfiguration(
   public String toJSON() {
     return OpenIdConnectApplicationConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return OpenIdConnectApplicationConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static OpenIdConnectApplicationConfiguration fromJSON(String json) {
     return OpenIdConnectApplicationConfigurationJSON.fromJSON(json);
   }
-
+  
   public static OpenIdConnectApplicationConfiguration fromJSONBytes(byte[] json) {
     return OpenIdConnectApplicationConfigurationJSON.fromJSON(json);
   }

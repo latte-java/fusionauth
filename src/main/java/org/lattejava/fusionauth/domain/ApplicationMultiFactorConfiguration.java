@@ -21,15 +21,15 @@ public record ApplicationMultiFactorConfiguration(
   public String toJSON() {
     return ApplicationMultiFactorConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ApplicationMultiFactorConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static ApplicationMultiFactorConfiguration fromJSON(String json) {
     return ApplicationMultiFactorConfigurationJSON.fromJSON(json);
   }
-
+  
   public static ApplicationMultiFactorConfiguration fromJSONBytes(byte[] json) {
     return ApplicationMultiFactorConfigurationJSON.fromJSON(json);
   }

@@ -34,15 +34,15 @@ public record UserAction(
   public String toJSON() {
     return UserActionJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserActionJSON.toJSONBytes(this);
   }
-
+  
   public static UserAction fromJSON(String json) {
     return UserActionJSON.fromJSON(json);
   }
-
+  
   public static UserAction fromJSONBytes(byte[] json) {
     return UserActionJSON.fromJSON(json);
   }

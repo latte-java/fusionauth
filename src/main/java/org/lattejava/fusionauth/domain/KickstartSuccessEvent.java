@@ -22,15 +22,15 @@ public record KickstartSuccessEvent(
   public String toJSON() {
     return KickstartSuccessEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return KickstartSuccessEventJSON.toJSONBytes(this);
   }
-
+  
   public static KickstartSuccessEvent fromJSON(String json) {
     return KickstartSuccessEventJSON.fromJSON(json);
   }
-
+  
   public static KickstartSuccessEvent fromJSONBytes(byte[] json) {
     return KickstartSuccessEventJSON.fromJSON(json);
   }

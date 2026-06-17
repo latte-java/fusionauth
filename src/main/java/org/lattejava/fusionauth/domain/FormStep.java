@@ -18,15 +18,15 @@ public record FormStep(
   public String toJSON() {
     return FormStepJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return FormStepJSON.toJSONBytes(this);
   }
-
+  
   public static FormStep fromJSON(String json) {
     return FormStepJSON.fromJSON(json);
   }
-
+  
   public static FormStep fromJSONBytes(byte[] json) {
     return FormStepJSON.fromJSON(json);
   }

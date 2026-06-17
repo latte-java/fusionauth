@@ -17,15 +17,15 @@ public record ConnectorLambdaConfiguration(
   public String toJSON() {
     return ConnectorLambdaConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ConnectorLambdaConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static ConnectorLambdaConfiguration fromJSON(String json) {
     return ConnectorLambdaConfigurationJSON.fromJSON(json);
   }
-
+  
   public static ConnectorLambdaConfiguration fromJSONBytes(byte[] json) {
     return ConnectorLambdaConfigurationJSON.fromJSON(json);
   }

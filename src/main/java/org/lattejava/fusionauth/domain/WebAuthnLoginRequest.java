@@ -25,15 +25,15 @@ public record WebAuthnLoginRequest(
   public String toJSON() {
     return WebAuthnLoginRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return WebAuthnLoginRequestJSON.toJSONBytes(this);
   }
-
+  
   public static WebAuthnLoginRequest fromJSON(String json) {
     return WebAuthnLoginRequestJSON.fromJSON(json);
   }
-
+  
   public static WebAuthnLoginRequest fromJSONBytes(byte[] json) {
     return WebAuthnLoginRequestJSON.fromJSON(json);
   }

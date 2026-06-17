@@ -17,15 +17,15 @@ public record RefreshTokenSlidingWindowConfiguration(
   public String toJSON() {
     return RefreshTokenSlidingWindowConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return RefreshTokenSlidingWindowConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static RefreshTokenSlidingWindowConfiguration fromJSON(String json) {
     return RefreshTokenSlidingWindowConfigurationJSON.fromJSON(json);
   }
-
+  
   public static RefreshTokenSlidingWindowConfiguration fromJSONBytes(byte[] json) {
     return RefreshTokenSlidingWindowConfigurationJSON.fromJSON(json);
   }

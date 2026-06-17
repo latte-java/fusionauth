@@ -21,15 +21,15 @@ public record GroupSearchCriteria(
   public String toJSON() {
     return GroupSearchCriteriaJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return GroupSearchCriteriaJSON.toJSONBytes(this);
   }
-
+  
   public static GroupSearchCriteria fromJSON(String json) {
     return GroupSearchCriteriaJSON.fromJSON(json);
   }
-
+  
   public static GroupSearchCriteria fromJSONBytes(byte[] json) {
     return GroupSearchCriteriaJSON.fromJSON(json);
   }

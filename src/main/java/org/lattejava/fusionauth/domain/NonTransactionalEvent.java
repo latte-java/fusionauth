@@ -16,15 +16,15 @@ public record NonTransactionalEvent() {
   public String toJSON() {
     return NonTransactionalEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return NonTransactionalEventJSON.toJSONBytes(this);
   }
-
+  
   public static NonTransactionalEvent fromJSON(String json) {
     return NonTransactionalEventJSON.fromJSON(json);
   }
-
+  
   public static NonTransactionalEvent fromJSONBytes(byte[] json) {
     return NonTransactionalEventJSON.fromJSON(json);
   }

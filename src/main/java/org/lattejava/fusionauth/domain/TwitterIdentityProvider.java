@@ -33,15 +33,15 @@ public record TwitterIdentityProvider(
   public String toJSON() {
     return TwitterIdentityProviderJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TwitterIdentityProviderJSON.toJSONBytes(this);
   }
-
+  
   public static TwitterIdentityProvider fromJSON(String json) {
     return TwitterIdentityProviderJSON.fromJSON(json);
   }
-
+  
   public static TwitterIdentityProvider fromJSONBytes(byte[] json) {
     return TwitterIdentityProviderJSON.fromJSON(json);
   }

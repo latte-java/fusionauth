@@ -18,15 +18,15 @@ public record PublicKeyCredentialParameters(
   public String toJSON() {
     return PublicKeyCredentialParametersJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return PublicKeyCredentialParametersJSON.toJSONBytes(this);
   }
-
+  
   public static PublicKeyCredentialParameters fromJSON(String json) {
     return PublicKeyCredentialParametersJSON.fromJSON(json);
   }
-
+  
   public static PublicKeyCredentialParameters fromJSONBytes(byte[] json) {
     return PublicKeyCredentialParametersJSON.fromJSON(json);
   }

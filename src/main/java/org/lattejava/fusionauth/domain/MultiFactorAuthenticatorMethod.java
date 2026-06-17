@@ -20,15 +20,15 @@ public record MultiFactorAuthenticatorMethod(
   public String toJSON() {
     return MultiFactorAuthenticatorMethodJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return MultiFactorAuthenticatorMethodJSON.toJSONBytes(this);
   }
-
+  
   public static MultiFactorAuthenticatorMethod fromJSON(String json) {
     return MultiFactorAuthenticatorMethodJSON.fromJSON(json);
   }
-
+  
   public static MultiFactorAuthenticatorMethod fromJSONBytes(byte[] json) {
     return MultiFactorAuthenticatorMethodJSON.fromJSON(json);
   }

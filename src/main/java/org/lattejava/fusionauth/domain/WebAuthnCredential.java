@@ -34,15 +34,15 @@ public record WebAuthnCredential(
   public String toJSON() {
     return WebAuthnCredentialJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return WebAuthnCredentialJSON.toJSONBytes(this);
   }
-
+  
   public static WebAuthnCredential fromJSON(String json) {
     return WebAuthnCredentialJSON.fromJSON(json);
   }
-
+  
   public static WebAuthnCredential fromJSONBytes(byte[] json) {
     return WebAuthnCredentialJSON.fromJSON(json);
   }

@@ -19,15 +19,15 @@ public record SortField(
   public String toJSON() {
     return SortFieldJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return SortFieldJSON.toJSONBytes(this);
   }
-
+  
   public static SortField fromJSON(String json) {
     return SortFieldJSON.fromJSON(json);
   }
-
+  
   public static SortField fromJSONBytes(byte[] json) {
     return SortFieldJSON.fromJSON(json);
   }

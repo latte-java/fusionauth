@@ -26,15 +26,15 @@ public record LoginPreventedResponse(
   public String toJSON() {
     return LoginPreventedResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return LoginPreventedResponseJSON.toJSONBytes(this);
   }
-
+  
   public static LoginPreventedResponse fromJSON(String json) {
     return LoginPreventedResponseJSON.fromJSON(json);
   }
-
+  
   public static LoginPreventedResponse fromJSONBytes(byte[] json) {
     return LoginPreventedResponseJSON.fromJSON(json);
   }

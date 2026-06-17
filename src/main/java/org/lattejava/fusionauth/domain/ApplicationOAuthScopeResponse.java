@@ -17,15 +17,15 @@ public record ApplicationOAuthScopeResponse(
   public String toJSON() {
     return ApplicationOAuthScopeResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ApplicationOAuthScopeResponseJSON.toJSONBytes(this);
   }
-
+  
   public static ApplicationOAuthScopeResponse fromJSON(String json) {
     return ApplicationOAuthScopeResponseJSON.fromJSON(json);
   }
-
+  
   public static ApplicationOAuthScopeResponse fromJSONBytes(byte[] json) {
     return ApplicationOAuthScopeResponseJSON.fromJSON(json);
   }

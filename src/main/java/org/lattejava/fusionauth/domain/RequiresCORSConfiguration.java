@@ -16,15 +16,15 @@ public record RequiresCORSConfiguration() {
   public String toJSON() {
     return RequiresCORSConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return RequiresCORSConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static RequiresCORSConfiguration fromJSON(String json) {
     return RequiresCORSConfigurationJSON.fromJSON(json);
   }
-
+  
   public static RequiresCORSConfiguration fromJSONBytes(byte[] json) {
     return RequiresCORSConfigurationJSON.fromJSON(json);
   }

@@ -23,15 +23,15 @@ public record EntityTypePermission(
   public String toJSON() {
     return EntityTypePermissionJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EntityTypePermissionJSON.toJSONBytes(this);
   }
-
+  
   public static EntityTypePermission fromJSON(String json) {
     return EntityTypePermissionJSON.fromJSON(json);
   }
-
+  
   public static EntityTypePermission fromJSONBytes(byte[] json) {
     return EntityTypePermissionJSON.fromJSON(json);
   }

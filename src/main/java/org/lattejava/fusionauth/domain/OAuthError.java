@@ -23,15 +23,15 @@ public record OAuthError(
   public String toJSON() {
     return OAuthErrorJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return OAuthErrorJSON.toJSONBytes(this);
   }
-
+  
   public static OAuthError fromJSON(String json) {
     return OAuthErrorJSON.fromJSON(json);
   }
-
+  
   public static OAuthError fromJSONBytes(byte[] json) {
     return OAuthErrorJSON.fromJSON(json);
   }

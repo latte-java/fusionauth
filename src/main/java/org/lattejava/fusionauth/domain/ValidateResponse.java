@@ -17,15 +17,15 @@ public record ValidateResponse(
   public String toJSON() {
     return ValidateResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ValidateResponseJSON.toJSONBytes(this);
   }
-
+  
   public static ValidateResponse fromJSON(String json) {
     return ValidateResponseJSON.fromJSON(json);
   }
-
+  
   public static ValidateResponse fromJSONBytes(byte[] json) {
     return ValidateResponseJSON.fromJSON(json);
   }

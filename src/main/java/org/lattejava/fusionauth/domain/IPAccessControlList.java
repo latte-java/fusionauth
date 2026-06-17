@@ -22,15 +22,15 @@ public record IPAccessControlList(
   public String toJSON() {
     return IPAccessControlListJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return IPAccessControlListJSON.toJSONBytes(this);
   }
-
+  
   public static IPAccessControlList fromJSON(String json) {
     return IPAccessControlListJSON.fromJSON(json);
   }
-
+  
   public static IPAccessControlList fromJSONBytes(byte[] json) {
     return IPAccessControlListJSON.fromJSON(json);
   }

@@ -18,15 +18,15 @@ public record TwoFactorStatusResponse(
   public String toJSON() {
     return TwoFactorStatusResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TwoFactorStatusResponseJSON.toJSONBytes(this);
   }
-
+  
   public static TwoFactorStatusResponse fromJSON(String json) {
     return TwoFactorStatusResponseJSON.fromJSON(json);
   }
-
+  
   public static TwoFactorStatusResponse fromJSONBytes(byte[] json) {
     return TwoFactorStatusResponseJSON.fromJSON(json);
   }

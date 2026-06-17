@@ -12,30 +12,30 @@ import org.lattejava.fusionauth.domain.internal.GroupRequestJSON;
 @JSON
 public record GroupRequest(
     Group group,
-    Set<UUID> roleIds) {
+    List<UUID> roleIds) {
   public static Builder builder() { return new Builder(); }
 
   public String toJSON() {
     return GroupRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return GroupRequestJSON.toJSONBytes(this);
   }
-
+  
   public static GroupRequest fromJSON(String json) {
     return GroupRequestJSON.fromJSON(json);
   }
-
+  
   public static GroupRequest fromJSONBytes(byte[] json) {
     return GroupRequestJSON.fromJSON(json);
   }
 
   public static final class Builder {
     private Group group;
-    private Set<UUID> roleIds;
+    private List<UUID> roleIds;
     public Builder group(Group group) { this.group = group; return this; }
-    public Builder roleIds(Set<UUID> roleIds) { this.roleIds = roleIds; return this; }
+    public Builder roleIds(List<UUID> roleIds) { this.roleIds = roleIds; return this; }
     public GroupRequest build() { return new GroupRequest(group, roleIds); }
   }
 }

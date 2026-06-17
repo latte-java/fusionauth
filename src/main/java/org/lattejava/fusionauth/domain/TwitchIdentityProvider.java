@@ -34,15 +34,15 @@ public record TwitchIdentityProvider(
   public String toJSON() {
     return TwitchIdentityProviderJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TwitchIdentityProviderJSON.toJSONBytes(this);
   }
-
+  
   public static TwitchIdentityProvider fromJSON(String json) {
     return TwitchIdentityProviderJSON.fromJSON(json);
   }
-
+  
   public static TwitchIdentityProvider fromJSONBytes(byte[] json) {
     return TwitchIdentityProviderJSON.fromJSON(json);
   }

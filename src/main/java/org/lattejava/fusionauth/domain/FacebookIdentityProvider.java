@@ -36,15 +36,15 @@ public record FacebookIdentityProvider(
   public String toJSON() {
     return FacebookIdentityProviderJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return FacebookIdentityProviderJSON.toJSONBytes(this);
   }
-
+  
   public static FacebookIdentityProvider fromJSON(String json) {
     return FacebookIdentityProviderJSON.fromJSON(json);
   }
-
+  
   public static FacebookIdentityProvider fromJSONBytes(byte[] json) {
     return FacebookIdentityProviderJSON.fromJSON(json);
   }

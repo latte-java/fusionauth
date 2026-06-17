@@ -21,15 +21,15 @@ public record ImportRequest(
   public String toJSON() {
     return ImportRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ImportRequestJSON.toJSONBytes(this);
   }
-
+  
   public static ImportRequest fromJSON(String json) {
     return ImportRequestJSON.fromJSON(json);
   }
-
+  
   public static ImportRequest fromJSONBytes(byte[] json) {
     return ImportRequestJSON.fromJSON(json);
   }

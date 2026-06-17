@@ -17,15 +17,15 @@ public record MessageTemplateRequest(
   public String toJSON() {
     return MessageTemplateRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return MessageTemplateRequestJSON.toJSONBytes(this);
   }
-
+  
   public static MessageTemplateRequest fromJSON(String json) {
     return MessageTemplateRequestJSON.fromJSON(json);
   }
-
+  
   public static MessageTemplateRequest fromJSONBytes(byte[] json) {
     return MessageTemplateRequestJSON.fromJSON(json);
   }

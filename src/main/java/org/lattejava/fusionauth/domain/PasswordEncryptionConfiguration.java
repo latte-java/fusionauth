@@ -19,15 +19,15 @@ public record PasswordEncryptionConfiguration(
   public String toJSON() {
     return PasswordEncryptionConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return PasswordEncryptionConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static PasswordEncryptionConfiguration fromJSON(String json) {
     return PasswordEncryptionConfigurationJSON.fromJSON(json);
   }
-
+  
   public static PasswordEncryptionConfiguration fromJSONBytes(byte[] json) {
     return PasswordEncryptionConfigurationJSON.fromJSON(json);
   }

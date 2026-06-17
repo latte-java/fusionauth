@@ -18,15 +18,15 @@ public record EmailUnverifiedOptions(
   public String toJSON() {
     return EmailUnverifiedOptionsJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EmailUnverifiedOptionsJSON.toJSONBytes(this);
   }
-
+  
   public static EmailUnverifiedOptions fromJSON(String json) {
     return EmailUnverifiedOptionsJSON.fromJSON(json);
   }
-
+  
   public static EmailUnverifiedOptions fromJSONBytes(byte[] json) {
     return EmailUnverifiedOptionsJSON.fromJSON(json);
   }

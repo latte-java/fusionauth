@@ -20,15 +20,15 @@ public record PasswordlessSendRequest(
   public String toJSON() {
     return PasswordlessSendRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return PasswordlessSendRequestJSON.toJSONBytes(this);
   }
-
+  
   public static PasswordlessSendRequest fromJSON(String json) {
     return PasswordlessSendRequestJSON.fromJSON(json);
   }
-
+  
   public static PasswordlessSendRequest fromJSONBytes(byte[] json) {
     return PasswordlessSendRequestJSON.fromJSON(json);
   }

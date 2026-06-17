@@ -17,15 +17,15 @@ public record LambdaRequest(
   public String toJSON() {
     return LambdaRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return LambdaRequestJSON.toJSONBytes(this);
   }
-
+  
   public static LambdaRequest fromJSON(String json) {
     return LambdaRequestJSON.fromJSON(json);
   }
-
+  
   public static LambdaRequest fromJSONBytes(byte[] json) {
     return LambdaRequestJSON.fromJSON(json);
   }

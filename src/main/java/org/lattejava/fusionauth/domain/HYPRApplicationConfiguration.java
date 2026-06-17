@@ -20,15 +20,15 @@ public record HYPRApplicationConfiguration(
   public String toJSON() {
     return HYPRApplicationConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return HYPRApplicationConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static HYPRApplicationConfiguration fromJSON(String json) {
     return HYPRApplicationConfigurationJSON.fromJSON(json);
   }
-
+  
   public static HYPRApplicationConfiguration fromJSONBytes(byte[] json) {
     return HYPRApplicationConfigurationJSON.fromJSON(json);
   }

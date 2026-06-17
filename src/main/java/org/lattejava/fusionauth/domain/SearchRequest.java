@@ -18,15 +18,15 @@ public record SearchRequest(
   public String toJSON() {
     return SearchRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return SearchRequestJSON.toJSONBytes(this);
   }
-
+  
   public static SearchRequest fromJSON(String json) {
     return SearchRequestJSON.fromJSON(json);
   }
-
+  
   public static SearchRequest fromJSONBytes(byte[] json) {
     return SearchRequestJSON.fromJSON(json);
   }

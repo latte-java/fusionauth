@@ -20,15 +20,15 @@ public record Favicon(
   public String toJSON() {
     return FaviconJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return FaviconJSON.toJSONBytes(this);
   }
-
+  
   public static Favicon fromJSON(String json) {
     return FaviconJSON.fromJSON(json);
   }
-
+  
   public static Favicon fromJSONBytes(byte[] json) {
     return FaviconJSON.fromJSON(json);
   }

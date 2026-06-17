@@ -20,15 +20,15 @@ public record IPAccessControlListSearchCriteria(
   public String toJSON() {
     return IPAccessControlListSearchCriteriaJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return IPAccessControlListSearchCriteriaJSON.toJSONBytes(this);
   }
-
+  
   public static IPAccessControlListSearchCriteria fromJSON(String json) {
     return IPAccessControlListSearchCriteriaJSON.fromJSON(json);
   }
-
+  
   public static IPAccessControlListSearchCriteria fromJSONBytes(byte[] json) {
     return IPAccessControlListSearchCriteriaJSON.fromJSON(json);
   }

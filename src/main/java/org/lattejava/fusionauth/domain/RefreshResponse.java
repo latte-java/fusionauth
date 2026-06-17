@@ -16,15 +16,15 @@ public record RefreshResponse() {
   public String toJSON() {
     return RefreshResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return RefreshResponseJSON.toJSONBytes(this);
   }
-
+  
   public static RefreshResponse fromJSON(String json) {
     return RefreshResponseJSON.fromJSON(json);
   }
-
+  
   public static RefreshResponse fromJSONBytes(byte[] json) {
     return RefreshResponseJSON.fromJSON(json);
   }

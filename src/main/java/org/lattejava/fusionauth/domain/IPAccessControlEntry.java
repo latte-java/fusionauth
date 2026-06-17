@@ -19,15 +19,15 @@ public record IPAccessControlEntry(
   public String toJSON() {
     return IPAccessControlEntryJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return IPAccessControlEntryJSON.toJSONBytes(this);
   }
-
+  
   public static IPAccessControlEntry fromJSON(String json) {
     return IPAccessControlEntryJSON.fromJSON(json);
   }
-
+  
   public static IPAccessControlEntry fromJSONBytes(byte[] json) {
     return IPAccessControlEntryJSON.fromJSON(json);
   }

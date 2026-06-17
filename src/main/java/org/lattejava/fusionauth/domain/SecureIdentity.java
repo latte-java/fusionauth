@@ -34,15 +34,15 @@ public record SecureIdentity(
   public String toJSON() {
     return SecureIdentityJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return SecureIdentityJSON.toJSONBytes(this);
   }
-
+  
   public static SecureIdentity fromJSON(String json) {
     return SecureIdentityJSON.fromJSON(json);
   }
-
+  
   public static SecureIdentity fromJSONBytes(byte[] json) {
     return SecureIdentityJSON.fromJSON(json);
   }

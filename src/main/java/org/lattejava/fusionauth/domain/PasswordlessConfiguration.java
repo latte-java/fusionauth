@@ -19,15 +19,15 @@ public record PasswordlessConfiguration(
   public String toJSON() {
     return PasswordlessConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return PasswordlessConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static PasswordlessConfiguration fromJSON(String json) {
     return PasswordlessConfigurationJSON.fromJSON(json);
   }
-
+  
   public static PasswordlessConfiguration fromJSONBytes(byte[] json) {
     return PasswordlessConfigurationJSON.fromJSON(json);
   }

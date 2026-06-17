@@ -17,15 +17,15 @@ public record EventLogConfiguration(
   public String toJSON() {
     return EventLogConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EventLogConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static EventLogConfiguration fromJSON(String json) {
     return EventLogConfigurationJSON.fromJSON(json);
   }
-
+  
   public static EventLogConfiguration fromJSONBytes(byte[] json) {
     return EventLogConfigurationJSON.fromJSON(json);
   }

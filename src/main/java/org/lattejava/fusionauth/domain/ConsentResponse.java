@@ -18,15 +18,15 @@ public record ConsentResponse(
   public String toJSON() {
     return ConsentResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ConsentResponseJSON.toJSONBytes(this);
   }
-
+  
   public static ConsentResponse fromJSON(String json) {
     return ConsentResponseJSON.fromJSON(json);
   }
-
+  
   public static ConsentResponse fromJSONBytes(byte[] json) {
     return ConsentResponseJSON.fromJSON(json);
   }

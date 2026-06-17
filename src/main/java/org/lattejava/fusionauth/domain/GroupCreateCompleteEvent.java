@@ -17,15 +17,15 @@ public record GroupCreateCompleteEvent(
   public String toJSON() {
     return GroupCreateCompleteEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return GroupCreateCompleteEventJSON.toJSONBytes(this);
   }
-
+  
   public static GroupCreateCompleteEvent fromJSON(String json) {
     return GroupCreateCompleteEventJSON.fromJSON(json);
   }
-
+  
   public static GroupCreateCompleteEvent fromJSONBytes(byte[] json) {
     return GroupCreateCompleteEventJSON.fromJSON(json);
   }

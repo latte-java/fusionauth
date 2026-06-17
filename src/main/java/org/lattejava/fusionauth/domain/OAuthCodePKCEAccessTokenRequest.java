@@ -23,15 +23,15 @@ public record OAuthCodePKCEAccessTokenRequest(
   public String toJSON() {
     return OAuthCodePKCEAccessTokenRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return OAuthCodePKCEAccessTokenRequestJSON.toJSONBytes(this);
   }
-
+  
   public static OAuthCodePKCEAccessTokenRequest fromJSON(String json) {
     return OAuthCodePKCEAccessTokenRequestJSON.fromJSON(json);
   }
-
+  
   public static OAuthCodePKCEAccessTokenRequest fromJSONBytes(byte[] json) {
     return OAuthCodePKCEAccessTokenRequestJSON.fromJSON(json);
   }

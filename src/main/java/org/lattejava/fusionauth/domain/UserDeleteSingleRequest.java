@@ -18,15 +18,15 @@ public record UserDeleteSingleRequest(
   public String toJSON() {
     return UserDeleteSingleRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserDeleteSingleRequestJSON.toJSONBytes(this);
   }
-
+  
   public static UserDeleteSingleRequest fromJSON(String json) {
     return UserDeleteSingleRequestJSON.fromJSON(json);
   }
-
+  
   public static UserDeleteSingleRequest fromJSONBytes(byte[] json) {
     return UserDeleteSingleRequestJSON.fromJSON(json);
   }

@@ -28,15 +28,15 @@ public record SystemConfiguration(
   public String toJSON() {
     return SystemConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return SystemConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static SystemConfiguration fromJSON(String json) {
     return SystemConfigurationJSON.fromJSON(json);
   }
-
+  
   public static SystemConfiguration fromJSONBytes(byte[] json) {
     return SystemConfigurationJSON.fromJSON(json);
   }

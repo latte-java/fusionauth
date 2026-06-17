@@ -25,15 +25,15 @@ public record PublicKeyCredentialCreationOptions(
   public String toJSON() {
     return PublicKeyCredentialCreationOptionsJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return PublicKeyCredentialCreationOptionsJSON.toJSONBytes(this);
   }
-
+  
   public static PublicKeyCredentialCreationOptions fromJSON(String json) {
     return PublicKeyCredentialCreationOptionsJSON.fromJSON(json);
   }
-
+  
   public static PublicKeyCredentialCreationOptions fromJSONBytes(byte[] json) {
     return PublicKeyCredentialCreationOptionsJSON.fromJSON(json);
   }

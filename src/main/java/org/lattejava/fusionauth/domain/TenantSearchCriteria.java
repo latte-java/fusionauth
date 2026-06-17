@@ -20,15 +20,15 @@ public record TenantSearchCriteria(
   public String toJSON() {
     return TenantSearchCriteriaJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TenantSearchCriteriaJSON.toJSONBytes(this);
   }
-
+  
   public static TenantSearchCriteria fromJSON(String json) {
     return TenantSearchCriteriaJSON.fromJSON(json);
   }
-
+  
   public static TenantSearchCriteria fromJSONBytes(byte[] json) {
     return TenantSearchCriteriaJSON.fromJSON(json);
   }

@@ -26,15 +26,15 @@ public record ForgotPasswordRequest(
   public String toJSON() {
     return ForgotPasswordRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ForgotPasswordRequestJSON.toJSONBytes(this);
   }
-
+  
   public static ForgotPasswordRequest fromJSON(String json) {
     return ForgotPasswordRequestJSON.fromJSON(json);
   }
-
+  
   public static ForgotPasswordRequest fromJSONBytes(byte[] json) {
     return ForgotPasswordRequestJSON.fromJSON(json);
   }

@@ -27,15 +27,15 @@ public record AuditLogSearchCriteria(
   public String toJSON() {
     return AuditLogSearchCriteriaJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return AuditLogSearchCriteriaJSON.toJSONBytes(this);
   }
-
+  
   public static AuditLogSearchCriteria fromJSON(String json) {
     return AuditLogSearchCriteriaJSON.fromJSON(json);
   }
-
+  
   public static AuditLogSearchCriteria fromJSONBytes(byte[] json) {
     return AuditLogSearchCriteriaJSON.fromJSON(json);
   }

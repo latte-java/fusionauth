@@ -24,15 +24,15 @@ public record Lambda(
   public String toJSON() {
     return LambdaJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return LambdaJSON.toJSONBytes(this);
   }
-
+  
   public static Lambda fromJSON(String json) {
     return LambdaJSON.fromJSON(json);
   }
-
+  
   public static Lambda fromJSONBytes(byte[] json) {
     return LambdaJSON.fromJSON(json);
   }

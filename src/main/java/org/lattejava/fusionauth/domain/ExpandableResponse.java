@@ -17,15 +17,15 @@ public record ExpandableResponse(
   public String toJSON() {
     return ExpandableResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ExpandableResponseJSON.toJSONBytes(this);
   }
-
+  
   public static ExpandableResponse fromJSON(String json) {
     return ExpandableResponseJSON.fromJSON(json);
   }
-
+  
   public static ExpandableResponse fromJSONBytes(byte[] json) {
     return ExpandableResponseJSON.fromJSON(json);
   }

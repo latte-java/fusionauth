@@ -18,15 +18,15 @@ public record SendResponse(
   public String toJSON() {
     return SendResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return SendResponseJSON.toJSONBytes(this);
   }
-
+  
   public static SendResponse fromJSON(String json) {
     return SendResponseJSON.fromJSON(json);
   }
-
+  
   public static SendResponse fromJSONBytes(byte[] json) {
     return SendResponseJSON.fromJSON(json);
   }

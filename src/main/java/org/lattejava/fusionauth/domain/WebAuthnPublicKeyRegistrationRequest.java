@@ -22,15 +22,15 @@ public record WebAuthnPublicKeyRegistrationRequest(
   public String toJSON() {
     return WebAuthnPublicKeyRegistrationRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return WebAuthnPublicKeyRegistrationRequestJSON.toJSONBytes(this);
   }
-
+  
   public static WebAuthnPublicKeyRegistrationRequest fromJSON(String json) {
     return WebAuthnPublicKeyRegistrationRequestJSON.fromJSON(json);
   }
-
+  
   public static WebAuthnPublicKeyRegistrationRequest fromJSONBytes(byte[] json) {
     return WebAuthnPublicKeyRegistrationRequestJSON.fromJSON(json);
   }

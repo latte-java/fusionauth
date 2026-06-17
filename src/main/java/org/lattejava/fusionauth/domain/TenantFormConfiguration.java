@@ -17,15 +17,15 @@ public record TenantFormConfiguration(
   public String toJSON() {
     return TenantFormConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TenantFormConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static TenantFormConfiguration fromJSON(String json) {
     return TenantFormConfigurationJSON.fromJSON(json);
   }
-
+  
   public static TenantFormConfiguration fromJSONBytes(byte[] json) {
     return TenantFormConfigurationJSON.fromJSON(json);
   }

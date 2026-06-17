@@ -19,15 +19,15 @@ public record IdentityProviderPendingLinkResponse(
   public String toJSON() {
     return IdentityProviderPendingLinkResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return IdentityProviderPendingLinkResponseJSON.toJSONBytes(this);
   }
-
+  
   public static IdentityProviderPendingLinkResponse fromJSON(String json) {
     return IdentityProviderPendingLinkResponseJSON.fromJSON(json);
   }
-
+  
   public static IdentityProviderPendingLinkResponse fromJSONBytes(byte[] json) {
     return IdentityProviderPendingLinkResponseJSON.fromJSON(json);
   }

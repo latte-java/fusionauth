@@ -23,15 +23,15 @@ public record WebAuthnStartRequest(
   public String toJSON() {
     return WebAuthnStartRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return WebAuthnStartRequestJSON.toJSONBytes(this);
   }
-
+  
   public static WebAuthnStartRequest fromJSON(String json) {
     return WebAuthnStartRequestJSON.fromJSON(json);
   }
-
+  
   public static WebAuthnStartRequest fromJSONBytes(byte[] json) {
     return WebAuthnStartRequestJSON.fromJSON(json);
   }

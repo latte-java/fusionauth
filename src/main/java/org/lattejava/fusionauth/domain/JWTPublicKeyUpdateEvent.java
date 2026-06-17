@@ -22,15 +22,15 @@ public record JWTPublicKeyUpdateEvent(
   public String toJSON() {
     return JWTPublicKeyUpdateEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return JWTPublicKeyUpdateEventJSON.toJSONBytes(this);
   }
-
+  
   public static JWTPublicKeyUpdateEvent fromJSON(String json) {
     return JWTPublicKeyUpdateEventJSON.fromJSON(json);
   }
-
+  
   public static JWTPublicKeyUpdateEvent fromJSONBytes(byte[] json) {
     return JWTPublicKeyUpdateEventJSON.fromJSON(json);
   }

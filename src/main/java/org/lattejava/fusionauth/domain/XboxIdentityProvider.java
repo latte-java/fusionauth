@@ -34,15 +34,15 @@ public record XboxIdentityProvider(
   public String toJSON() {
     return XboxIdentityProviderJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return XboxIdentityProviderJSON.toJSONBytes(this);
   }
-
+  
   public static XboxIdentityProvider fromJSON(String json) {
     return XboxIdentityProviderJSON.fromJSON(json);
   }
-
+  
   public static XboxIdentityProvider fromJSONBytes(byte[] json) {
     return XboxIdentityProviderJSON.fromJSON(json);
   }

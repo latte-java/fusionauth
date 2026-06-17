@@ -18,15 +18,15 @@ public record UserTwoFactorMethodRemoveEvent(
   public String toJSON() {
     return UserTwoFactorMethodRemoveEventJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserTwoFactorMethodRemoveEventJSON.toJSONBytes(this);
   }
-
+  
   public static UserTwoFactorMethodRemoveEvent fromJSON(String json) {
     return UserTwoFactorMethodRemoveEventJSON.fromJSON(json);
   }
-
+  
   public static UserTwoFactorMethodRemoveEvent fromJSONBytes(byte[] json) {
     return UserTwoFactorMethodRemoveEventJSON.fromJSON(json);
   }

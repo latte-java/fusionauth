@@ -17,15 +17,15 @@ public record UniversalApplicationConfiguration(
   public String toJSON() {
     return UniversalApplicationConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UniversalApplicationConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static UniversalApplicationConfiguration fromJSON(String json) {
     return UniversalApplicationConfigurationJSON.fromJSON(json);
   }
-
+  
   public static UniversalApplicationConfiguration fromJSONBytes(byte[] json) {
     return UniversalApplicationConfigurationJSON.fromJSON(json);
   }

@@ -18,15 +18,15 @@ public record EmailHeader(
   public String toJSON() {
     return EmailHeaderJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EmailHeaderJSON.toJSONBytes(this);
   }
-
+  
   public static EmailHeader fromJSON(String json) {
     return EmailHeaderJSON.fromJSON(json);
   }
-
+  
   public static EmailHeader fromJSONBytes(byte[] json) {
     return EmailHeaderJSON.fromJSON(json);
   }

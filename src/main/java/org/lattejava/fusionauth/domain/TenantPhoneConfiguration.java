@@ -35,15 +35,15 @@ public record TenantPhoneConfiguration(
   public String toJSON() {
     return TenantPhoneConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TenantPhoneConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static TenantPhoneConfiguration fromJSON(String json) {
     return TenantPhoneConfigurationJSON.fromJSON(json);
   }
-
+  
   public static TenantPhoneConfiguration fromJSONBytes(byte[] json) {
     return TenantPhoneConfigurationJSON.fromJSON(json);
   }

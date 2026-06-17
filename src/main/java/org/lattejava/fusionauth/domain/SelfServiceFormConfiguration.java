@@ -17,15 +17,15 @@ public record SelfServiceFormConfiguration(
   public String toJSON() {
     return SelfServiceFormConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return SelfServiceFormConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static SelfServiceFormConfiguration fromJSON(String json) {
     return SelfServiceFormConfigurationJSON.fromJSON(json);
   }
-
+  
   public static SelfServiceFormConfiguration fromJSONBytes(byte[] json) {
     return SelfServiceFormConfigurationJSON.fromJSON(json);
   }

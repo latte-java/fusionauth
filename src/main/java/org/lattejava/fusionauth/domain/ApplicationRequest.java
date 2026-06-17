@@ -20,15 +20,15 @@ public record ApplicationRequest(
   public String toJSON() {
     return ApplicationRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ApplicationRequestJSON.toJSONBytes(this);
   }
-
+  
   public static ApplicationRequest fromJSON(String json) {
     return ApplicationRequestJSON.fromJSON(json);
   }
-
+  
   public static ApplicationRequest fromJSONBytes(byte[] json) {
     return ApplicationRequestJSON.fromJSON(json);
   }

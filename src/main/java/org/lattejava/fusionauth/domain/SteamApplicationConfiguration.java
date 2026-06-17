@@ -23,15 +23,15 @@ public record SteamApplicationConfiguration(
   public String toJSON() {
     return SteamApplicationConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return SteamApplicationConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static SteamApplicationConfiguration fromJSON(String json) {
     return SteamApplicationConfigurationJSON.fromJSON(json);
   }
-
+  
   public static SteamApplicationConfiguration fromJSONBytes(byte[] json) {
     return SteamApplicationConfigurationJSON.fromJSON(json);
   }

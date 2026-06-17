@@ -18,15 +18,15 @@ public record WebAuthnCredentialResponse(
   public String toJSON() {
     return WebAuthnCredentialResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return WebAuthnCredentialResponseJSON.toJSONBytes(this);
   }
-
+  
   public static WebAuthnCredentialResponse fromJSON(String json) {
     return WebAuthnCredentialResponseJSON.fromJSON(json);
   }
-
+  
   public static WebAuthnCredentialResponse fromJSONBytes(byte[] json) {
     return WebAuthnCredentialResponseJSON.fromJSON(json);
   }

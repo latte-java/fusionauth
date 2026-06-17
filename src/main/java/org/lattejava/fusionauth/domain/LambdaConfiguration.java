@@ -22,15 +22,15 @@ public record LambdaConfiguration(
   public String toJSON() {
     return LambdaConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return LambdaConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static LambdaConfiguration fromJSON(String json) {
     return LambdaConfigurationJSON.fromJSON(json);
   }
-
+  
   public static LambdaConfiguration fromJSONBytes(byte[] json) {
     return LambdaConfigurationJSON.fromJSON(json);
   }

@@ -18,15 +18,15 @@ public record TenantSSOConfiguration(
   public String toJSON() {
     return TenantSSOConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TenantSSOConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static TenantSSOConfiguration fromJSON(String json) {
     return TenantSSOConfigurationJSON.fromJSON(json);
   }
-
+  
   public static TenantSSOConfiguration fromJSONBytes(byte[] json) {
     return TenantSSOConfigurationJSON.fromJSON(json);
   }

@@ -17,15 +17,15 @@ public record VersionResponse(
   public String toJSON() {
     return VersionResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return VersionResponseJSON.toJSONBytes(this);
   }
-
+  
   public static VersionResponse fromJSON(String json) {
     return VersionResponseJSON.fromJSON(json);
   }
-
+  
   public static VersionResponse fromJSONBytes(byte[] json) {
     return VersionResponseJSON.fromJSON(json);
   }

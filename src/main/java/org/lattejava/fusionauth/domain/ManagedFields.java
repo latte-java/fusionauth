@@ -16,15 +16,15 @@ public record ManagedFields() {
   public String toJSON() {
     return ManagedFieldsJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ManagedFieldsJSON.toJSONBytes(this);
   }
-
+  
   public static ManagedFields fromJSON(String json) {
     return ManagedFieldsJSON.fromJSON(json);
   }
-
+  
   public static ManagedFields fromJSONBytes(byte[] json) {
     return ManagedFieldsJSON.fromJSON(json);
   }

@@ -21,15 +21,15 @@ public record ThemeSearchCriteria(
   public String toJSON() {
     return ThemeSearchCriteriaJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ThemeSearchCriteriaJSON.toJSONBytes(this);
   }
-
+  
   public static ThemeSearchCriteria fromJSON(String json) {
     return ThemeSearchCriteriaJSON.fromJSON(json);
   }
-
+  
   public static ThemeSearchCriteria fromJSONBytes(byte[] json) {
     return ThemeSearchCriteriaJSON.fromJSON(json);
   }

@@ -18,15 +18,15 @@ public record APIKeyRequest(
   public String toJSON() {
     return APIKeyRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return APIKeyRequestJSON.toJSONBytes(this);
   }
-
+  
   public static APIKeyRequest fromJSON(String json) {
     return APIKeyRequestJSON.fromJSON(json);
   }
-
+  
   public static APIKeyRequest fromJSONBytes(byte[] json) {
     return APIKeyRequestJSON.fromJSON(json);
   }

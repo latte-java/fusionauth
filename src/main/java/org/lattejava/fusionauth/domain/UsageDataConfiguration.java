@@ -18,15 +18,15 @@ public record UsageDataConfiguration(
   public String toJSON() {
     return UsageDataConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UsageDataConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static UsageDataConfiguration fromJSON(String json) {
     return UsageDataConfigurationJSON.fromJSON(json);
   }
-
+  
   public static UsageDataConfiguration fromJSONBytes(byte[] json) {
     return UsageDataConfigurationJSON.fromJSON(json);
   }

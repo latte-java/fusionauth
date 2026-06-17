@@ -18,15 +18,15 @@ public record PhoneUnverifiedOptions(
   public String toJSON() {
     return PhoneUnverifiedOptionsJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return PhoneUnverifiedOptionsJSON.toJSONBytes(this);
   }
-
+  
   public static PhoneUnverifiedOptions fromJSON(String json) {
     return PhoneUnverifiedOptionsJSON.fromJSON(json);
   }
-
+  
   public static PhoneUnverifiedOptions fromJSONBytes(byte[] json) {
     return PhoneUnverifiedOptionsJSON.fromJSON(json);
   }

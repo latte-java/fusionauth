@@ -17,15 +17,15 @@ public record UserCommentRequest(
   public String toJSON() {
     return UserCommentRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserCommentRequestJSON.toJSONBytes(this);
   }
-
+  
   public static UserCommentRequest fromJSON(String json) {
     return UserCommentRequestJSON.fromJSON(json);
   }
-
+  
   public static UserCommentRequest fromJSONBytes(byte[] json) {
     return UserCommentRequestJSON.fromJSON(json);
   }

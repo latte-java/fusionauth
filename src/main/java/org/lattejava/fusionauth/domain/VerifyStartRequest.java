@@ -22,15 +22,15 @@ public record VerifyStartRequest(
   public String toJSON() {
     return VerifyStartRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return VerifyStartRequestJSON.toJSONBytes(this);
   }
-
+  
   public static VerifyStartRequest fromJSON(String json) {
     return VerifyStartRequestJSON.fromJSON(json);
   }
-
+  
   public static VerifyStartRequest fromJSONBytes(byte[] json) {
     return VerifyStartRequestJSON.fromJSON(json);
   }

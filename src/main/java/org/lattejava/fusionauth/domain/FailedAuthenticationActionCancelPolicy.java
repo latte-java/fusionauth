@@ -17,15 +17,15 @@ public record FailedAuthenticationActionCancelPolicy(
   public String toJSON() {
     return FailedAuthenticationActionCancelPolicyJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return FailedAuthenticationActionCancelPolicyJSON.toJSONBytes(this);
   }
-
+  
   public static FailedAuthenticationActionCancelPolicy fromJSON(String json) {
     return FailedAuthenticationActionCancelPolicyJSON.fromJSON(json);
   }
-
+  
   public static FailedAuthenticationActionCancelPolicy fromJSONBytes(byte[] json) {
     return FailedAuthenticationActionCancelPolicyJSON.fromJSON(json);
   }

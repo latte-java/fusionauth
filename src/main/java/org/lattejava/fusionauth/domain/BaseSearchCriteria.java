@@ -19,15 +19,15 @@ public record BaseSearchCriteria(
   public String toJSON() {
     return BaseSearchCriteriaJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return BaseSearchCriteriaJSON.toJSONBytes(this);
   }
-
+  
   public static BaseSearchCriteria fromJSON(String json) {
     return BaseSearchCriteriaJSON.fromJSON(json);
   }
-
+  
   public static BaseSearchCriteria fromJSONBytes(byte[] json) {
     return BaseSearchCriteriaJSON.fromJSON(json);
   }

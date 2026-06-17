@@ -26,15 +26,15 @@ public record ChangePasswordRequest(
   public String toJSON() {
     return ChangePasswordRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ChangePasswordRequestJSON.toJSONBytes(this);
   }
-
+  
   public static ChangePasswordRequest fromJSON(String json) {
     return ChangePasswordRequestJSON.fromJSON(json);
   }
-
+  
   public static ChangePasswordRequest fromJSONBytes(byte[] json) {
     return ChangePasswordRequestJSON.fromJSON(json);
   }

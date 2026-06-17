@@ -29,15 +29,15 @@ public record EmailTemplate(
   public String toJSON() {
     return EmailTemplateJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EmailTemplateJSON.toJSONBytes(this);
   }
-
+  
   public static EmailTemplate fromJSON(String json) {
     return EmailTemplateJSON.fromJSON(json);
   }
-
+  
   public static EmailTemplate fromJSONBytes(byte[] json) {
     return EmailTemplateJSON.fromJSON(json);
   }

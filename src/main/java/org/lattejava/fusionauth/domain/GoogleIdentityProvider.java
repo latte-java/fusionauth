@@ -36,15 +36,15 @@ public record GoogleIdentityProvider(
   public String toJSON() {
     return GoogleIdentityProviderJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return GoogleIdentityProviderJSON.toJSONBytes(this);
   }
-
+  
   public static GoogleIdentityProvider fromJSON(String json) {
     return GoogleIdentityProviderJSON.fromJSON(json);
   }
-
+  
   public static GoogleIdentityProvider fromJSONBytes(byte[] json) {
     return GoogleIdentityProviderJSON.fromJSON(json);
   }

@@ -19,15 +19,15 @@ public record MultiFactorSMSMethod(
   public String toJSON() {
     return MultiFactorSMSMethodJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return MultiFactorSMSMethodJSON.toJSONBytes(this);
   }
-
+  
   public static MultiFactorSMSMethod fromJSON(String json) {
     return MultiFactorSMSMethodJSON.fromJSON(json);
   }
-
+  
   public static MultiFactorSMSMethod fromJSONBytes(byte[] json) {
     return MultiFactorSMSMethodJSON.fromJSON(json);
   }

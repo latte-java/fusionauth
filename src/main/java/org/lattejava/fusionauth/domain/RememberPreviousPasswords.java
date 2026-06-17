@@ -18,15 +18,15 @@ public record RememberPreviousPasswords(
   public String toJSON() {
     return RememberPreviousPasswordsJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return RememberPreviousPasswordsJSON.toJSONBytes(this);
   }
-
+  
   public static RememberPreviousPasswords fromJSON(String json) {
     return RememberPreviousPasswordsJSON.fromJSON(json);
   }
-
+  
   public static RememberPreviousPasswords fromJSONBytes(byte[] json) {
     return RememberPreviousPasswordsJSON.fromJSON(json);
   }

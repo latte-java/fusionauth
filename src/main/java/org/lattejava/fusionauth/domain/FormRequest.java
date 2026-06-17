@@ -17,15 +17,15 @@ public record FormRequest(
   public String toJSON() {
     return FormRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return FormRequestJSON.toJSONBytes(this);
   }
-
+  
   public static FormRequest fromJSON(String json) {
     return FormRequestJSON.fromJSON(json);
   }
-
+  
   public static FormRequest fromJSONBytes(byte[] json) {
     return FormRequestJSON.fromJSON(json);
   }

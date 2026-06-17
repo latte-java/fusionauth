@@ -17,15 +17,15 @@ public record RefreshTokenOneTimeUseConfiguration(
   public String toJSON() {
     return RefreshTokenOneTimeUseConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return RefreshTokenOneTimeUseConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static RefreshTokenOneTimeUseConfiguration fromJSON(String json) {
     return RefreshTokenOneTimeUseConfigurationJSON.fromJSON(json);
   }
-
+  
   public static RefreshTokenOneTimeUseConfiguration fromJSONBytes(byte[] json) {
     return RefreshTokenOneTimeUseConfigurationJSON.fromJSON(json);
   }

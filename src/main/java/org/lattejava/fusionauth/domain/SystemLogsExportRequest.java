@@ -20,15 +20,15 @@ public record SystemLogsExportRequest(
   public String toJSON() {
     return SystemLogsExportRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return SystemLogsExportRequestJSON.toJSONBytes(this);
   }
-
+  
   public static SystemLogsExportRequest fromJSON(String json) {
     return SystemLogsExportRequestJSON.fromJSON(json);
   }
-
+  
   public static SystemLogsExportRequest fromJSONBytes(byte[] json) {
     return SystemLogsExportRequestJSON.fromJSON(json);
   }

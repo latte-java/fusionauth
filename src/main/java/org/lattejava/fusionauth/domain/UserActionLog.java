@@ -35,15 +35,15 @@ public record UserActionLog(
   public String toJSON() {
     return UserActionLogJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserActionLogJSON.toJSONBytes(this);
   }
-
+  
   public static UserActionLog fromJSON(String json) {
     return UserActionLogJSON.fromJSON(json);
   }
-
+  
   public static UserActionLog fromJSONBytes(byte[] json) {
     return UserActionLogJSON.fromJSON(json);
   }

@@ -17,15 +17,15 @@ public record ThemeSearchRequest(
   public String toJSON() {
     return ThemeSearchRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ThemeSearchRequestJSON.toJSONBytes(this);
   }
-
+  
   public static ThemeSearchRequest fromJSON(String json) {
     return ThemeSearchRequestJSON.fromJSON(json);
   }
-
+  
   public static ThemeSearchRequest fromJSONBytes(byte[] json) {
     return ThemeSearchRequestJSON.fromJSON(json);
   }

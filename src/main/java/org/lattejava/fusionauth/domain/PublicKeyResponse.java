@@ -18,15 +18,15 @@ public record PublicKeyResponse(
   public String toJSON() {
     return PublicKeyResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return PublicKeyResponseJSON.toJSONBytes(this);
   }
-
+  
   public static PublicKeyResponse fromJSON(String json) {
     return PublicKeyResponseJSON.fromJSON(json);
   }
-
+  
   public static PublicKeyResponse fromJSONBytes(byte[] json) {
     return PublicKeyResponseJSON.fromJSON(json);
   }

@@ -17,15 +17,15 @@ public record SystemConfigurationResponse(
   public String toJSON() {
     return SystemConfigurationResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return SystemConfigurationResponseJSON.toJSONBytes(this);
   }
-
+  
   public static SystemConfigurationResponse fromJSON(String json) {
     return SystemConfigurationResponseJSON.fromJSON(json);
   }
-
+  
   public static SystemConfigurationResponse fromJSONBytes(byte[] json) {
     return SystemConfigurationResponseJSON.fromJSON(json);
   }

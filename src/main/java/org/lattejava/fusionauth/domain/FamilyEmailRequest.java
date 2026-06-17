@@ -17,15 +17,15 @@ public record FamilyEmailRequest(
   public String toJSON() {
     return FamilyEmailRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return FamilyEmailRequestJSON.toJSONBytes(this);
   }
-
+  
   public static FamilyEmailRequest fromJSON(String json) {
     return FamilyEmailRequestJSON.fromJSON(json);
   }
-
+  
   public static FamilyEmailRequest fromJSONBytes(byte[] json) {
     return FamilyEmailRequestJSON.fromJSON(json);
   }

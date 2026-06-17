@@ -22,15 +22,15 @@ public record WebhookSearchCriteria(
   public String toJSON() {
     return WebhookSearchCriteriaJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return WebhookSearchCriteriaJSON.toJSONBytes(this);
   }
-
+  
   public static WebhookSearchCriteria fromJSON(String json) {
     return WebhookSearchCriteriaJSON.fromJSON(json);
   }
-
+  
   public static WebhookSearchCriteria fromJSONBytes(byte[] json) {
     return WebhookSearchCriteriaJSON.fromJSON(json);
   }

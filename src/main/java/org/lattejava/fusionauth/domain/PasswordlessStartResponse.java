@@ -18,15 +18,15 @@ public record PasswordlessStartResponse(
   public String toJSON() {
     return PasswordlessStartResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return PasswordlessStartResponseJSON.toJSONBytes(this);
   }
-
+  
   public static PasswordlessStartResponse fromJSON(String json) {
     return PasswordlessStartResponseJSON.fromJSON(json);
   }
-
+  
   public static PasswordlessStartResponse fromJSONBytes(byte[] json) {
     return PasswordlessStartResponseJSON.fromJSON(json);
   }

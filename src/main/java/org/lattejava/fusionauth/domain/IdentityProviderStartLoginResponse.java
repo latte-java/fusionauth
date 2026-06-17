@@ -17,15 +17,15 @@ public record IdentityProviderStartLoginResponse(
   public String toJSON() {
     return IdentityProviderStartLoginResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return IdentityProviderStartLoginResponseJSON.toJSONBytes(this);
   }
-
+  
   public static IdentityProviderStartLoginResponse fromJSON(String json) {
     return IdentityProviderStartLoginResponseJSON.fromJSON(json);
   }
-
+  
   public static IdentityProviderStartLoginResponse fromJSONBytes(byte[] json) {
     return IdentityProviderStartLoginResponseJSON.fromJSON(json);
   }

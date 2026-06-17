@@ -21,15 +21,15 @@ public record UserComment(
   public String toJSON() {
     return UserCommentJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return UserCommentJSON.toJSONBytes(this);
   }
-
+  
   public static UserComment fromJSON(String json) {
     return UserCommentJSON.fromJSON(json);
   }
-
+  
   public static UserComment fromJSONBytes(byte[] json) {
     return UserCommentJSON.fromJSON(json);
   }

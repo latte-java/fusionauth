@@ -18,15 +18,15 @@ public record VerifyRegistrationResponse(
   public String toJSON() {
     return VerifyRegistrationResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return VerifyRegistrationResponseJSON.toJSONBytes(this);
   }
-
+  
   public static VerifyRegistrationResponse fromJSON(String json) {
     return VerifyRegistrationResponseJSON.fromJSON(json);
   }
-
+  
   public static VerifyRegistrationResponse fromJSONBytes(byte[] json) {
     return VerifyRegistrationResponseJSON.fromJSON(json);
   }

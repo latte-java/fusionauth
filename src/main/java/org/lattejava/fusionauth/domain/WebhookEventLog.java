@@ -29,15 +29,15 @@ public record WebhookEventLog(
   public String toJSON() {
     return WebhookEventLogJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return WebhookEventLogJSON.toJSONBytes(this);
   }
-
+  
   public static WebhookEventLog fromJSON(String json) {
     return WebhookEventLogJSON.fromJSON(json);
   }
-
+  
   public static WebhookEventLog fromJSONBytes(byte[] json) {
     return WebhookEventLogJSON.fromJSON(json);
   }

@@ -16,15 +16,15 @@ public record OAuthResponse() {
   public String toJSON() {
     return OAuthResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return OAuthResponseJSON.toJSONBytes(this);
   }
-
+  
   public static OAuthResponse fromJSON(String json) {
     return OAuthResponseJSON.fromJSON(json);
   }
-
+  
   public static OAuthResponse fromJSONBytes(byte[] json) {
     return OAuthResponseJSON.fromJSON(json);
   }

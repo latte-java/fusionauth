@@ -23,15 +23,15 @@ public record IdentityProviderDetails(
   public String toJSON() {
     return IdentityProviderDetailsJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return IdentityProviderDetailsJSON.toJSONBytes(this);
   }
-
+  
   public static IdentityProviderDetails fromJSON(String json) {
     return IdentityProviderDetailsJSON.fromJSON(json);
   }
-
+  
   public static IdentityProviderDetails fromJSONBytes(byte[] json) {
     return IdentityProviderDetailsJSON.fromJSON(json);
   }

@@ -18,15 +18,15 @@ public record PreviewMessageTemplateRequest(
   public String toJSON() {
     return PreviewMessageTemplateRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return PreviewMessageTemplateRequestJSON.toJSONBytes(this);
   }
-
+  
   public static PreviewMessageTemplateRequest fromJSON(String json) {
     return PreviewMessageTemplateRequestJSON.fromJSON(json);
   }
-
+  
   public static PreviewMessageTemplateRequest fromJSONBytes(byte[] json) {
     return PreviewMessageTemplateRequestJSON.fromJSON(json);
   }

@@ -18,15 +18,15 @@ public record LoginRecordSearchRequest(
   public String toJSON() {
     return LoginRecordSearchRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return LoginRecordSearchRequestJSON.toJSONBytes(this);
   }
-
+  
   public static LoginRecordSearchRequest fromJSON(String json) {
     return LoginRecordSearchRequestJSON.fromJSON(json);
   }
-
+  
   public static LoginRecordSearchRequest fromJSONBytes(byte[] json) {
     return LoginRecordSearchRequestJSON.fromJSON(json);
   }

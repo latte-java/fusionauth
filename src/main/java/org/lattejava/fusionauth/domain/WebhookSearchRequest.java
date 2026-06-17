@@ -17,15 +17,15 @@ public record WebhookSearchRequest(
   public String toJSON() {
     return WebhookSearchRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return WebhookSearchRequestJSON.toJSONBytes(this);
   }
-
+  
   public static WebhookSearchRequest fromJSON(String json) {
     return WebhookSearchRequestJSON.fromJSON(json);
   }
-
+  
   public static WebhookSearchRequest fromJSONBytes(byte[] json) {
     return WebhookSearchRequestJSON.fromJSON(json);
   }

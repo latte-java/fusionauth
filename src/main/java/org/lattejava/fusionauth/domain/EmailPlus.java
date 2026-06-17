@@ -20,15 +20,15 @@ public record EmailPlus(
   public String toJSON() {
     return EmailPlusJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EmailPlusJSON.toJSONBytes(this);
   }
-
+  
   public static EmailPlus fromJSON(String json) {
     return EmailPlusJSON.fromJSON(json);
   }
-
+  
   public static EmailPlus fromJSONBytes(byte[] json) {
     return EmailPlusJSON.fromJSON(json);
   }

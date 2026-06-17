@@ -21,15 +21,15 @@ public record GroupMember(
   public String toJSON() {
     return GroupMemberJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return GroupMemberJSON.toJSONBytes(this);
   }
-
+  
   public static GroupMember fromJSON(String json) {
     return GroupMemberJSON.fromJSON(json);
   }
-
+  
   public static GroupMember fromJSONBytes(byte[] json) {
     return GroupMemberJSON.fromJSON(json);
   }

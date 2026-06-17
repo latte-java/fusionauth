@@ -19,15 +19,15 @@ public record EntityJWTConfiguration(
   public String toJSON() {
     return EntityJWTConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EntityJWTConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static EntityJWTConfiguration fromJSON(String json) {
     return EntityJWTConfigurationJSON.fromJSON(json);
   }
-
+  
   public static EntityJWTConfiguration fromJSONBytes(byte[] json) {
     return EntityJWTConfigurationJSON.fromJSON(json);
   }

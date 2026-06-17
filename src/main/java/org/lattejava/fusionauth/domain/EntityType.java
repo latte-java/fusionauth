@@ -23,15 +23,15 @@ public record EntityType(
   public String toJSON() {
     return EntityTypeJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return EntityTypeJSON.toJSONBytes(this);
   }
-
+  
   public static EntityType fromJSON(String json) {
     return EntityTypeJSON.fromJSON(json);
   }
-
+  
   public static EntityType fromJSONBytes(byte[] json) {
     return EntityTypeJSON.fromJSON(json);
   }

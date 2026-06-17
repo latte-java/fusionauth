@@ -22,15 +22,15 @@ public record TenantWebAuthnConfiguration(
   public String toJSON() {
     return TenantWebAuthnConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TenantWebAuthnConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static TenantWebAuthnConfiguration fromJSON(String json) {
     return TenantWebAuthnConfigurationJSON.fromJSON(json);
   }
-
+  
   public static TenantWebAuthnConfiguration fromJSONBytes(byte[] json) {
     return TenantWebAuthnConfigurationJSON.fromJSON(json);
   }

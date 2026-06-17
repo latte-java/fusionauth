@@ -23,15 +23,15 @@ public record TwoFactorMethod(
   public String toJSON() {
     return TwoFactorMethodJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TwoFactorMethodJSON.toJSONBytes(this);
   }
-
+  
   public static TwoFactorMethod fromJSON(String json) {
     return TwoFactorMethodJSON.fromJSON(json);
   }
-
+  
   public static TwoFactorMethod fromJSONBytes(byte[] json) {
     return TwoFactorMethodJSON.fromJSON(json);
   }

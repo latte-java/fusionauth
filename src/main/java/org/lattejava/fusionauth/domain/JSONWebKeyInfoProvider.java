@@ -16,15 +16,15 @@ public record JSONWebKeyInfoProvider() {
   public String toJSON() {
     return JSONWebKeyInfoProviderJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return JSONWebKeyInfoProviderJSON.toJSONBytes(this);
   }
-
+  
   public static JSONWebKeyInfoProvider fromJSON(String json) {
     return JSONWebKeyInfoProviderJSON.fromJSON(json);
   }
-
+  
   public static JSONWebKeyInfoProvider fromJSONBytes(byte[] json) {
     return JSONWebKeyInfoProviderJSON.fromJSON(json);
   }

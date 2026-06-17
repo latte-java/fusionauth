@@ -19,15 +19,15 @@ public record TenantWebAuthnWorkflowConfiguration(
   public String toJSON() {
     return TenantWebAuthnWorkflowConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return TenantWebAuthnWorkflowConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static TenantWebAuthnWorkflowConfiguration fromJSON(String json) {
     return TenantWebAuthnWorkflowConfigurationJSON.fromJSON(json);
   }
-
+  
   public static TenantWebAuthnWorkflowConfiguration fromJSONBytes(byte[] json) {
     return TenantWebAuthnWorkflowConfigurationJSON.fromJSON(json);
   }

@@ -19,15 +19,15 @@ public record KafkaConfiguration(
   public String toJSON() {
     return KafkaConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return KafkaConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static KafkaConfiguration fromJSON(String json) {
     return KafkaConfigurationJSON.fromJSON(json);
   }
-
+  
   public static KafkaConfiguration fromJSONBytes(byte[] json) {
     return KafkaConfigurationJSON.fromJSON(json);
   }

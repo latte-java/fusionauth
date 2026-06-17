@@ -18,15 +18,15 @@ public record SAMLv2DestinationAssertionConfiguration(
   public String toJSON() {
     return SAMLv2DestinationAssertionConfigurationJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return SAMLv2DestinationAssertionConfigurationJSON.toJSONBytes(this);
   }
-
+  
   public static SAMLv2DestinationAssertionConfiguration fromJSON(String json) {
     return SAMLv2DestinationAssertionConfigurationJSON.fromJSON(json);
   }
-
+  
   public static SAMLv2DestinationAssertionConfiguration fromJSONBytes(byte[] json) {
     return SAMLv2DestinationAssertionConfigurationJSON.fromJSON(json);
   }

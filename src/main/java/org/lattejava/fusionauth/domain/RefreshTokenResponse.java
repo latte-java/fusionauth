@@ -18,15 +18,15 @@ public record RefreshTokenResponse(
   public String toJSON() {
     return RefreshTokenResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return RefreshTokenResponseJSON.toJSONBytes(this);
   }
-
+  
   public static RefreshTokenResponse fromJSON(String json) {
     return RefreshTokenResponseJSON.fromJSON(json);
   }
-
+  
   public static RefreshTokenResponse fromJSONBytes(byte[] json) {
     return RefreshTokenResponseJSON.fromJSON(json);
   }

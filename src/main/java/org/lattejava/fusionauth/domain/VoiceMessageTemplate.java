@@ -24,15 +24,15 @@ public record VoiceMessageTemplate(
   public String toJSON() {
     return VoiceMessageTemplateJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return VoiceMessageTemplateJSON.toJSONBytes(this);
   }
-
+  
   public static VoiceMessageTemplate fromJSON(String json) {
     return VoiceMessageTemplateJSON.fromJSON(json);
   }
-
+  
   public static VoiceMessageTemplate fromJSONBytes(byte[] json) {
     return VoiceMessageTemplateJSON.fromJSON(json);
   }

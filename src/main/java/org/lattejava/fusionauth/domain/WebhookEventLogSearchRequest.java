@@ -17,15 +17,15 @@ public record WebhookEventLogSearchRequest(
   public String toJSON() {
     return WebhookEventLogSearchRequestJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return WebhookEventLogSearchRequestJSON.toJSONBytes(this);
   }
-
+  
   public static WebhookEventLogSearchRequest fromJSON(String json) {
     return WebhookEventLogSearchRequestJSON.fromJSON(json);
   }
-
+  
   public static WebhookEventLogSearchRequest fromJSONBytes(byte[] json) {
     return WebhookEventLogSearchRequestJSON.fromJSON(json);
   }

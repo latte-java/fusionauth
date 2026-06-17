@@ -18,15 +18,15 @@ public record ActionResponse(
   public String toJSON() {
     return ActionResponseJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ActionResponseJSON.toJSONBytes(this);
   }
-
+  
   public static ActionResponse fromJSON(String json) {
     return ActionResponseJSON.fromJSON(json);
   }
-
+  
   public static ActionResponse fromJSONBytes(byte[] json) {
     return ActionResponseJSON.fromJSON(json);
   }

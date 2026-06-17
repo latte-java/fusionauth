@@ -17,15 +17,15 @@ public record ReactorMetrics(
   public String toJSON() {
     return ReactorMetricsJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ReactorMetricsJSON.toJSONBytes(this);
   }
-
+  
   public static ReactorMetrics fromJSON(String json) {
     return ReactorMetricsJSON.fromJSON(json);
   }
-
+  
   public static ReactorMetrics fromJSONBytes(byte[] json) {
     return ReactorMetricsJSON.fromJSON(json);
   }

@@ -32,15 +32,15 @@ public record HYPRIdentityProvider(
   public String toJSON() {
     return HYPRIdentityProviderJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return HYPRIdentityProviderJSON.toJSONBytes(this);
   }
-
+  
   public static HYPRIdentityProvider fromJSON(String json) {
     return HYPRIdentityProviderJSON.fromJSON(json);
   }
-
+  
   public static HYPRIdentityProvider fromJSONBytes(byte[] json) {
     return HYPRIdentityProviderJSON.fromJSON(json);
   }

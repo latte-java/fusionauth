@@ -24,15 +24,15 @@ public record DisplayableRawLogin(
   public String toJSON() {
     return DisplayableRawLoginJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return DisplayableRawLoginJSON.toJSONBytes(this);
   }
-
+  
   public static DisplayableRawLogin fromJSON(String json) {
     return DisplayableRawLoginJSON.fromJSON(json);
   }
-
+  
   public static DisplayableRawLogin fromJSONBytes(byte[] json) {
     return DisplayableRawLoginJSON.fromJSON(json);
   }

@@ -26,15 +26,15 @@ public record ActionData(
   public String toJSON() {
     return ActionDataJSON.toJSON(this);
   }
-
+  
   public byte[] toJSONBytes() {
     return ActionDataJSON.toJSONBytes(this);
   }
-
+  
   public static ActionData fromJSON(String json) {
     return ActionDataJSON.fromJSON(json);
   }
-
+  
   public static ActionData fromJSONBytes(byte[] json) {
     return ActionDataJSON.fromJSON(json);
   }
