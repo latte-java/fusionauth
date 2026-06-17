@@ -36,7 +36,7 @@ public class FusionAuthClientTest {
 
   @Test
   public void applicationCrudRoundTrip() {
-    String id = UUID.randomUUID().toString();
+    UUID id = UUID.randomUUID();
     Application app = Application.builder().name("IT-" + id).build();
 
     ApplicationResponse created = client.createApplicationWithId(id, ApplicationRequest.builder().application(app).build());
@@ -44,7 +44,7 @@ public class FusionAuthClientTest {
 
     ApplicationResponse fetched = client.retrieveApplicationWithId(id, null);
     Assert.assertNotNull(fetched.application());
-    Assert.assertEquals(fetched.application().id().toString(), id);
+    Assert.assertEquals(fetched.application().id(), id);
     Assert.assertEquals(fetched.application().name(), "IT-" + id);
 
     Application renamed = Application.builder().name("IT-renamed-" + id).build();
@@ -53,7 +53,7 @@ public class FusionAuthClientTest {
 
     // hardDelete=true: FusionAuth soft-deletes (deactivates) by default, which leaves the application
     // retrievable; a hard delete removes it so a subsequent retrieve returns 404, which the client maps to null.
-    client.deleteApplicationWithId(id, "true", null);
+    client.deleteApplicationWithId(id, true, null);
 
     Assert.assertNull(client.retrieveApplicationWithId(id, null), "hard-deleted application should return null (404)");
   }
@@ -62,8 +62,8 @@ public class FusionAuthClientTest {
   // honors: create two users, search by both Ids, and expect both back.
   @Test
   public void searchUsersByIdsUsesRepeatedQueryParam() {
-    String id1 = UUID.randomUUID().toString();
-    String id2 = UUID.randomUUID().toString();
+    UUID id1 = UUID.randomUUID();
+    UUID id2 = UUID.randomUUID();
     client.createUserWithId(id1, userRequest("it-" + id1 + "@example.com"));
     client.createUserWithId(id2, userRequest("it-" + id2 + "@example.com"));
 
@@ -71,12 +71,12 @@ public class FusionAuthClientTest {
       SearchResponse response = client.searchUsersByIdsWithId(List.of(id1, id2), null, null, null, null, null);
       Assert.assertNotNull(response);
       Assert.assertEquals(response.total(), Long.valueOf(2));
-      Set<String> returned = response.users().stream().map(u -> u.id().toString()).collect(Collectors.toSet());
+      Set<UUID> returned = response.users().stream().map(User::id).collect(Collectors.toSet());
       Assert.assertEquals(returned, Set.of(id1, id2));
     } finally {
       UserDeleteSingleRequest delete = UserDeleteSingleRequest.builder().build();
-      client.deleteUserWithId(id1, "true", delete);
-      client.deleteUserWithId(id2, "true", delete);
+      client.deleteUserWithId(id1, true, delete);
+      client.deleteUserWithId(id2, true, delete);
     }
   }
 
@@ -88,14 +88,14 @@ public class FusionAuthClientTest {
 
   @Test
   public void retrievesDefaultApplicationById() {
-    ApplicationResponse response = client.retrieveApplicationWithId("3c219e58-ed0e-4b18-ad48-f4f92793ae32", null);
+    ApplicationResponse response = client.retrieveApplicationWithId(UUID.fromString("3c219e58-ed0e-4b18-ad48-f4f92793ae32"), null);
     Assert.assertNotNull(response);
     Assert.assertNotNull(response.application());
   }
 
   @Test
   public void returnsNullOnMissingApplication() {
-    ApplicationResponse response = client.retrieveApplicationWithId("00000000-0000-0000-0000-0000000000ff", null);
+    ApplicationResponse response = client.retrieveApplicationWithId(UUID.fromString("00000000-0000-0000-0000-0000000000ff"), null);
     Assert.assertNull(response, "a missing application should return null (404)");
   }
 
@@ -103,7 +103,7 @@ public class FusionAuthClientTest {
   // application with no name yields a 400 whose fieldErrors are keyed by field path ("application.name").
   @Test
   public void fieldValidationErrorsDeserializeAsTypedMap() {
-    String id = UUID.randomUUID().toString();
+    UUID id = UUID.randomUUID();
     try {
       var req = ApplicationRequest.builder()
                                   .application(Application.builder().build())

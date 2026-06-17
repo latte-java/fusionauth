@@ -263,9 +263,11 @@ def collect_operations
       next unless %w[get post put patch delete].include?(method)
       next unless op.is_a?(Hash) && op['operationId']
       params = op['parameters'] || []
-      path_p = params.select { |p| p['in'] == 'path' }.map { |p| p['name'] }
+      path_p = params.select { |p| p['in'] == 'path' }.map do |p|
+        { name: p['name'], jtype: param_java_type(p['schema'] || {}) }
+      end
       query_p = params.select { |p| p['in'] == 'query' }.map do |p|
-        { name: p['name'], jtype: query_java_type(p['schema'] || {}) }
+        { name: p['name'], jtype: param_java_type(p['schema'] || {}) }
       end
       tenant = params.any? { |p| p['in'] == 'header' && p['name'] == 'X-FusionAuth-TenantId' }
       body = op['requestBody'] && op['requestBody']['content']
@@ -283,14 +285,15 @@ def collect_operations
   ops
 end
 
-# Java type for a query parameter. Numbers and arrays are typed precisely; booleans, strings,
-# and uuid-format ids stay String to match the client's convention (FusionAuth accepts string
-# booleans, and only xFusionAuthTenantId is a UUID).
-def query_java_type(sch)
+# Java type for a path or query parameter, honoring the spec schema type/format exactly:
+# array -> List<element>; uuid -> UUID; integer -> Integer/Long; number -> Double; boolean -> Boolean; else String.
+def param_java_type(sch)
   case sch['type']
-  when 'array'   then 'List<String>'
+  when 'array'   then "List<#{array_element_type(sch['items'])}>"
   when 'integer' then sch['format'].to_s.downcase == 'int64' ? 'Long' : 'Integer'
   when 'number'  then 'Double'
+  when 'boolean' then 'Boolean'
+  when 'string'  then sch['format'].to_s.downcase == 'uuid' ? 'UUID' : 'String'
   else 'String'
   end
 end
@@ -310,7 +313,7 @@ end
 
 def gen_method(op, with_tenant)
   params = []
-  params.concat(op[:path_p].map { |n| "String #{n}" })
+  params.concat(op[:path_p].map { |p| "#{p[:jtype]} #{p[:name]}" })
   op[:query_p].each { |q| params << "#{q[:jtype]} #{q[:name]}" }
   params << "#{op[:req]} request" if op[:req]
   params << 'UUID xFusionAuthTenantId' if op[:tenant] && with_tenant
@@ -334,7 +337,7 @@ def gen_method(op, with_tenant)
   else
     # no-tenant overload delegating with null
     args = []
-    args.concat(op[:path_p])
+    args.concat(op[:path_p].map { |p| p[:name] })
     args.concat(op[:query_p].map { |q| q[:name] })
     args << 'request' if op[:req]
     args << 'null'
