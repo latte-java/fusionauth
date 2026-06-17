@@ -107,6 +107,7 @@ components:
           type: string
         tenantId:
           type: string
+          format: uuid
         token:
           type: string
         token_type_hint:
@@ -1200,6 +1201,7 @@ components:
       properties:
         tenantId:
           type: string
+          format: uuid
         token:
           type: string
     ClientCredentialsGrantRequest:
@@ -1217,6 +1219,7 @@ components:
           type: string
         tenantId:
           type: string
+          format: uuid
     ConnectorLambdaConfiguration:
       type: object
       properties:
@@ -1874,7 +1877,8 @@ components:
         permissions:
           type: array
           uniqueItems: true
-          items: {}
+          items:
+            type: string
         recipientEntityId:
           type: string
           format: uuid
@@ -2177,9 +2181,11 @@ components:
       type: object
       properties:
         fieldErrors:
-          type: array
-          items:
-            "$ref": "#/components/schemas/Error"
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              "$ref": "#/components/schemas/Error"
         generalErrors:
           type: array
           items:
@@ -3170,9 +3176,11 @@ components:
         name:
           type: string
         roles:
-          type: array
-          items:
-            "$ref": "#/components/schemas/ApplicationRole"
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              "$ref": "#/components/schemas/ApplicationRole"
         tenantId:
           type: string
           format: uuid
@@ -4985,26 +4993,32 @@ components:
             type: string
             format: uuid
         members:
-          type: array
-          items:
-            type: string
-            format: uuid
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+              format: uuid
     MemberRequest:
       description: Group Member Request
       type: object
       properties:
         members:
-          type: array
-          items:
-            "$ref": "#/components/schemas/GroupMember"
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              "$ref": "#/components/schemas/GroupMember"
     MemberResponse:
       description: Group Member Response
       type: object
       properties:
         members:
-          type: array
-          items:
-            "$ref": "#/components/schemas/GroupMember"
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              "$ref": "#/components/schemas/GroupMember"
     Message:
       description: ''
       type: object
@@ -5309,7 +5323,8 @@ components:
         enabledGrants:
           type: array
           uniqueItems: true
-          items: {}
+          items:
+            "$ref": "#/components/schemas/GrantType"
         generateRefreshTokens:
           type: boolean
         logoutBehavior:
@@ -5356,6 +5371,7 @@ components:
           type: string
         tenantId:
           type: string
+          format: uuid
     OAuthCodePKCEAccessTokenRequest:
       description: The request object to make a request to the Token endpoint to exchange
         the authorization code returned from the Authorize endpoint and a  code_verifier
@@ -8946,6 +8962,7 @@ components:
           type: string
         tenantId:
           type: string
+          format: uuid
         user_code:
           type: string
         username:
@@ -10327,6 +10344,10 @@ paths:
                 "$ref": "#/components/schemas/JWKSResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
   "/.well-known/openid-configuration":
     get:
       description: Returns the well known OpenID Configuration JSON document
@@ -10341,6 +10362,10 @@ paths:
                 "$ref": "#/components/schemas/OpenIdConfiguration"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
   "/api/api-key":
     post:
       description: Creates an API key. You can optionally specify a unique Id for
@@ -10381,6 +10406,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The unique Id of the API key. If not provided a secure random
           Id will be generated.
@@ -10410,6 +10436,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the authentication API key to delete.
       responses:
@@ -10429,6 +10456,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the API key. If not provided a secure random api key
           will be generated.
@@ -10458,6 +10486,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the API key to retrieve.
       responses:
@@ -10481,6 +10510,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the API key to update.
       requestBody:
@@ -10514,7 +10544,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -10542,7 +10572,7 @@ paths:
       - name: inactive
         in: query
         schema:
-          type: string
+          type: boolean
       - in: header
         name: X-FusionAuth-TenantId
         description: The unique Id of the tenant used to scope this API request. Only
@@ -10550,7 +10580,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       responses:
         '200':
           description: Success
@@ -10560,6 +10590,10 @@ paths:
                 "$ref": "#/components/schemas/ApplicationResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
   "/api/application/search":
     post:
       description: Searches applications with the specified criteria and pagination.
@@ -10593,6 +10627,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id to use for the application. If not provided a secure random
           UUID will be generated.
@@ -10603,7 +10638,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -10635,11 +10670,12 @@ paths:
       - name: hardDelete
         in: query
         schema:
-          type: string
+          type: boolean
       - name: applicationId
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the application to delete.
       - in: header
@@ -10649,7 +10685,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       responses:
         '200':
           description: Success
@@ -10667,6 +10703,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the application to update.
       - in: header
@@ -10676,7 +10713,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -10704,6 +10741,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the application to update.
       - in: header
@@ -10713,11 +10751,11 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       - name: reactivate
         in: query
         schema:
-          type: string
+          type: boolean
       requestBody:
         content:
           application/json:
@@ -10745,6 +10783,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The application Id.
       - in: header
@@ -10754,7 +10793,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       responses:
         '200':
           description: Success
@@ -10764,6 +10803,10 @@ paths:
                 "$ref": "#/components/schemas/ApplicationResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
   "/api/application/{applicationId}/oauth-configuration":
     get:
       description: Retrieves the Oauth2 configuration for the application for the
@@ -10774,6 +10817,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the Application to retrieve OAuth configuration.
       - in: header
@@ -10783,7 +10827,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       responses:
         '200':
           description: Success
@@ -10809,6 +10853,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the application to create the role on.
       - in: header
@@ -10818,7 +10863,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -10849,12 +10894,14 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the application to create the role on.
       - name: roleId
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the role. If not provided a secure random UUID will
           be generated.
@@ -10865,7 +10912,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -10894,12 +10941,14 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the application that the role belongs to.
       - name: roleId
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the role to delete.
       - in: header
@@ -10909,7 +10958,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       responses:
         '200':
           description: Success
@@ -10928,12 +10977,14 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the application that the role belongs to.
       - name: roleId
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the role to update.
       - in: header
@@ -10943,7 +10994,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -10970,12 +11021,14 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the application that the role belongs to.
       - name: roleId
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the role to update.
       - in: header
@@ -10985,7 +11038,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -11016,6 +11069,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the application to create the OAuth scope on.
       - in: header
@@ -11025,7 +11079,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -11056,12 +11110,14 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the application to create the OAuth scope on.
       - name: scopeId
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the OAuth scope. If not provided a secure random UUID
           will be generated.
@@ -11072,7 +11128,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -11101,12 +11157,14 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the application that the OAuth scope belongs to.
       - name: scopeId
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the OAuth scope to delete.
       - in: header
@@ -11116,7 +11174,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       responses:
         '200':
           description: Success
@@ -11135,12 +11193,14 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the application that the OAuth scope belongs to.
       - name: scopeId
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the OAuth scope to update.
       - in: header
@@ -11150,7 +11210,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -11177,12 +11237,14 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the application that the OAuth scope belongs to.
       - name: scopeId
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the OAuth scope to retrieve.
       - in: header
@@ -11192,7 +11254,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       responses:
         '200':
           description: Success
@@ -11214,12 +11276,14 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the application that the OAuth scope belongs to.
       - name: scopeId
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the OAuth scope to update.
       - in: header
@@ -11229,7 +11293,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -11249,6 +11313,23 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Errors"
   "/api/connector":
+    get:
+      description: Retrieves all of the connectors.
+      operationId: retrieveConnectors
+      parameters: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ConnectorResponse"
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
     post:
       description: Creates a connector.  You can optionally specify an Id for the
         connector, if not provided one will be generated.
@@ -11282,6 +11363,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id for the connector. If not provided a secure random UUID
           will be generated.
@@ -11311,6 +11393,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the connector to delete.
       responses:
@@ -11330,6 +11413,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the connector to update.
       requestBody:
@@ -11358,6 +11442,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the connector.
       responses:
@@ -11369,6 +11454,10 @@ paths:
                 "$ref": "#/components/schemas/ConnectorResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
     put:
       description: Updates the connector with the given Id.
       operationId: updateConnectorWithId
@@ -11377,6 +11466,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the connector to update.
       requestBody:
@@ -11410,7 +11500,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -11430,6 +11520,43 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Errors"
   "/api/consent/search":
+    get:
+      description: Searches the consents with the specified criteria and pagination.
+      operationId: searchConsents
+      parameters:
+      - name: name
+        in: query
+        schema:
+          type: string
+        description: ''
+      - name: numberOfResults
+        in: query
+        schema:
+          type: integer
+        description: The number of results to return.
+      - name: orderBy
+        in: query
+        schema:
+          type: string
+        description: The database column to order the search results on plus the order direction.
+      - name: startRow
+        in: query
+        schema:
+          type: integer
+        description: The offset row to return results from.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ConsentSearchResponse"
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
     post:
       description: Searches consents with the specified criteria and pagination.
       operationId: searchConsentsWithId
@@ -11462,6 +11589,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id for the consent. If not provided a secure random UUID
           will be generated.
@@ -11472,7 +11600,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -11499,6 +11627,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the consent to delete.
       - in: header
@@ -11508,7 +11637,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       responses:
         '200':
           description: Success
@@ -11526,6 +11655,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the consent to update.
       - in: header
@@ -11535,7 +11665,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -11562,6 +11692,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the consent.
       - in: header
@@ -11571,7 +11702,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       responses:
         '200':
           description: Success
@@ -11581,6 +11712,10 @@ paths:
                 "$ref": "#/components/schemas/ConsentResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
     put:
       description: Updates the consent with the given Id.
       operationId: updateConsentWithId
@@ -11589,6 +11724,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the consent to update.
       - in: header
@@ -11598,7 +11734,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -11627,6 +11763,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id for the template.
       requestBody:
@@ -11660,7 +11797,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -11691,7 +11828,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       responses:
         '200':
           description: Success
@@ -11701,6 +11838,10 @@ paths:
                 "$ref": "#/components/schemas/EmailTemplateResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
   "/api/email/template/preview":
     post:
       description: Creates a preview of the email template provided in the request.
@@ -11760,6 +11901,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id for the template. If not provided a secure random UUID
           will be generated.
@@ -11770,7 +11912,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -11797,6 +11939,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the email template to delete.
       - in: header
@@ -11806,7 +11949,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       responses:
         '200':
           description: Success
@@ -11824,6 +11967,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the email template to update.
       - in: header
@@ -11833,7 +11977,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -11861,6 +12005,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the email template.
       - in: header
@@ -11870,7 +12015,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       responses:
         '200':
           description: Success
@@ -11880,6 +12025,10 @@ paths:
                 "$ref": "#/components/schemas/EmailTemplateResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
     put:
       description: Updates the email template with the given Id.
       operationId: updateEmailTemplateWithId
@@ -11888,6 +12037,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the email template to update.
       - in: header
@@ -11897,7 +12047,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -11929,7 +12079,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -11949,6 +12099,55 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Errors"
   "/api/entity/grant/search":
+    get:
+      description: Searches entity grants with the specified criteria and pagination.
+      operationId: searchEntityGrants
+      parameters:
+      - name: entityId
+        in: query
+        schema:
+          type: string
+          format: uuid
+        description: ''
+      - name: name
+        in: query
+        schema:
+          type: string
+        description: ''
+      - name: userId
+        in: query
+        schema:
+          type: string
+          format: uuid
+        description: ''
+      - name: numberOfResults
+        in: query
+        schema:
+          type: integer
+        description: The number of results to return.
+      - name: orderBy
+        in: query
+        schema:
+          type: string
+        description: The database column to order the search results on plus the order direction.
+      - name: startRow
+        in: query
+        schema:
+          type: integer
+        description: The offset row to return results from.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/EntityGrantSearchResponse"
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
     post:
       description: Searches Entity Grants with the specified criteria and pagination.
       operationId: searchEntityGrantsWithId
@@ -12002,7 +12201,10 @@ paths:
       - name: ids
         in: query
         schema:
-          type: string
+          type: array
+          items:
+            type: string
+            format: uuid
         description: The entity ids to search for.
       responses:
         '200':
@@ -12042,6 +12244,43 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Errors"
   "/api/entity/type/search":
+    get:
+      description: Searches the entity types with the specified criteria and pagination.
+      operationId: searchEntityTypes
+      parameters:
+      - name: name
+        in: query
+        schema:
+          type: string
+        description: ''
+      - name: numberOfResults
+        in: query
+        schema:
+          type: integer
+        description: The number of results to return.
+      - name: orderBy
+        in: query
+        schema:
+          type: string
+        description: The database column to order the search results on plus the order direction.
+      - name: startRow
+        in: query
+        schema:
+          type: integer
+        description: The offset row to return results from.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/EntityTypeSearchResponse"
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
     post:
       description: Searches the entity types with the specified criteria and pagination.
       operationId: searchEntityTypesWithId
@@ -12074,6 +12313,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id for the Entity Type. If not provided a secure random UUID
           will be generated.
@@ -12103,6 +12343,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the Entity Type to delete.
       responses:
@@ -12122,6 +12363,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the Entity Type to update.
       requestBody:
@@ -12150,6 +12392,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the Entity Type.
       responses:
@@ -12173,6 +12416,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the Entity Type to update.
       requestBody:
@@ -12205,6 +12449,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the entity type to create the permission on.
       requestBody:
@@ -12225,6 +12470,33 @@ paths:
             application/json:
               schema:
                 "$ref": "#/components/schemas/Errors"
+    delete:
+      description: Hard deletes a permission from an entity type. This is a dangerous
+        operation and is not recommended.
+      operationId: deleteEntityTypePermission
+      parameters:
+      - name: entityTypeId
+        in: path
+        schema:
+          type: string
+          format: uuid
+        required: true
+        description: The Id of the entity type the permission belongs to.
+      - name: name
+        in: query
+        schema:
+          type: string
+        required: true
+        description: The name of the permission to delete.
+      responses:
+        '200':
+          description: Success
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
   "/api/entity/type/{entityTypeId}/permission/{permissionId}":
     post:
       description: Creates a new permission for an entity type. You must specify the
@@ -12237,12 +12509,14 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the entity type to create the permission on.
       - name: permissionId
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the permission. If not provided a secure random UUID
           will be generated.
@@ -12274,12 +12548,14 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the entityType the the permission belongs to.
       - name: permissionId
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the permission to delete.
       responses:
@@ -12299,12 +12575,14 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the entityType that the permission belongs to.
       - name: permissionId
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the permission to patch.
       requestBody:
@@ -12333,12 +12611,14 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the entityType that the permission belongs to.
       - name: permissionId
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the permission to update.
       requestBody:
@@ -12369,6 +12649,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id for the Entity. If not provided a secure random UUID will
           be generated.
@@ -12379,7 +12660,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -12406,6 +12687,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the Entity to delete.
       - in: header
@@ -12415,7 +12697,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       responses:
         '200':
           description: Success
@@ -12433,6 +12715,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the Entity Type to update.
       - in: header
@@ -12442,7 +12725,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -12469,6 +12752,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the Entity.
       - in: header
@@ -12478,7 +12762,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       responses:
         '200':
           description: Success
@@ -12500,6 +12784,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the Entity to update.
       - in: header
@@ -12509,7 +12794,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -12537,16 +12822,19 @@ paths:
         in: query
         schema:
           type: string
+          format: uuid
         description: The Id of the Entity that the Entity Grant is for.
       - name: userId
         in: query
         schema:
           type: string
+          format: uuid
         description: The Id of the User that the Entity Grant is for.
       - name: entityId
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the Entity that the Entity Grant is being deleted for.
       - in: header
@@ -12556,7 +12844,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       responses:
         '200':
           description: Success
@@ -12574,16 +12862,19 @@ paths:
         in: query
         schema:
           type: string
+          format: uuid
         description: The Id of the Entity that the Entity Grant is for.
       - name: userId
         in: query
         schema:
           type: string
+          format: uuid
         description: The Id of the User that the Entity Grant is for.
       - name: entityId
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the Entity.
       - in: header
@@ -12593,7 +12884,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       responses:
         '200':
           description: Success
@@ -12616,6 +12907,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the Entity that the User/Entity is being granted access
           to.
@@ -12626,7 +12918,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -12642,6 +12934,23 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Errors"
   "/api/form":
+    get:
+      description: Retrieves all of the forms.
+      operationId: retrieveForms
+      parameters: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/FormResponse"
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
     post:
       description: Creates a form.  You can optionally specify an Id for the form,
         if not provided one will be generated.
@@ -12666,6 +12975,23 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Errors"
   "/api/form/field":
+    get:
+      description: Retrieves all of the form fields.
+      operationId: retrieveFormFields
+      parameters: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/FormFieldResponse"
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
     post:
       description: Creates a form field.  You can optionally specify an Id for the
         form, if not provided one will be generated.
@@ -12699,6 +13025,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id for the form field. If not provided a secure random UUID
           will be generated.
@@ -12728,6 +13055,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the form field to delete.
       responses:
@@ -12747,6 +13075,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the form field to patch.
       requestBody:
@@ -12775,6 +13104,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the form field.
       responses:
@@ -12786,6 +13116,10 @@ paths:
                 "$ref": "#/components/schemas/FormFieldResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
     put:
       description: Updates the form field with the given Id.
       operationId: updateFormFieldWithId
@@ -12794,6 +13128,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the form field to update.
       requestBody:
@@ -12824,6 +13159,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id for the form. If not provided a secure random UUID will
           be generated.
@@ -12853,6 +13189,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the form to delete.
       responses:
@@ -12872,6 +13209,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the form to patch.
       requestBody:
@@ -12900,6 +13238,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the form.
       responses:
@@ -12911,6 +13250,10 @@ paths:
                 "$ref": "#/components/schemas/FormResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
     put:
       description: Updates the form with the given Id.
       operationId: updateFormWithId
@@ -12919,6 +13262,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the form to update.
       requestBody:
@@ -12952,7 +13296,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -12995,9 +13339,23 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Errors"
     delete:
-      description: Removes users as members of a group.
+      description: Removes users as members of a group. Members can be removed by supplying
+        a MemberDeleteRequest body, or by supplying the groupId and userId query parameters
+        to remove a single user from a single group.
       operationId: deleteGroupMembersWithId
-      parameters: []
+      parameters:
+      - name: groupId
+        in: query
+        schema:
+          type: string
+          format: uuid
+        description: The Id of the group to remove the user from. Used together with userId.
+      - name: userId
+        in: query
+        schema:
+          type: string
+          format: uuid
+        description: The Id of the user to remove from the group. Used together with groupId.
       requestBody:
         content:
           application/json:
@@ -13028,6 +13386,27 @@ paths:
             application/json:
               schema:
                 "$ref": "#/components/schemas/MemberResponse"
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
+  "/api/group/member/{memberId}":
+    delete:
+      description: Removes a single user as a member of a group by the group member Id.
+      operationId: deleteGroupMemberWithId
+      parameters:
+      - name: memberId
+        in: path
+        schema:
+          type: string
+          format: uuid
+        required: true
+        description: The Id of the group member to remove.
+      responses:
+        '200':
+          description: Success
         default:
           description: Error
           content:
@@ -13090,6 +13469,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id for the group. If not provided a secure random UUID will
           be generated.
@@ -13100,7 +13480,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -13127,6 +13507,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the group to delete.
       - in: header
@@ -13136,7 +13517,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       responses:
         '200':
           description: Success
@@ -13154,6 +13535,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the group to update.
       - in: header
@@ -13163,7 +13545,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -13190,6 +13572,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the group.
       - in: header
@@ -13199,7 +13582,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       responses:
         '200':
           description: Success
@@ -13221,6 +13604,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the group to update.
       - in: header
@@ -13230,7 +13614,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -13260,6 +13644,10 @@ paths:
           description: Success
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
   "/api/identity-provider":
     post:
       description: Creates an identity provider. You can optionally specify an Id
@@ -13343,6 +13731,7 @@ paths:
         in: query
         schema:
           type: string
+          format: uuid
         description: The unique Id of the identity provider.
       - name: identityProviderUserId
         in: query
@@ -13354,6 +13743,7 @@ paths:
         in: query
         schema:
           type: string
+          format: uuid
         description: The unique Id of the FusionAuth user to unlink.
       responses:
         '200':
@@ -13378,12 +13768,14 @@ paths:
         in: query
         schema:
           type: string
+          format: uuid
         description: The unique Id of the identity provider. Specify this value to
           reduce the links returned to those for a particular IdP.
       - name: userId
         in: query
         schema:
           type: string
+          format: uuid
         description: The unique Id of the user.
       - name: identityProviderUserId
         in: query
@@ -13413,6 +13805,7 @@ paths:
         in: query
         schema:
           type: string
+          format: uuid
         description: The optional userId. When provided additional meta-data will
           be provided to identify how many links if any the user already has.
       - name: pendingLinkId
@@ -13447,7 +13840,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -13485,6 +13878,7 @@ paths:
         in: query
         schema:
           type: string
+          format: uuid
         description: If provided, the API searches for an identity provider scoped
           to the corresponding tenant that manages the requested domain. If no result
           is found, the API then searches for global identity providers.
@@ -13497,7 +13891,70 @@ paths:
                 "$ref": "#/components/schemas/LookupResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
   "/api/identity-provider/search":
+    get:
+      description: Searches identity providers with the specified criteria and pagination.
+      operationId: searchIdentityProviders
+      parameters:
+      - name: applicationId
+        in: query
+        schema:
+          type: string
+          format: uuid
+        description: ''
+      - name: name
+        in: query
+        schema:
+          type: string
+        description: ''
+      - name: source
+        in: query
+        schema:
+          type: string
+        description: ''
+      - name: tenantId
+        in: query
+        schema:
+          type: string
+          format: uuid
+        description: ''
+      - name: type
+        in: query
+        schema:
+          "$ref": "#/components/schemas/IdentityProviderType"
+        description: ''
+      - name: numberOfResults
+        in: query
+        schema:
+          type: integer
+        description: The number of results to return.
+      - name: orderBy
+        in: query
+        schema:
+          type: string
+        description: The database column to order the search results on plus the order direction.
+      - name: startRow
+        in: query
+        schema:
+          type: integer
+        description: The offset row to return results from.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/IdentityProviderSearchResponse"
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
     post:
       description: Searches identity providers with the specified criteria and pagination.
       operationId: searchIdentityProvidersWithId
@@ -13599,6 +14056,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the identity provider. If not provided a secure random
           UUID will be generated.
@@ -13628,6 +14086,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the identity provider to delete.
       responses:
@@ -13647,6 +14106,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the identity provider to update.
       requestBody:
@@ -13676,6 +14136,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The identity provider Id.
       responses:
@@ -13699,6 +14160,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the identity provider to update.
       requestBody:
@@ -13878,6 +14340,43 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Errors"
   "/api/ip-acl/search":
+    get:
+      description: Searches the IP Access Control Lists with the specified criteria and pagination.
+      operationId: searchIPAccessControlLists
+      parameters:
+      - name: name
+        in: query
+        schema:
+          type: string
+        description: ''
+      - name: numberOfResults
+        in: query
+        schema:
+          type: integer
+        description: The number of results to return.
+      - name: orderBy
+        in: query
+        schema:
+          type: string
+        description: The database column to order the search results on plus the order direction.
+      - name: startRow
+        in: query
+        schema:
+          type: integer
+        description: The offset row to return results from.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/IPAccessControlListSearchResponse"
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
     post:
       description: Searches the IP Access Control Lists with the specified criteria
         and pagination.
@@ -13901,16 +14400,17 @@ paths:
             application/json:
               schema:
                 "$ref": "#/components/schemas/Errors"
-  "/api/ip-acl/{accessControlListId}":
+  "/api/ip-acl/{ipAccessControlListId}":
     post:
       description: Creates an IP Access Control List. You can optionally specify an
         Id on this create request, if one is not provided one will be generated.
       operationId: createIPAccessControlListWithId
       parameters:
-      - name: accessControlListId
+      - name: ipAccessControlListId
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id for the IP Access Control List. If not provided a secure
           random UUID will be generated.
@@ -13936,10 +14436,11 @@ paths:
       description: Update the IP Access Control List with the given Id.
       operationId: patchIPAccessControlListWithId
       parameters:
-      - name: accessControlListId
+      - name: ipAccessControlListId
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the IP Access Control List to patch.
       requestBody:
@@ -13964,10 +14465,11 @@ paths:
       description: Updates the IP Access Control List with the given Id.
       operationId: updateIPAccessControlListWithId
       parameters:
-      - name: accessControlListId
+      - name: ipAccessControlListId
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the IP Access Control List to update.
       requestBody:
@@ -13988,7 +14490,6 @@ paths:
             application/json:
               schema:
                 "$ref": "#/components/schemas/Errors"
-  "/api/ip-acl/{ipAccessControlListId}":
     delete:
       description: Deletes the IP Access Control List for the given Id.
       operationId: deleteIPAccessControlListWithId
@@ -13997,6 +14498,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the IP Access Control List to delete.
       responses:
@@ -14016,6 +14518,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the IP Access Control List.
       responses:
@@ -14027,6 +14530,10 @@ paths:
                 "$ref": "#/components/schemas/IPAccessControlListResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
   "/api/jwt/issue":
     get:
       description: Issue a new access token (JWT) for the requested Application after
@@ -14042,6 +14549,7 @@ paths:
         in: query
         schema:
           type: string
+          format: uuid
         description: The Application Id for which you are requesting a new access
           token be issued.
       - name: refreshToken
@@ -14076,8 +14584,9 @@ paths:
         in: query
         schema:
           type: string
+          format: uuid
         description: The Id of the Application for which this key is used.
-      - name: keyId
+      - name: kid
         in: query
         schema:
           type: string
@@ -14091,6 +14600,10 @@ paths:
                 "$ref": "#/components/schemas/PublicKeyResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
   "/api/jwt/reconcile":
     post:
       description: Reconcile a User to FusionAuth using JWT issued from another Identity
@@ -14147,6 +14660,7 @@ paths:
         in: query
         schema:
           type: string
+          format: uuid
         description: The Id of the user.
       responses:
         '200':
@@ -14187,12 +14701,14 @@ paths:
         in: query
         schema:
           type: string
+          format: uuid
         description: The unique Id of the user that you want to delete all refresh
           tokens for.
       - name: applicationId
         in: query
         schema:
           type: string
+          format: uuid
         description: The unique Id of the application that you want to delete refresh
           tokens for.
       - name: token
@@ -14225,6 +14741,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the token.
       responses:
@@ -14249,6 +14766,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The unique Id of the token to delete.
       responses:
@@ -14279,6 +14797,10 @@ paths:
                 "$ref": "#/components/schemas/ValidateResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
   "/api/jwt/vend":
     post:
       description: It's a JWT vending machine!  Issue a new access token (JWT) with
@@ -14323,6 +14845,10 @@ paths:
                 "$ref": "#/components/schemas/KeyResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
   "/api/key/generate":
     post:
       description: Generate a new RSA or EC key pair or an HMAC secret.
@@ -14355,6 +14881,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id for the key. If not provided a secure random UUID will
           be generated.
@@ -14408,6 +14935,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id for the key. If not provided a secure random UUID will
           be generated.
@@ -14430,6 +14958,53 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Errors"
   "/api/key/search":
+    get:
+      description: Searches the keys with the specified criteria and pagination.
+      operationId: searchKeys
+      parameters:
+      - name: algorithm
+        in: query
+        schema:
+          "$ref": "#/components/schemas/KeyAlgorithm"
+        description: ''
+      - name: name
+        in: query
+        schema:
+          type: string
+        description: ''
+      - name: type
+        in: query
+        schema:
+          "$ref": "#/components/schemas/KeyType"
+        description: ''
+      - name: numberOfResults
+        in: query
+        schema:
+          type: integer
+        description: The number of results to return.
+      - name: orderBy
+        in: query
+        schema:
+          type: string
+        description: The database column to order the search results on plus the order direction.
+      - name: startRow
+        in: query
+        schema:
+          type: integer
+        description: The offset row to return results from.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/KeySearchResponse"
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
     post:
       description: Searches keys with the specified criteria and pagination.
       operationId: searchKeysWithId
@@ -14461,6 +15036,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the key to delete.
       responses:
@@ -14480,6 +15056,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the key.
       responses:
@@ -14503,6 +15080,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the key to update.
       requestBody:
@@ -14565,6 +15143,10 @@ paths:
                 "$ref": "#/components/schemas/LambdaResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
   "/api/lambda/search":
     post:
       description: Searches lambdas with the specified criteria and pagination.
@@ -14598,6 +15180,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id for the lambda. If not provided a secure random UUID will
           be generated.
@@ -14627,6 +15210,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the lambda to delete.
       responses:
@@ -14646,6 +15230,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the lambda to update.
       requestBody:
@@ -14674,6 +15259,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the lambda.
       responses:
@@ -14697,6 +15283,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the lambda to update.
       requestBody:
@@ -14730,7 +15317,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -14764,7 +15351,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -14803,12 +15390,14 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the user that was logged in.
       - name: applicationId
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the application that they logged into.
       - in: header
@@ -14818,7 +15407,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       responses:
         '200':
           description: Success
@@ -14846,7 +15435,7 @@ paths:
       - name: global
         in: query
         schema:
-          type: string
+          type: boolean
         description: When this value is set to true all the refresh tokens issued
           to the owner of the provided token will be revoked.
       - name: refreshToken
@@ -14865,6 +15454,10 @@ paths:
           description: Success
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
   "/api/message/template":
     post:
       description: Creates an message template. You can optionally specify an Id for
@@ -14903,6 +15496,10 @@ paths:
                 "$ref": "#/components/schemas/MessageTemplateResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
   "/api/message/template/preview":
     post:
       description: Creates a preview of the message template provided in the request,
@@ -14937,6 +15534,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id for the template. If not provided a secure random UUID
           will be generated.
@@ -14966,6 +15564,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the message template to delete.
       responses:
@@ -14985,6 +15584,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the message template to update.
       requestBody:
@@ -15014,6 +15614,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the message template.
       responses:
@@ -15025,6 +15626,10 @@ paths:
                 "$ref": "#/components/schemas/MessageTemplateResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
     put:
       description: Updates the message template with the given Id.
       operationId: updateMessageTemplateWithId
@@ -15033,6 +15638,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the message template to update.
       requestBody:
@@ -15054,6 +15660,23 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Errors"
   "/api/messenger":
+    get:
+      description: Retrieves all of the messengers.
+      operationId: retrieveMessengers
+      parameters: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/MessengerResponse"
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
     post:
       description: Creates a messenger.  You can optionally specify an Id for the
         messenger, if not provided one will be generated.
@@ -15087,6 +15710,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id for the messenger. If not provided a secure random UUID
           will be generated.
@@ -15116,6 +15740,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the messenger to delete.
       responses:
@@ -15135,6 +15760,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the messenger to update.
       requestBody:
@@ -15163,6 +15789,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the messenger.
       responses:
@@ -15174,6 +15801,10 @@ paths:
                 "$ref": "#/components/schemas/MessengerResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
     put:
       description: Updates the messenger with the given Id.
       operationId: updateMessengerWithId
@@ -15182,6 +15813,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the messenger to update.
       requestBody:
@@ -15305,6 +15937,10 @@ paths:
                 "$ref": "#/components/schemas/ReactorMetricsResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
   "/api/report/daily-active-user":
     get:
       description: Retrieves the daily active user report between the two instants.
@@ -15316,17 +15952,27 @@ paths:
         in: query
         schema:
           type: string
+          format: uuid
         description: The application Id.
       - name: start
         in: query
         schema:
-          type: string
+          type: integer
+          format: int64
         description: The start instant as UTC milliseconds since Epoch.
       - name: end
         in: query
         schema:
-          type: string
+          type: integer
+          format: int64
         description: The end instant as UTC milliseconds since Epoch.
+      - name: loginIdTypes
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+        description: The identity types that FusionAuth will compare the loginId to.
       responses:
         '200':
           description: Success
@@ -15358,6 +16004,7 @@ paths:
         in: query
         schema:
           type: string
+          format: uuid
         description: The application id.
       - name: loginId
         in: query
@@ -15367,12 +16014,14 @@ paths:
       - name: start
         in: query
         schema:
-          type: string
+          type: integer
+          format: int64
         description: The start instant as UTC milliseconds since Epoch.
       - name: end
         in: query
         schema:
-          type: string
+          type: integer
+          format: int64
         description: The end instant as UTC milliseconds since Epoch.
       - name: loginIdTypes
         in: query
@@ -15385,6 +16034,7 @@ paths:
         in: query
         schema:
           type: string
+          format: uuid
         description: The userId Id.
       responses:
         '200':
@@ -15410,17 +16060,27 @@ paths:
         in: query
         schema:
           type: string
+          format: uuid
         description: The application Id.
       - name: start
         in: query
         schema:
-          type: string
+          type: integer
+          format: int64
         description: The start instant as UTC milliseconds since Epoch.
       - name: end
         in: query
         schema:
-          type: string
+          type: integer
+          format: int64
         description: The end instant as UTC milliseconds since Epoch.
+      - name: loginIdTypes
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+        description: The identity types that FusionAuth will compare the loginId to.
       responses:
         '200':
           description: Success
@@ -15445,17 +16105,27 @@ paths:
         in: query
         schema:
           type: string
+          format: uuid
         description: The application Id.
       - name: start
         in: query
         schema:
-          type: string
+          type: integer
+          format: int64
         description: The start instant as UTC milliseconds since Epoch.
       - name: end
         in: query
         schema:
-          type: string
+          type: integer
+          format: int64
         description: The end instant as UTC milliseconds since Epoch.
+      - name: loginIdTypes
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+        description: The identity types that FusionAuth will compare the loginId to.
       responses:
         '200':
           description: Success
@@ -15492,6 +16162,10 @@ paths:
                 "$ref": "#/components/schemas/TotalsReportResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
   "/api/status":
     get:
       description: Retrieves the FusionAuth system status using an API key. Using
@@ -15511,6 +16185,10 @@ paths:
                 "$ref": "#/components/schemas/StatusResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
   "/api/system-configuration":
     patch:
       description: Updates, via PATCH, the system configuration.
@@ -15614,7 +16292,8 @@ paths:
       - name: auditLogId
         in: path
         schema:
-          type: string
+          type: integer
+          format: int64
         required: true
         description: The Id of the audit log to retrieve.
       responses:
@@ -15661,7 +16340,8 @@ paths:
       - name: eventLogId
         in: path
         schema:
-          type: string
+          type: integer
+          format: int64
         required: true
         description: The Id of the event log to retrieve.
       responses:
@@ -15701,6 +16381,23 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Errors"
   "/api/system/reindex":
+    get:
+      description: Retrieves the status of the most recent reindex operation. Returns
+        a 202 status code while a reindex is in progress, and a 404 status code when
+        no reindex operation is currently running.
+      operationId: retrieveReindexStatus
+      parameters: []
+      responses:
+        '202':
+          description: A reindex operation is currently in progress.
+        '404':
+          description: No reindex operation is currently running.
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
     post:
       description: Requests Elasticsearch to delete and rebuild the index for FusionAuth
         users or entities. Be very careful when running this request as it will  increase
@@ -15751,6 +16448,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the webhook attempt log to retrieve.
       responses:
@@ -15799,6 +16497,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the webhook event log to retrieve.
       responses:
@@ -15827,7 +16526,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -16016,6 +16715,10 @@ paths:
                 "$ref": "#/components/schemas/PasswordValidationRulesResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
   "/api/tenant/password-validation-rules/{tenantId}":
     get:
       description: Retrieves the password validation rules for a specific tenant.  This
@@ -16026,6 +16729,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the tenant.
       responses:
@@ -16037,6 +16741,10 @@ paths:
                 "$ref": "#/components/schemas/PasswordValidationRulesResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
   "/api/tenant/search":
     post:
       description: Searches tenants with the specified criteria and pagination.
@@ -16070,6 +16778,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id for the tenant. If not provided a secure random UUID will
           be generated.
@@ -16080,7 +16789,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -16114,6 +16823,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the tenant to delete.
       - in: header
@@ -16123,11 +16833,11 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       - name: async
         in: query
         schema:
-          type: string
+          type: boolean
       requestBody:
         content:
           application/json:
@@ -16136,6 +16846,9 @@ paths:
       responses:
         '200':
           description: Success
+        '202':
+          description: Accepted. Returned when the tenant is deleted asynchronously
+            (async=true); the delete continues in the background.
         default:
           description: Error
           content:
@@ -16150,6 +16863,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the tenant to update.
       - in: header
@@ -16159,7 +16873,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -16186,6 +16900,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the tenant.
       - in: header
@@ -16195,7 +16910,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       responses:
         '200':
           description: Success
@@ -16217,6 +16932,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the tenant to update.
       - in: header
@@ -16226,7 +16942,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -16246,6 +16962,23 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Errors"
   "/api/theme":
+    get:
+      description: Retrieves all of the themes.
+      operationId: retrieveThemes
+      parameters: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ThemeResponse"
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
     post:
       description: Creates a Theme. You can optionally specify an Id for the theme,
         if not provided one will be generated.
@@ -16302,6 +17035,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id for the theme. If not provided a secure random UUID will
           be generated.
@@ -16331,6 +17065,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the theme to delete.
       responses:
@@ -16350,6 +17085,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the theme to update.
       requestBody:
@@ -16378,6 +17114,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the theme.
       responses:
@@ -16401,6 +17138,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the theme to update.
       requestBody:
@@ -16463,6 +17201,10 @@ paths:
                 "$ref": "#/components/schemas/SecretResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
   "/api/two-factor/send":
     post:
       description: Send a Two Factor authentication code to assist in setting up Two
@@ -16577,11 +17319,13 @@ paths:
         in: query
         schema:
           type: string
+          format: uuid
         description: The user Id to retrieve the Two-Factor status.
       - name: applicationId
         in: query
         schema:
           type: string
+          format: uuid
         description: The optional applicationId to verify.
       - name: twoFactorTrustId
         in: path
@@ -16615,7 +17359,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -16658,7 +17402,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       - name: username
         in: query
         schema:
@@ -16714,7 +17458,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -16746,11 +17490,11 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       - name: inactive
         in: query
         schema:
-          type: string
+          type: boolean
       responses:
         '200':
           description: Success
@@ -16760,6 +17504,10 @@ paths:
                 "$ref": "#/components/schemas/UserActionResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
   "/api/user-action-reason":
     post:
       description: Creates a user reason. This user action reason cannot be used when
@@ -16799,6 +17547,10 @@ paths:
                 "$ref": "#/components/schemas/UserActionReasonResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
   "/api/user-action-reason/{userActionReasonId}":
     post:
       description: Creates a user reason. This user action reason cannot be used when
@@ -16810,6 +17562,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id for the user action reason. If not provided a secure random
           UUID will be generated.
@@ -16839,6 +17592,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the user action reason to delete.
       responses:
@@ -16858,6 +17612,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the user action reason to update.
       requestBody:
@@ -16887,6 +17642,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the user action reason.
       responses:
@@ -16898,6 +17654,10 @@ paths:
                 "$ref": "#/components/schemas/UserActionReasonResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
     put:
       description: Updates the user action reason with the given Id.
       operationId: updateUserActionReasonWithId
@@ -16906,6 +17666,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the user action reason to update.
       requestBody:
@@ -16937,6 +17698,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id for the user action. If not provided a secure random UUID
           will be generated.
@@ -16947,7 +17709,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -16975,11 +17737,12 @@ paths:
       - name: hardDelete
         in: query
         schema:
-          type: string
+          type: boolean
       - name: userActionId
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the user action to delete.
       - in: header
@@ -16989,7 +17752,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       responses:
         '200':
           description: Success
@@ -17007,6 +17770,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the user action to update.
       - in: header
@@ -17016,7 +17780,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -17044,6 +17808,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the user action to update.
       - in: header
@@ -17053,11 +17818,11 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       - name: reactivate
         in: query
         schema:
-          type: string
+          type: boolean
       requestBody:
         content:
           application/json:
@@ -17085,6 +17850,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the user action.
       - in: header
@@ -17094,7 +17860,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       responses:
         '200':
           description: Success
@@ -17104,6 +17870,10 @@ paths:
                 "$ref": "#/components/schemas/UserActionResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
   "/api/user/action":
     post:
       description: Takes an action on a user. The user being actioned is called the
@@ -17145,15 +17915,16 @@ paths:
         in: query
         schema:
           type: string
+          format: uuid
         description: The Id of the user to fetch the actions for.
       - name: active
         in: query
         schema:
-          type: string
+          type: boolean
       - name: preventingLogin
         in: query
         schema:
-          type: string
+          type: boolean
       responses:
         '200':
           description: Success
@@ -17176,6 +17947,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The action Id of the action to cancel.
       requestBody:
@@ -17205,6 +17977,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the action to modify. This is technically the user
           action log Id.
@@ -17235,6 +18008,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the action to retrieve.
       responses:
@@ -17264,16 +18038,19 @@ paths:
       - name: userIds
         in: query
         schema:
-          type: string
+          type: array
+          items:
+            type: string
+            format: uuid
         description: The ids of the users to deactivate.
       - name: dryRun
         in: query
         schema:
-          type: string
+          type: boolean
       - name: hardDelete
         in: query
         schema:
-          type: string
+          type: boolean
       requestBody:
         content:
           application/json:
@@ -17475,7 +18252,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -17526,6 +18303,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the user.
       - in: header
@@ -17535,7 +18313,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       responses:
         '200':
           description: Success
@@ -17580,6 +18358,7 @@ paths:
         in: query
         schema:
           type: string
+          format: uuid
         description: The User's Id
       responses:
         '200':
@@ -17590,6 +18369,10 @@ paths:
                 "$ref": "#/components/schemas/UserConsentResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
   "/api/user/consent/{userConsentId}":
     post:
       description: Creates a single User consent.
@@ -17599,6 +18382,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id for the User consent. If not provided a secure random
           UUID will be generated.
@@ -17628,6 +18412,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The User Consent Id
       requestBody:
@@ -17656,6 +18441,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The User consent Id
       responses:
@@ -17667,6 +18453,10 @@ paths:
                 "$ref": "#/components/schemas/UserConsentResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
     delete:
       description: Revokes a single User consent by Id.
       operationId: revokeUserConsentWithId
@@ -17675,6 +18465,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The User Consent Id
       responses:
@@ -17682,6 +18473,10 @@ paths:
           description: Success
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
     put:
       description: Updates a single User consent by Id.
       operationId: updateUserConsentWithId
@@ -17690,6 +18485,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The User Consent Id
       requestBody:
@@ -17724,7 +18520,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -17751,6 +18547,7 @@ paths:
         in: query
         schema:
           type: string
+          format: uuid
         description: The User's id
       - in: header
         name: X-FusionAuth-TenantId
@@ -17759,7 +18556,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       responses:
         '200':
           description: Success
@@ -17769,6 +18566,10 @@ paths:
                 "$ref": "#/components/schemas/FamilyResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
   "/api/user/family/pending":
     get:
       description: Retrieves all the children for the given parent email address.
@@ -17822,6 +18623,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the family to update.
       - in: header
@@ -17831,7 +18633,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -17860,6 +18662,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id for the family. If not provided a secure random UUID will
           be generated.
@@ -17870,7 +18673,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -17897,6 +18700,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The unique Id of the Family.
       - in: header
@@ -17906,7 +18710,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       responses:
         '200':
           description: Success
@@ -17916,6 +18720,10 @@ paths:
                 "$ref": "#/components/schemas/FamilyResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
   "/api/user/family/{familyId}/{userId}":
     delete:
       description: Removes a user from the family with the given Id.
@@ -17925,12 +18733,14 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the family to remove the user from.
       - name: userId
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the user to remove from the family.
       - in: header
@@ -17940,7 +18750,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       responses:
         '200':
           description: Success
@@ -18007,21 +18817,30 @@ paths:
         the last number of login records.
       operationId: retrieveUserRecentLogin
       parameters:
+      - name: applicationId
+        in: query
+        schema:
+          type: string
+          format: uuid
+        description: When present, only login records for the given Application Id are returned.
       - name: userId
         in: query
         schema:
           type: string
+          format: uuid
         description: The Id of the user.
       - name: offset
         in: query
         schema:
-          type: string
+          type: integer
+          format: int32
         description: The initial record. e.g. 0 is the last login, 100 will be the
           100th most recent login.
       - name: limit
         in: query
         schema:
-          type: string
+          type: integer
+          format: int32
         description: "(Optional, defaults to 10) The number of records to retrieve."
       responses:
         '200':
@@ -18081,7 +18900,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -18110,6 +18929,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the user whose registration is going to be updated.
       - in: header
@@ -18119,7 +18939,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -18152,6 +18972,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the user being registered for the application and optionally
           created.
@@ -18162,7 +18983,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -18190,6 +19011,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the user whose registration is going to be updated.
       - in: header
@@ -18199,7 +19021,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -18229,12 +19051,14 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the user whose registration is being deleted.
       - name: applicationId
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the application to remove the registration for.
       - in: header
@@ -18244,7 +19068,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -18268,12 +19092,14 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the user.
       - name: applicationId
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the application.
       - in: header
@@ -18283,7 +19109,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       responses:
         '200':
           description: Success
@@ -18306,8 +19132,36 @@ paths:
       - name: ids
         in: query
         schema:
-          type: string
+          type: array
+          items:
+            type: string
+            format: uuid
         description: The user Ids to search for.
+      - name: queryString
+        in: query
+        schema:
+          type: string
+        description: The search query string used to search users (Elasticsearch query string syntax).
+      - name: query
+        in: query
+        schema:
+          type: string
+        description: A raw JSON Elasticsearch query used to search users.
+      - name: numberOfResults
+        in: query
+        schema:
+          type: integer
+        description: The number of results to return.
+      - name: startRow
+        in: query
+        schema:
+          type: integer
+        description: The offset row to return results from.
+      - name: accurateTotal
+        in: query
+        schema:
+          type: boolean
+        description: Whether to compute an accurate total result count.
       responses:
         '200':
           description: Success
@@ -18353,6 +19207,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the user to generate new Two Factor recovery codes.
       responses:
@@ -18376,6 +19231,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the user to retrieve Two Factor recovery codes.
       responses:
@@ -18401,6 +19257,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the User for which you're disabling two-factor authentication.
       - name: methodId
@@ -18436,6 +19293,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the user to enable two-factor authentication.
       requestBody:
@@ -18470,6 +19328,7 @@ paths:
         in: query
         schema:
           type: string
+          format: uuid
         description: The unique Application Id to used to resolve an application specific
           email template.
       - name: email
@@ -18480,7 +19339,7 @@ paths:
       - name: sendVerifyEmail
         in: query
         schema:
-          type: string
+          type: boolean
       responses:
         '200':
           description: Success
@@ -18540,11 +19399,12 @@ paths:
         in: query
         schema:
           type: string
+          format: uuid
         description: The Id of the application to be verified.
       - name: sendVerifyPasswordEmail
         in: query
         schema:
-          type: string
+          type: boolean
       responses:
         '200':
           description: Success
@@ -18593,6 +19453,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id for the user. If not provided a secure random UUID will
           be generated.
@@ -18603,7 +19464,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -18634,6 +19495,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the user to delete (required).
       - in: header
@@ -18643,11 +19505,11 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       - name: hardDelete
         in: query
         schema:
-          type: string
+          type: boolean
       requestBody:
         content:
           application/json:
@@ -18670,6 +19532,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the user to update.
       - in: header
@@ -18679,7 +19542,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       requestBody:
         content:
           application/json:
@@ -18707,6 +19570,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the user to update.
       - in: header
@@ -18716,11 +19580,11 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       - name: reactivate
         in: query
         schema:
-          type: string
+          type: boolean
       requestBody:
         content:
           application/json:
@@ -18747,6 +19611,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the user.
       - in: header
@@ -18756,7 +19621,7 @@ paths:
         required: false
         schema:
           type: string
-          format: UUID
+          format: uuid
       responses:
         '200':
           description: Success
@@ -18779,6 +19644,7 @@ paths:
         in: query
         schema:
           type: string
+          format: uuid
         description: The unique Id of the User to delete WebAuthn passkeys for.
       responses:
         '200':
@@ -18797,6 +19663,7 @@ paths:
         in: query
         schema:
           type: string
+          format: uuid
         description: The user's ID.
       responses:
         '200':
@@ -18959,6 +19826,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the WebAuthn credential to delete.
       responses:
@@ -18978,6 +19846,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the WebAuthn credential.
       responses:
@@ -19031,7 +19900,59 @@ paths:
                 "$ref": "#/components/schemas/WebhookResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
   "/api/webhook/search":
+    get:
+      description: Searches the webhooks with the specified criteria and pagination.
+      operationId: searchWebhooks
+      parameters:
+      - name: description
+        in: query
+        schema:
+          type: string
+        description: ''
+      - name: tenantId
+        in: query
+        schema:
+          type: string
+          format: uuid
+        description: ''
+      - name: url
+        in: query
+        schema:
+          type: string
+        description: ''
+      - name: numberOfResults
+        in: query
+        schema:
+          type: integer
+        description: The number of results to return.
+      - name: orderBy
+        in: query
+        schema:
+          type: string
+        description: The database column to order the search results on plus the order direction.
+      - name: startRow
+        in: query
+        schema:
+          type: integer
+        description: The offset row to return results from.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/WebhookSearchResponse"
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
     post:
       description: Searches webhooks with the specified criteria and pagination.
       operationId: searchWebhooksWithId
@@ -19064,6 +19985,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id for the webhook. If not provided a secure random UUID
           will be generated.
@@ -19093,6 +20015,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the webhook to delete.
       responses:
@@ -19112,6 +20035,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the webhook to update.
       requestBody:
@@ -19141,6 +20065,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the webhook.
       responses:
@@ -19152,6 +20077,10 @@ paths:
                 "$ref": "#/components/schemas/WebhookResponse"
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
     put:
       description: Updates the webhook with the given Id.
       operationId: updateWebhookWithId
@@ -19160,6 +20089,7 @@ paths:
         in: path
         schema:
           type: string
+          format: uuid
         required: true
         description: The Id of the webhook to update.
       requestBody:
@@ -19185,6 +20115,20 @@ paths:
       description: Approve a device grant. OR Approve a device grant.
       operationId: createDeviceApprove
       parameters: []
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                client_id:
+                  type: string
+                client_secret:
+                  type: string
+                token:
+                  type: string
+                user_code:
+                  type: string
       responses:
         '200':
           description: Success
@@ -19213,6 +20157,10 @@ paths:
           description: Success
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
     post:
       description: Retrieve a user_code that is part of an in-progress Device Authorization
         Grant.  This API is useful if you want to build your own login workflow to
@@ -19222,11 +20170,27 @@ paths:
         an API key.
       operationId: createDeviceUserCode
       parameters: []
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                client_id:
+                  type: string
+                client_secret:
+                  type: string
+                user_code:
+                  type: string
       responses:
         '200':
           description: Success
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
   "/oauth2/device/validate":
     get:
       description: Validates the end-user provided user_code from the user-interaction
@@ -19253,12 +20217,30 @@ paths:
           description: Success
         default:
           description: Error
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Errors"
   "/oauth2/device_authorize":
     post:
       description: Start the Device Authorization flow using a request body OR Start
         the Device Authorization flow using form-encoded parameters
       operationId: createDevice_authorize
       parameters: []
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                client_id:
+                  type: string
+                client_secret:
+                  type: string
+                scope:
+                  type: string
+              required:
+              - client_id
       responses:
         '200':
           description: Success
@@ -19283,6 +20265,22 @@ paths:
         the User Credentials Grant or the Refresh Grant.
       operationId: createIntrospect
       parameters: []
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                client_id:
+                  type: string
+                client_secret:
+                  type: string
+                token_type_hint:
+                  type: string
+              required:
+              - token
       responses:
         '200':
           description: Success
@@ -19324,6 +20322,38 @@ paths:
         a Client Credentials grant request to obtain an access token.
       operationId: createToken
       parameters: []
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                grant_type:
+                  type: string
+                client_id:
+                  type: string
+                client_secret:
+                  type: string
+                code:
+                  type: string
+                code_verifier:
+                  type: string
+                redirect_uri:
+                  type: string
+                username:
+                  type: string
+                password:
+                  type: string
+                scope:
+                  type: string
+                user_code:
+                  type: string
+                device_code:
+                  type: string
+                refresh_token:
+                  type: string
+              required:
+              - grant_type
       responses:
         '200':
           description: Success

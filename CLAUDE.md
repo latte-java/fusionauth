@@ -29,7 +29,7 @@ The library's only dependency is the compile-time `org.lattejava:json` annotatio
 Two layers, both generated from the spec:
 
 1. **Domain models** — `org.lattejava.fusionauth.domain` (flat package, ~600 records + 89 enums + the polymorphic `IdentityProviderField` sealed hierarchy). Each model is a `record` with a nested fluent `Builder` and instance/static `toJSON()` / `toJSONBytes()` / `fromJSON(...)` / `fromJSONBytes(...)` convenience methods.
-2. **HTTP client** — `org.lattejava.fusionauth.FusionAuthClient` (root package), a single class with one synchronous method per OpenAPI operation (322), built on the JDK `java.net.http.HttpClient`. Methods are named by the spec's `operationId`; params are ordered path → query → header (all `String`) → request body (a domain record); a method returns its `200` response record (or `void` for empty-body operations) and throws `FusionAuthException` (carrying `status`, parsed `Errors`, and `rawBody`) on any non-2xx or transport failure.
+2. **HTTP client** — `org.lattejava.fusionauth.FusionAuthClient` (root package), a single class with one synchronous method per OpenAPI operation (322), built on the JDK `java.net.http.HttpClient`. Methods are named by the spec's `operationId`; params are ordered path → query (`String`) → request body (a domain record) → the optional `xFusionAuthTenantId` header, which is a `UUID` and always the **last** parameter. Each method that takes `xFusionAuthTenantId` also has a convenience overload that omits it (passing `null`). A method returns its `200` response record for body operations (or `null` when the API returns `404`), or the HTTP **status code** as an `int` for empty-body operations (so callers can distinguish e.g. reindex-status `202` vs `404`); it throws `FusionAuthException` (carrying `status`, parsed `Errors`, and `rawBody`) on any other non-2xx or transport failure.
 
 ### Latte JSON processor — why there's no runtime JSON dependency
 
@@ -45,7 +45,14 @@ Generation tooling lives under `build/gen/` (gitignored) and is described in `do
 
 ### Spec-vs-reality divergences
 
-FusionAuth's published OpenAPI spec has known inaccuracies where a generated type must deliberately diverge from the spec to match the live API. The established example: `Errors.fieldErrors` is declared `type: array` in the spec but the API actually returns `Map<String, List<Error>>` (keyed by field path), so the record is typed that way. When a model doesn't match live responses, verify against the running server and prefer reality over the spec.
+FusionAuth's published OpenAPI spec has known inaccuracies. `src/main/openapi.yaml` has been audited and corrected against the live API in several places, so the local spec now leads reality rather than lagging it:
+
+- `Errors.fieldErrors` is modeled as a `Map<String, List<Error>>` keyed by field path (`type: object` + `additionalProperties` array of `Error`), not the bare `type: array` the upstream spec ships.
+- Entity id parameters (path and query) that carry FusionAuth UUIDs now declare `format: uuid` (the upstream spec left them as formatless `type: string`). Genuinely opaque ids are deliberately left as plain strings: change-password ids, two-factor ids/trust ids, WebAuthn credential/protocol ids, external `identityProviderUserId`, OAuth `client_id`/`user_code`. `keyId` (both crypto keys and API keys) and webhook-event-log ids **are** UUIDs.
+- List-style query params are arrays: `searchUsersByIdsWithId`/`searchEntitiesByIdsWithId` `ids` and `deleteUserBulk` `userIds` are `type: array` (form/explode → repeated `ids=a&ids=b`), matching `loginIdTypes`/`excludes`.
+- Audit-log and event-log ids are `type: integer, format: int64` (they are numeric, not UUIDs).
+
+When a model still doesn't match live responses, verify against the running server and prefer reality over the spec.
 
 ## Conventions
 
